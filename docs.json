@@ -11,8 +11,15 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
-        "groups": []
+            "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "api-reference/doc_introduction"
+            ]
+          }
+        ]
       },
       {
         "tab": "API reference",
