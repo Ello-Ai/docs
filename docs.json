@@ -30,7 +30,7 @@
             ]
           },
           {
-            "group": "Agents",
+            "group": "agents",
             "pages": [
               "api-reference//get",
               "api-reference/agent/create",
