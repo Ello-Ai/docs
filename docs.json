@@ -32,8 +32,8 @@
           {
             "group": "Agents",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
+              "api-reference/agent/get",
+              "api-reference//create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
             ]
