@@ -73,11 +73,53 @@
      "vscode"
    ]
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+ 
+  "seo": {
+    "metatags": {
+      "robots": "noindex",
+      "charset": "UTF-8",
+      "viewport": "width=device-width, initial-scale=1.0",
+      "title":"AI Voice Agents for Enterprise",
+      "description": "ELLO.AI lets you build enterprise-grade AI voice agents that can create calls, connect with automation platforms like n8n, Make.com, Activepieces, and Zapier, and power complex workflows without code.",
+      "keywords": "ELLO.AI, GenAI, AI Voice Agents, No-Code Automation, AI Call Agents, n8n, Zapier, Make.com, Activepieces, Conversational AI, AI Workflows, Voice Automation, Enterprise AI",
+      "author": "Ello AI",
+      "robots": "index, follow",
+      "googlebot": "index, follow",
+      "google": "notranslate",
+      "google-site-verification": "verification_token",
+      "generator": "Mintlify",
+      "theme-color": "#005871",
+      "color-scheme": "light dark",
+      "canonical": "https://docs.getello.ai",
+      "format-detection": "telephone=no",
+      "referrer": "origin",
+      "refresh": "30",
+      "rating": "general",
+      "revisit-after": "7 days",
+      "language": "en",
+      "copyright": "Copyright 2024",
+      "reply-to": "deveops@getello.ai",
+      "distribution": "global",
+      "coverage": "Worldwide",
+      "category": "Technology",
+      "target": "all",
+      "HandheldFriendly": "True",
+      "MobileOptimized": "320",
+      "apple-mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-status-bar-style": "black",
+      "apple-mobile-web-app-title": "Ello.AI",
+      "application-name": "Ello.AI",
+      "msapplication-TileColor": "#000000",
+      "msapplication-TileImage": "https://dashboard.getello.ai/images/common/metaDataImage.png",
+      "msapplication-config": "path/to/browserconfig.xml",
+      "og:title": "Open Graph Title",
+      "og:type": "website",
+      "og:url": "https://geello.ai",
+      "og:image": "https://dashboard.getello.ai/images/common/metaDataImage.png",
+      "og:description": "ELLO.AI lets you build enterprise-grade AI voice agents that can create calls, connect with automation platforms like n8n, Make.com, Activepieces, and Zapier, and power complex workflows without code.",
+      "og:site_name": "Ello.AI",
+      "og:locale": "en_US"
+     
     }
-  }
+}
 }
