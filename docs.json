@@ -10,7 +10,9 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
-      
+      {
+        "tab": "Documentation"
+      }, 
       {
         "tab": "API reference",
         "groups": [
