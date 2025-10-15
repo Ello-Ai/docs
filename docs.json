@@ -12,15 +12,8 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Introduction",
-            "pages": [
-              "api-reference/doc_introduction"
-            ]
-          }
-        ]
-      }, 
+        "groups": []
+      },
       {
         "tab": "API reference",
         "groups": [
@@ -92,11 +85,9 @@
               "api-reference/endpoint/webhook"
             ]
           }
-          
         ]
       }
     ]
-   
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -117,27 +108,25 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
- 
   "seo": {
     "metatags": {
-      "robots": "noindex",
+      "robots": "index, follow",
       "charset": "UTF-8",
       "viewport": "width=device-width, initial-scale=1.0",
-      "title":"AI Voice Agents for Enterprise",
+      "title": "AI Voice Agents for Enterprise",
       "description": "ELLO.AI lets you build enterprise-grade AI voice agents that can create calls, connect with automation platforms like n8n, Make.com, Activepieces, and Zapier, and power complex workflows without code.",
       "keywords": "ELLO.AI, GenAI, AI Voice Agents, No-Code Automation, AI Call Agents, n8n, Zapier, Make.com, Activepieces, Conversational AI, AI Workflows, Voice Automation, Enterprise AI",
       "author": "Ello AI",
-      "robots": "index, follow",
       "googlebot": "index, follow",
       "google": "notranslate",
       "google-site-verification": "verification_token",
@@ -173,7 +162,6 @@
       "og:description": "ELLO.AI lets you build enterprise-grade AI voice agents that can create calls, connect with automation platforms like n8n, Make.com, Activepieces, and Zapier, and power complex workflows without code.",
       "og:site_name": "Ello.AI",
       "og:locale": "en_US"
-     
     }
-}
+  }
 }
