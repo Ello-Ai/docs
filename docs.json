@@ -30,7 +30,7 @@
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Agents",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
