@@ -19,9 +19,9 @@
     }
   ],
   "paths": {
-    "/agents": {
+    "/plants": {
       "get": {
-        "description": "Create agents",
+        "description": "Create plants",
         "parameters": [
           {
             "name": "limit",
@@ -35,7 +35,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Agent response",
+            "description": "Plant response",
             "content": {
               "application/json": {
                 "schema": {
@@ -60,9 +60,9 @@
         }
       },
       "post": {
-        "description": "Creates a new agent in the store",
+        "description": "Creates a new plant in the store",
         "requestBody": {
-          "description": "Agent to add",
+          "description": "Plant to add",
           "content": {
             "application/json": {
               "schema": {
@@ -96,7 +96,7 @@
         }
       }
     },
-    "/agents/{id}": {
+    "/plants/{id}": {
       "delete": {
         "description": "Deletes a single agent based on the ID supplied",
         "parameters": [
@@ -131,6 +131,7 @@
     }
     "/calls": {
         "get": {
+          "operationId" : "getCall"
           "description": "Returns all calls from the system that the user has access to",
           "parameters": [
             {

@@ -56,9 +56,7 @@
           {
             "group": "Calls",
             "pages": [
-              "api-reference/calls/create",
-              "api-reference/calls/get",
-              "api-reference/calls/webhook"
+              "openapi/getCall"
             ]
           },
           {
