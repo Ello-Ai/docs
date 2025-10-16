@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Ello.AI",
   "api": {
-  "openapi": "./openapi.json"
+  "openapi": "openapi.json"
   },
   "colors": {
     "primary": "#005871",
