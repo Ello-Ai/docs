@@ -48,10 +48,8 @@
           {
             "group": "Agents",
             "pages": [
-              "openapi/listAgents",
-              "api-reference/agents/create",
-              "api-reference/agents/delete",
-              "api-reference/agents/webhook"
+              "openapi/listAgents"
+      
             ]
           },
           {
