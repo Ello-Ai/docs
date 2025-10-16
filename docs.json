@@ -51,7 +51,7 @@
           {
             "group": "Calls",
             "pages": [
-              "api-reference/endpoint/create",
+              "api-reference/calls/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
             ]
