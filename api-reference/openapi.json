@@ -21,7 +21,7 @@
   "paths": {
     "/plants": {
       "get": {
-        "description": "Create plants",
+        "description": "Create ",
         "parameters": [
           {
             "name": "limit",
