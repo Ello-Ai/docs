@@ -52,9 +52,9 @@
           },
           {
             "group": "Calls",
-            "pages": [
-              "openapi/getCall"
-            ]
+            "openapi": "api-reference/openapi.json",
+            "pages": ["GET /calls", "POST /calls"]
+          
           },
           {
             "group": "Phone Numbers",
