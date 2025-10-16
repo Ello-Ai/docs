@@ -128,7 +128,7 @@
           }
         }
       }
-    }
+    },
      "/agents": {
   "get": {
     "description": "Returns all agents from the system that the user has access to",
@@ -206,7 +206,7 @@
     }
   }
 }
-
+}
   "webhooks": {
     "/plant/webhook": {
       "post": {
@@ -284,6 +284,36 @@
         }
       }
     },
+    "Agent": {
+  "required": ["name"],
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the agent",
+      "type": "string"
+    },
+    "role": {
+      "description": "The role or function of the agent",
+      "type": "string"
+    }
+  }
+},
+"NewAgent": {
+  "allOf": [
+    { "$ref": "#/components/schemas/Agent" },
+    {
+      "required": ["id"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the agent",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  ]
+},
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
