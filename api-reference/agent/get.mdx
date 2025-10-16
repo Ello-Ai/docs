@@ -5,22 +5,70 @@ description: "Description of your new file."
 
 import { ApiEndpoint } from "mintlify/components";
 
-Create a new outbound phone call.
+# ---
 
-# Create Phone Call
+title: "Create Phone Call"
 
-Create a new outbound phone call.
+description: "Create a new outbound phone call."
 
-\`\`\`bash
+---
 
-POST /v1/create-phone-call
+\<ApiEndpoint
 
-Content-Type: application/json
+  method="POST"
 
-{
+  url="/v2/create-phone-call"
 
-  "from": "+12137771234",
+  auth="apiKey"
 
-  "to": "+12137771235"
+  codeExamples={[
 
-}
+    {
+
+      language: "javascript",
+
+      code: \`import Retell from 'retell-sdk';
+
+const client = new Retell({
+
+  apiKey: 'YOUR_RETELL_API_KEY',
+
+});
+
+const call = await client.calls.create({
+
+  from: "+12137771234",
+
+  to: "+12137771235",
+
+});
+
+console.log(call);\`
+
+    }
+
+  ]}
+
+  responses={[
+
+    {
+
+      status: 200,
+
+      body: \`{
+
+  "call_type": "phone_call",
+
+  "from_number": "+12137771234",
+
+  "to_number": "+12137771235",
+
+  "direction": "inbound"
+
+}\`
+
+    }
+
+  ]}
+
+/\>
