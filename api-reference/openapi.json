@@ -19,9 +19,9 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/agents": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
+        "description": "Create agents",
         "parameters": [
           {
             "name": "limit",
@@ -35,7 +35,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "Agent response",
             "content": {
               "application/json": {
                 "schema": {
@@ -60,9 +60,9 @@
         }
       },
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Creates a new agent in the store",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Agent to add",
           "content": {
             "application/json": {
               "schema": {
@@ -74,7 +74,7 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Agent response",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,9 +96,9 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/agents/{id}": {
       "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+        "description": "Deletes a single agent based on the ID supplied",
         "parameters": [
           {
             "name": "id",
@@ -113,7 +113,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Agent deleted",
             "content": {}
           },
           "400": {
@@ -240,7 +240,7 @@
         }
       }
 
-     "/agents": {
+     "/assistant": {
       "get": {
         "operationId" : "listAgents",
         "description": "Returns all plants from the system that the user has access to",
