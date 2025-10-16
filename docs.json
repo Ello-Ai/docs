@@ -47,7 +47,7 @@
           },
           {
             "group": "Agents",
-            "openapi": "openapi.json",
+            "openapi": "api-reference/openapi.json",
             "pages": ["GET /agents", "POST /agents"]
           },
           {
