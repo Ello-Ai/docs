@@ -131,7 +131,7 @@
     },
     "/agents": {
       "get": {
-        "operationId": "getAgents",
+        "operationId": "listAgents",
         "description": "Returns all agents from the system that the user has access to",
         "parameters": [
           {
@@ -171,6 +171,7 @@
         }
       },
       "post": {
+        "operationId": "createAgents"
         "description": "Creates a new agent in the system",
         "requestBody": {
           "description": "Agent details to add",

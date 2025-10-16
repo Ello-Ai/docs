@@ -52,7 +52,7 @@
             "group": "Agents",
             "pages": [
               "openapi/getAgents",
-              "openapi/post-agents",
+              "openapi/createAgent",
               "openapi/delete-agents-id",
               "openapi/post-agent-webhook"
             ]
