@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Ello.AI API Reference",
-    "description": "API documentation for managing Agents, Calls, and other resources within the Ello.AI platform.",
+    "title": "OpenAPI Plant Store",
+    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
     "license": {
       "name": "MIT"
     },
@@ -21,7 +21,6 @@
   "paths": {
     "/plants": {
       "get": {
-        "operationId": "listPlants",
         "description": "Returns all plants from the system that the user has access to",
         "parameters": [
           {
@@ -61,7 +60,6 @@
         }
       },
       "post": {
-        "operationId": "createPlant",
         "description": "Creates a new plant in the store",
         "requestBody": {
           "description": "Plant to add to the store",
@@ -76,7 +74,7 @@
         },
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "plant response",
             "content": {
               "application/json": {
                 "schema": {
@@ -86,7 +84,7 @@
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -100,7 +98,6 @@
     },
     "/plants/{id}": {
       "delete": {
-        "operationId": "deletePlant",
         "description": "Deletes a single plant based on the ID supplied",
         "parameters": [
           {
@@ -116,10 +113,11 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted"
+            "description": "Plant deleted",
+            "content": {}
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -130,16 +128,15 @@
           }
         }
       }
-    },
-    "/agents": {
+    }
+     "/assitants": {
       "get": {
-        "operationId": "listAgents",
-        "description": "Returns all agents from the system that the user has access to",
+        "description": "Returns all plants from the system that the user has access to",
         "parameters": [
           {
             "name": "limit",
             "in": "query",
-            "description": "The maximum number of agents to return",
+            "description": "The maximum number of results to return",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -148,13 +145,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Agent response",
+            "description": "Plant response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Agent"
+                    "$ref": "#/components/schemas/Plant"
                   }
                 }
               }
@@ -173,14 +170,13 @@
         }
       },
       "post": {
-        "operationId": "createAgent",
-        "description": "Creates a new agent in the system",
+        "description": "Creates a new plant in the store",
         "requestBody": {
-          "description": "Agent details to add",
+          "description": "Plant to add to the store",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAgent"
+                "$ref": "#/components/schemas/NewPlant"
               }
             }
           },
@@ -188,17 +184,17 @@
         },
         "responses": {
           "200": {
-            "description": "Agent created successfully",
+            "description": "plant response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Agent"
+                  "$ref": "#/components/schemas/Plant"
                 }
               }
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -210,44 +206,10 @@
         }
       }
     },
-    "/agents/{id}": {
-      "delete": {
-        "operationId": "deleteAgent",
-        "description": "Deletes a single agent based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of agent to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Agent deleted"
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   },
   "webhooks": {
     "/plant/webhook": {
       "post": {
-        "operationId": "plantWebhook",
         "description": "Information about a new plant added to the store",
         "requestBody": {
           "description": "Plant added to the store",
@@ -261,28 +223,7 @@
         },
         "responses": {
           "200": {
-            "description": "Return a 200 status to indicate success"
-          }
-        }
-      }
-    },
-    "/agent/webhook": {
-      "post": {
-        "operationId": "agentWebhook",
-        "description": "Information about an agent event in the system",
-        "requestBody": {
-          "description": "Agent data posted to the webhook",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewAgent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate success"
+            "description": "Return a 200 status to indicate that the data was received successfully"
           }
         }
       }
@@ -291,7 +232,9 @@
   "components": {
     "schemas": {
       "Plant": {
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -310,7 +253,9 @@
             "$ref": "#/components/schemas/Plant"
           },
           {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "type": "object",
             "properties": {
               "id": {
@@ -322,40 +267,11 @@
           }
         ]
       },
-      "Agent": {
-        "required": ["name"],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the agent",
-            "type": "string"
-          },
-          "role": {
-            "description": "The role or function of the agent",
-            "type": "string"
-          }
-        }
-      },
-      "NewAgent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Agent"
-          },
-          {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Unique identifier for the agent",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
       "Error": {
-        "required": ["error", "message"],
+        "required": [
+          "error",
+          "message"
+        ],
         "type": "object",
         "properties": {
           "error": {
