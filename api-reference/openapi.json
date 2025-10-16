@@ -267,24 +267,7 @@
           }
         ]
       },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "Agent": {
+      "Agent": {
   "required": ["name"],
   "type": "object",
   "properties": {
@@ -314,6 +297,24 @@
     }
   ]
 },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
