@@ -1,7 +1,12 @@
+---
+description: "
+"
+---
+
 ```bash expandable
-curl --request GET \   
---url http://sandbox.mintlify.com/plants \   
---header 'Authorization: Bearer <token>'
+curl --request GET \
+  --url http://sandbox.mintlify.com/plants \   
+  --header 'Authorization: Bearer <token>'
 ```
 
 <CodeGroup>
@@ -24,3 +29,15 @@ curl --request GET \
 ```
 
 </CodeGroup>
+
+## Authorization
+
+**Authorization**
+
+**string**
+
+**header**
+
+**required**
+
+Bearer authentication header of the form `Bearer <token>`, where `<token>` is your auth token.
