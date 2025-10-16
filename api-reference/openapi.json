@@ -131,6 +131,7 @@
     },
     "/agents": {
       "get": {
+        "operationId": "getAgents",
         "description": "Returns all agents from the system that the user has access to",
         "parameters": [
           {
