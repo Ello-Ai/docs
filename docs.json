@@ -174,5 +174,13 @@
       "og:site_name": "Ello.AI",
       "og:locale": "en_US"
     }
-  }
+  },
+  "api": {
+  "basePath": "/api-reference",
+  "files": [
+    {
+      "path": "openapi.json"
+    }
+  ]
+}
 }
