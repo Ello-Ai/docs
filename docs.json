@@ -15,23 +15,11 @@
     "tabs": [
       {
             "tab": "Documentation",
-            "groups": [
+        "groups": [
           {
             "group": "Introduction",
             "pages": [
               "api-reference/doc_introduction"
-            ]
-          },
-              {
-            "group": "Introduction",
-            "pages": [
-              "api-reference/doc_introduction"
-            ]
-          },
-          {
-            "group": "Pricing",
-            "pages": [
-              "api-reference/pricing"
             ]
           }
         ]
@@ -57,10 +45,10 @@
           {
             "group": "Agents",
             "pages": [
-              "openapi/getAgents",
-              "openapi/createAgents",
-              "openapi/delete-agents-id",
-              "openapi/post-agent-webhook"
+              "api-reference/agents/get",
+              "api-reference/agents/create",
+              "api-reference/agents/delete",
+              "api-reference/agents/webhook"
             ]
           },
           {
