@@ -44,8 +44,8 @@
             "pages": [
               "api-reference/agent/get",
               "api-reference/agent/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/agent/delete",
+              "api-reference/agent/webhook"
             ]
           },
           {
