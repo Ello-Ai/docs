@@ -18,6 +18,12 @@
             "pages": [
               "api-reference/doc_introduction"
             ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+              "api-reference/pricing"
+            ]
           }
         ]
       },
