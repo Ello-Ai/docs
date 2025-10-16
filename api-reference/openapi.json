@@ -1,11 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "Ello.AI API",
+    "description": "API for managing agents and calls in Ello.AI",
     "version": "1.0.0"
   },
   "servers": [
@@ -19,9 +16,11 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/agents": {
       "get": {
-        "description": "Create ",
+        "operationId": "listAgents",
+        "tags": ["Agents"],
+        "description": "Returns all agents the user has access to",
         "parameters": [
           {
             "name": "limit",
@@ -35,13 +34,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Agent response",
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Agent"
                   }
                 }
               }
@@ -57,16 +56,23 @@
               }
             }
           }
+        },
+        "x-mint": {
+          "mcp": {
+            "enabled": true
+          }
         }
       },
       "post": {
-        "description": "Creates a new plant in the store",
+        "operationId": "createAgent",
+        "tags": ["Agents"],
+        "description": "Creates a new agent",
         "requestBody": {
-          "description": "Plant to add",
+          "description": "Agent details to add",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/NewAgent"
               }
             }
           },
@@ -74,198 +80,102 @@
         },
         "responses": {
           "200": {
-            "description": "Agent response",
+            "description": "Agent created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single agent based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Agent deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    "/calls": {
-        "get": {
-          "operationId" : "getCall"
-          "description": "Returns all calls from the system that the user has access to",
-          "parameters": [
-            {
-              "name": "limit",
-              "in": "query",
-              "description": "The maximum number of results to return",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Call response",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Call"
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
                 }
               }
             }
           }
         },
-        "post": {
-          "description": "Creates a new call in the system",
-          "requestBody": {
-            "description": "Call details to add",
+        "x-mint": {
+          "mcp": {
+            "enabled": true
+          }
+        }
+      }
+    },
+    "/calls": {
+      "get": {
+        "operationId": "getCalls",
+        "tags": ["Calls"],
+        "description": "Returns all calls the user has access to",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Call response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewCall"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "Call created successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/Call"
                   }
                 }
               }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
-                }
-              }
             }
-          }
-        }
-      },
-      "/calls/{id}": {
-        "delete": {
-          "description": "Deletes a single call based on the ID supplied",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "description": "ID of call to delete",
-              "required": true,
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "Call deleted",
-              "content": {}
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-     "/assistant": {
-      "get": {
-        "operationId" : "listAgents",
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
+          },
+          "400": {
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-mint": {
+          "mcp": {
+            "enabled": true
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCall",
+        "tags": ["Calls"],
+        "description": "Creates a new call",
+        "requestBody": {
+          "description": "Call details to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCall"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Call created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Call"
                 }
               }
             }
@@ -280,64 +190,10 @@
               }
             }
           }
-        }
-      },
-      "post": {
-        "operationId" : "createAgents",
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
         },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
+        "x-mint": {
+          "mcp": {
+            "enabled": true
           }
         }
       }
@@ -345,35 +201,59 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "Agent": {
+        "required": ["name"],
         "type": "object",
         "properties": {
           "name": {
-            "description": "The name of the plant",
-            "type": "string"
+            "type": "string",
+            "description": "Agent name"
           },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
+          "type": {
+            "type": "string",
+            "description": "Agent type"
           }
         }
       },
-      "NewPlant": {
+      "NewAgent": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Plant"
+            "$ref": "#/components/schemas/Agent"
           },
           {
-            "required": [
-              "id"
-            ],
-            "type": "object",
+            "required": ["id"],
             "properties": {
               "id": {
-                "description": "Identification number of the plant",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Call": {
+        "required": ["agentId"],
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "ID of the agent"
+          },
+          "status": {
+            "type": "string",
+            "description": "Call status"
+          }
+        }
+      },
+      "NewCall": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Call"
+          },
+          {
+            "required": ["id"],
+            "properties": {
+              "id": {
                 "type": "integer",
                 "format": "int64"
               }
@@ -382,10 +262,7 @@
         ]
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {
