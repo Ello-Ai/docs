@@ -5,14 +5,64 @@ description: "Description of your new file."
 
 ---
 
-title: Get User
+title: Create Phone Call
 
 ---
 
-# Get User
+import { ApiEndpoint } from "mintlify/components";
 
-Use this API to fetch user details.
+# Create Phone Call
 
-\`\`\`bash
+Create a new outbound phone call.
 
-GET /api/v1/users/{id}
+\<ApiEndpoint
+
+  method="POST"
+
+  path="/v2/create-phone-call"
+
+  description="Create a new outbound phone call."
+
+  tryIt={true}
+
+  requestExample={{
+
+    javascript: \`import Retell from 'retell-sdk';
+
+const client = new Retell({
+
+  apiKey: 'YOUR_RETELL_API_KEY',
+
+});
+
+await client.createCall({
+
+  from_number: '+12137771234',
+
+  to_number: '+12137771235',
+
+  direction: 'outbound',
+
+});\`,
+
+  }}
+
+  responseExample={{
+
+    "201": \`{
+
+  "call_type": "phone_call",
+
+  "from_number": "+12137771234",
+
+  "to_number": "+12137771235",
+
+  "direction": "inbound"
+
+}\`,
+
+    "400": `{ "error": "Invalid parameters" }`,
+
+  }}
+
+/\>
