@@ -74,7 +74,7 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Plant response",
             "content": {
               "application/json": {
                 "schema": {
@@ -84,7 +84,7 @@
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -117,7 +117,7 @@
             "content": {}
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -129,84 +129,84 @@
         }
       }
     },
-     "/agents": {
-  "get": {
-    "description": "Returns all agents from the system that the user has access to",
-    "parameters": [
-      {
-        "name": "limit",
-        "in": "query",
-        "description": "The maximum number of agents to return",
-        "schema": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    ],
-    "responses": {
-      "200": {
-        "description": "Agent response",
-        "content": {
-          "application/json": {
+    "/agents": {
+      "get": {
+        "description": "Returns all agents from the system that the user has access to",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of agents to return",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Agent"
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Agent response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Agent"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
         }
       },
-      "400": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
+      "post": {
+        "description": "Creates a new agent in the system",
+        "requestBody": {
+          "description": "Agent details to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAgent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Agent created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Agent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
       }
     }
   },
-  "post": {
-    "description": "Creates a new agent in the system",
-    "requestBody": {
-      "description": "Agent details to add",
-      "content": {
-        "application/json": {
-          "schema": {
-            "$ref": "#/components/schemas/NewAgent"
-          }
-        }
-      },
-      "required": true
-    },
-    "responses": {
-      "200": {
-        "description": "Agent created successfully",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Agent"
-            }
-          }
-        }
-      },
-      "400": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Error"
-            }
-          }
-        }
-      }
-    }
-  }
-}
-}
   "webhooks": {
     "/plant/webhook": {
       "post": {
@@ -232,9 +232,7 @@
   "components": {
     "schemas": {
       "Plant": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "name": {
@@ -253,9 +251,7 @@
             "$ref": "#/components/schemas/Plant"
           },
           {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "type": "object",
             "properties": {
               "id": {
@@ -268,40 +264,37 @@
         ]
       },
       "Agent": {
-  "required": ["name"],
-  "type": "object",
-  "properties": {
-    "name": {
-      "description": "The name of the agent",
-      "type": "string"
-    },
-    "role": {
-      "description": "The role or function of the agent",
-      "type": "string"
-    }
-  }
-},
-"NewAgent": {
-  "allOf": [
-    { "$ref": "#/components/schemas/Agent" },
-    {
-      "required": ["id"],
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier for the agent",
-          "type": "integer",
-          "format": "int64"
+        "required": ["name"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the agent",
+            "type": "string"
+          },
+          "role": {
+            "description": "The role or function of the agent",
+            "type": "string"
+          }
         }
-      }
-    }
-  ]
-},
+      },
+      "NewAgent": {
+        "allOf": [
+          { "$ref": "#/components/schemas/Agent" },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Unique identifier for the agent",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {
@@ -314,7 +307,6 @@
         }
       }
     },
-    
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
