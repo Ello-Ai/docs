@@ -47,11 +47,8 @@
           },
           {
             "group": "Agents",
-            "pages": [
-              "api-reference/agents/get",
-              "openapi/listAgents"
-      
-            ]
+            "openapi": "openapi.json",
+            "pages": ["GET /agents", "POST /agents"]
           },
           {
             "group": "Calls",
