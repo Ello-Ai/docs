@@ -173,7 +173,7 @@
         ],
         "x-mint": {
           "mcp": { "enabled": true }
-        }, 
+        }
       }
     },
     "/api/assistants": { 
@@ -365,9 +365,7 @@
         "x-mint": {
           "mcp": { "enabled": true }
         }
-      }
-    }
-  }
+      },
     "/calls": {
       "get": {
         "operationId": "getCalls",
