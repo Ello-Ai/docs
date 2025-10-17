@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.getello.ai/"
+      "url": "https://api-dev.getello.ai/"
     }
   ],
  
