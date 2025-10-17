@@ -25,7 +25,8 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "The maximum number of results to return",
+            "description": "workspace_id: 683578ec8ac922546dbaadaa
+                           assistant_id: 683715217c8e5fe1361c6faa",
             "schema": {
               "type": "integer",
               "format": "int32"
