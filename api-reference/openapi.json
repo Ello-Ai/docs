@@ -430,10 +430,16 @@
       }
     },
     "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        },
+        "apiKey": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "x-api-key"
+        }
     }
   }
 }
