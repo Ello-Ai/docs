@@ -161,7 +161,7 @@
         "security" : [
           { "bearerAuth": [] },
           { "apiKey": [] }
-        ]
+        ],
         "x-mint": {
           "mcp": { "enabled": true }
         }
