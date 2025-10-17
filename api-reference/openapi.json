@@ -176,7 +176,7 @@
         }
       }
     }
-},
+  },
     "/api/assistants": { 
       "post": {
         "operationId": "createAgent",

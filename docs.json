@@ -36,19 +36,13 @@
               "api-reference/introduction"
             ]
           },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          },
+          
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/assistants/get"
+              "GET /api/assistants/get",
+              "POST /api/assistants"
             ]
           },
           {
