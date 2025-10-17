@@ -175,7 +175,6 @@
           "mcp": { "enabled": true }
         }
       }
-    }
   },
     
     "/calls": {
