@@ -13,8 +13,6 @@
   "security": [
     {
       "bearerAuth": []
-    },{
-       "apiKey" : []
     }
   ],
   "paths": {
