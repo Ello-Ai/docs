@@ -173,7 +173,20 @@
         ],
         "x-mint": {
           "mcp": { "enabled": true }
-        }
+        }, 
+        "post": {
+        "operationId": "getAgentById",
+        "tags": ["Agents"],
+        "summary": "Get Agent",
+        "description": "Retrieves details of a specific agent by its ID",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "query",
+            "description": "Unique identifier of the agent (e.g., 683715217c8e5fe1361c6faa)",
+            "required": true,
+            "schema": { "type": "string" }
+          },
       }
     },
     "/agents": {
