@@ -12,7 +12,7 @@
   ],
  
   "paths": {
-    "/agents/{agentId}": {
+    "/api/assistants/get": {
       "get": {
         "operationId": "getAgentById",
         "tags": ["Agents"],
@@ -28,7 +28,7 @@
           {
             "name": "workspaceId",
             "in": "path",
-            "description": "Unique identifier of the agent (e.g., 683715217c8e5fe1361c6faa)",
+            "description": "Unique identifier of the workspace (e.g., 683715217c8e5fe1361c6faa)",
             "required": true,
             "schema": { "type": "string" }
           }
