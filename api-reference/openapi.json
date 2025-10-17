@@ -5,6 +5,18 @@
     "description": "API for managing agents and calls in Ello.AI",
     "version": "1.0.0"
   },
+  "api": [
+  {
+    "baseUrl": "https://api.getello.ai/v1",
+    "openapi": "./openapi-bearer.json",
+    "label": "Bearer Token Auth"
+  },
+  {
+    "baseUrl": "https://api.getello.ai/v1",
+    "openapi": "./openapi-apikey.json",
+    "label": "API Key Auth"
+  }
+],
   "servers": [
     {
       "url": "https://api.getello.ai/"
