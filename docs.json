@@ -172,11 +172,10 @@
     }
   },
   "api": {
-  "basePath": "/api-reference",
-  "files": [
-    {
-      "path": "openapi.json"
-    }
-  ]
+  "baseUrl": "https://api.getello.ai/v1",
+  "openapi": "./openapi.json",
+  "auth": ["bearer", "apiKey"],
+  "label": "Getello API"
 }
+
 }
