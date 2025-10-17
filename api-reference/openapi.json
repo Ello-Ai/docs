@@ -173,9 +173,10 @@
         ],
         "x-mint": {
           "mcp": { "enabled": true }
-        }
+        }, 
       }
-  },
+    },
+    
     
     "/calls": {
       "get": {
