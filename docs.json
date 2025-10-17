@@ -42,7 +42,8 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "GET /api/assistants/get",
-              "POST /api/assistants"
+              "POST /api/assistants",
+              "PUT /api/api/assistants/update-simple"
             ]
           },
           {
