@@ -16,6 +16,7 @@
       "get": {
         "operationId": "getAgentById",
         "tags": ["Agents"],
+        "summary": "Get Agents",
         "description": "Retrieves details of a specific agent by its ID",
         "parameters": [
           {
