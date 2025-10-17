@@ -176,7 +176,23 @@
         }, 
       }
     },
-    
+    "/api/assistants" : {
+      "post": {
+        "operationId": "createCall",
+        "tags": ["Calls"],
+        "description": "Creates a new call",
+        "requestBody": {
+          "description": "Call details to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCall"
+              }
+            }
+          },
+          "required": true
+        },
+    },
     
     "/calls": {
       "get": {
