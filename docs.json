@@ -41,9 +41,8 @@
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/assistants/get",
-              "POST /api/assistants",
-              "PUT /api/api/assistants/update-simple"
+              "GET /api/assistants/get"
+    
             ]
           },
           {
