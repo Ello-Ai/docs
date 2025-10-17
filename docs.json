@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-            "tab": "Documentation",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Introduction",
@@ -39,7 +39,6 @@
           {
             "group": "Endpoint examples",
             "pages": [
-              "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
@@ -48,18 +47,21 @@
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
-            "pages": ["GET /api/assistants/get"]
+            "pages": [
+              "GET /api/assistants/get"
+            ]
           },
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
-            "pages": ["GET /calls", "POST /calls"]
-          
+            "pages": [
+              "GET /calls",
+              "POST /calls"
+            ]
           },
           {
             "group": "Phone Numbers",
             "pages": [
-              "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
@@ -68,7 +70,6 @@
           {
             "group": "Reference Docs",
             "pages": [
-              "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
@@ -77,7 +78,6 @@
           {
             "group": "Campaigns",
             "pages": [
-              "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
@@ -86,7 +86,6 @@
           {
             "group": "Reports",
             "pages": [
-              "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete",
               "api-reference/endpoint/webhook"
@@ -172,16 +171,16 @@
     }
   },
   "api": {
-  "basePath": "/api-reference",
-  "files": [
-    {
-      "path": "openapi-bearer.json",
-      "label": "Bearer Token Auth"
-    },
-    {
-      "path": "openapi-apikey.json",
-      "label": "API Key Auth"
-    }
-  ]
- }
+    "basePath": "/api-reference",
+    "files": [
+      {
+        "path": "openapi-bearer.json",
+        "label": "Bearer Token Auth"
+      },
+      {
+        "path": "openapi-apikey.json",
+        "label": "API Key Auth"
+      }
+    ]
+  }
 }
