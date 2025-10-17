@@ -48,7 +48,7 @@
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
-            "pages": ["GET /agents/{agentId}"]
+            "pages": ["GET /api/assistants/get"]
           },
           {
             "group": "Calls",
