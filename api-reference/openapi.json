@@ -175,7 +175,9 @@
           "mcp": { "enabled": true }
         }
       }
-    },
+    }
+  }
+},
     "/api/assistants": { 
       "post": {
         "operationId": "createAgent",
@@ -365,7 +367,10 @@
         "x-mint": {
           "mcp": { "enabled": true }
         }
-      },
+      }
+    }
+  }
+},
     "/calls": {
       "get": {
         "operationId": "getCalls",
