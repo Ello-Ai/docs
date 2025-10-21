@@ -23,14 +23,14 @@
             "in": "query",
             "description": "Unique identifier of the agent (e.g., 683715217c8e5fe1361c6faa)",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": { "type": "string", "example": "683715217c8e5fe1361c6faa" }
           },
           {
             "name": "workspace_id",
             "in": "query",
             "description": "Unique identifier of the workspace (e.g., 683715217c8e5fe1361c6faa)",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
           }
         ],
         "responses": {
@@ -43,114 +43,7 @@
                   "properties": {
                     "status": { "type": "integer", "example": 200 },
                     "message": { "type": "string", "example": "Assistant retrieved successfully" },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-                        "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
-                        "name": { "type": "string", "example": "My Outbound Assistant" },
-                        "type": { "type": "string", "example": "outbound" },
-                        "category": { "type": "string", "example": "general" },
-                        "description": { "type": "string", "example": "AI assistant for voice calls" },
-                        "image": { "type": "string", "example": "https://voicemart.ai/assistant-icons/default.png" },
-                        "features": { "type": "array", "items": { "type": "string" }, "example": [] },
-                        "popularity": { "type": "integer", "example": 0 },
-                        "voiceConfig": {
-                          "type": "object",
-                          "properties": {
-                            "provider": { "type": "string", "example": "elevenlabs" },
-                            "voiceId": { "type": "string", "example": "emily" },
-                            "language": { "type": "string", "example": "en-US" },
-                            "patienceLevel": { "type": "integer", "example": 1 },
-                            "speed": { "type": "integer", "example": 1 },
-                            "pitch": { "type": "integer", "example": 1 },
-                            "latency": { "type": "number", "example": 0.5 },
-                            "stability": { "type": "number", "example": 0.5 },
-                            "styleExaggeration": { "type": "number", "example": 0.75 },
-                            "similarity": { "type": "number", "example": 0.8 },
-                            "voicePromptType": { "type": "string", "nullable": true, "example": null },
-                            "voicePrompt": { "type": "string", "nullable": true, "example": null }
-                          }
-                        },
-                        "aiModel": {
-                          "type": "object",
-                          "properties": {
-                            "provider": { "type": "string", "example": "openai" },
-                            "model": { "type": "string", "example": "gpt-4" },
-                            "temperature": { "type": "number", "example": 0.7 },
-                            "maxTokens": { "type": "integer", "example": 200 }
-                          }
-                        },
-                        "callConfig": {
-                          "type": "object",
-                          "properties": {
-                            "timeZone": { "type": "string", "example": "UTC" },
-                            "maxDuration": { "type": "integer", "example": 600 },
-                            "voicemailDetection": {
-                              "type": "object",
-                              "properties": {
-                                "enabled": { "type": "boolean", "example": true },
-                                "type": { "type": "string", "example": "ml-based" }
-                              }
-                            },
-                            "recordingEnabled": { "type": "boolean", "example": true },
-                            "transcriptionEnabled": { "type": "boolean", "example": true },
-                            "speakerBoost": { "type": "boolean", "example": false },
-                            "idleReminders": {
-                              "type": "array",
-                              "items": { "type": ["boolean", "number"] },
-                              "example": [false, 0.75]
-                            },
-                            "backGroundNoiseEnv": { "type": "string", "nullable": true, "example": null },
-                            "limitCallDuration": {
-                              "type": "array",
-                              "items": { "type": ["boolean", "number"] },
-                              "example": [false, 20]
-                            },
-                            "backGroundNoiseLevel": { "type": "string", "nullable": true, "example": null },
-                            "backGroundNoiseThreshold": { "type": "number", "example": 0.75 },
-                            "backGroundNoiseTimeout": { "type": "integer", "example": 10 },
-                            "backGroundNoiseTimeoutThreshold": { "type": "number", "example": 0.75 },
-                            "backGroundNoiseTimeoutInterval": { "type": "integer", "example": 10 }
-                          }
-                        },
-                        "fillerWords": { "type": "boolean", "example": false },
-                        "status": { "type": "boolean", "example": true },
-                        "customVocabulary": { "type": "array", "items": { "type": "string" }, "example": [] },
-                        "timezone": { "type": "string", "example": "India" },
-                        "greeting": { "type": "string", "example": "Hello! How can I assist you today?" },
-                        "prompt": {
-                          "type": "string",
-                          "example": "You are a helpful AI assistant focused on providing accurate and friendly responses."
-                        },
-                        "knowledgeBases": { "type": "array", "items": { "type": "string" }, "example": [] },
-                        "actions": { "type": "array", "items": { "type": "string" }, "example": [] },
-                        "deployment": {
-                          "type": "object",
-                          "properties": {
-                            "status": { "type": "string", "example": "draft" },
-                            "version": { "type": "integer", "example": 1 },
-                            "deployedAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
-                            "lastUpdated": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
-                            "error": { "type": "string", "nullable": true, "example": null }
-                          }
-                        },
-                        "stats": {
-                          "type": "object",
-                          "properties": {
-                            "totalCalls": { "type": "integer", "example": 0 },
-                            "successRate": { "type": "number", "example": 1 },
-                            "avgCallDuration": { "type": "integer", "example": 0 },
-                            "lastCallAt": { "type": "string", "format": "date-time", "example": null }
-                          }
-                        },
-                        "templateCategory": { "type": "string", "nullable": true, "example": null },
-                        "industry": { "type": "string", "nullable": true, "example": null },
-                        "recommendedActions": { "type": "array", "items": { "type": "string" }, "example": [] },
-                        "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
-                        "updatedAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" }
-                      }
-                    }
+                    "data": { "$ref": "#/components/schemas/Agent" }
                   }
                 }
               }
@@ -163,12 +56,19 @@
                 "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
+          },
+          "404": {
+            "description": "Agent not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
           }
         },
         "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-          
+          { "bearerAuth": [] },
+          { "apiKey": [] }
         ],
         "x-mint": {
           "mcp": { "enabled": true }
@@ -193,14 +93,14 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Agent created successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": { "type": "integer", "example": 200 },
+                    "status": { "type": "integer", "example": 201 },
                     "message": { "type": "string", "example": "Agent created successfully" },
                     "data": { "$ref": "#/components/schemas/Agent" }
                   }
@@ -243,7 +143,6 @@
         ],
         "requestBody": {
           "description": "Agent details to update",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -251,6 +150,7 @@
               }
             }
           },
+          "required": true
         },
         "responses": {
           "200": {
@@ -281,413 +181,6 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
-          }
-        },
-        "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
-        }
-      }
-    },
-    "/api/assistants/list": {
-        "get": {
-          "operationId": "getAssistants",
-          "tags": ["Agents"],
-          "summary": "Get List of Agents",
-          "description": "Retrieves a paginated list of assistants for a specific workspace",
-          "parameters": [
-            {
-              "name": "workspace_id",
-              "in": "query",
-              "description": "Unique identifier of the workspace",
-              "required": true,
-              "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "description": "Maximum number of results to return per page",
-              "required": true,
-              "schema": { "type": "integer", "example": 10 }
-            },
-            {
-              "name": "page",
-              "in": "query",
-              "description": "Page number to retrieve",
-              "required": true,
-              "schema": { "type": "integer", "example": 1 }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Assistants retrieved successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 200 },
-                      "message": { "type": "string", "example": "Assistants retrieved successfully" },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-                            "name": { "type": "string", "example": "My Outbound Assistant" },
-                            "type": { "type": "string", "example": "outbound" },
-                            "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
-                            "voiceEngine": { "type": "string", "example": "elevenlabs" },
-                            "phoneNumber": { "type": "string", "nullable": true, "example": null },
-                            "status": { "type": "boolean", "example": true }
-                          }
-                        }
-                      },
-                      "pagination": {
-                        "type": "object",
-                        "properties": {
-                          "page": { "type": "integer", "example": 1 },
-                          "limit": { "type": "integer", "example": 100 },
-                          "total": { "type": "integer", "example": 2 },
-                          "totalPages": { "type": "integer", "example": 1 },
-                          "hasNextPage": { "type": "boolean", "example": false },
-                          "hasPrevPage": { "type": "boolean", "example": false }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 400 },
-                      "message": { "type": "string", "example": "Unexpected error" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "security": [
-            { "bearerAuth": [] },
-            { "apiKey": [] }
-          ],
-          "x-mint": {
-            "mcp": { "enabled": true }
-          }
-       }
-    },
-    "/api/assistants/delete": {
-        "delete": {
-          "operationId": "deleteAssistant",
-          "tags": ["Agents"],
-          "summary": "Delete Agent",
-          "description": "Deletes an assistant by ID",
-          "parameters": [
-            {
-              "name": "assistant_id",
-              "in": "query",
-              "description": "Unique identifier of the assistant to delete",
-              "required": true,
-              "schema": { "type": "string", "example": "683579c3a034253be66ea984" }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Assistant deleted and duplicated successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 200 },
-                      "message": { "type": "string", "example": "Assistant duplicated successfully" },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "_id": { "type": "string", "example": "683c2b4e59e70f73476ed5cc" },
-                          "workspaceId": { "type": "string", "example": "683c0129ea0c6f3e9b2ae326" },
-                          "name": { "type": "string", "example": "My Inbound Assistant - Harsha" },
-                          "type": { "type": "string", "example": "inbound" },
-                          "category": { "type": "string", "example": "general" },
-                          "description": { "type": "string", "example": "AI assistant for voice calls" },
-                          "image": { "type": "string", "format": "uri", "example": "https://voicemart.ai/assistant-icons/default.png" },
-                          "features": { "type": "array", "items": { "type": "string" }, "example": [] },
-                          "popularity": { "type": "integer", "example": 0 },
-                          "voiceConfig": {
-                            "type": "object",
-                            "properties": {
-                              "provider": { "type": "string", "example": "elevenlabs" },
-                              "voiceId": { "type": "string", "example": "emily" },
-                              "language": { "type": "string", "example": "en-US" },
-                              "patienceLevel": { "type": "integer", "example": 1 },
-                              "speed": { "type": "integer", "example": 1 },
-                              "pitch": { "type": "integer", "example": 1 },
-                              "latency": { "type": "number", "example": 0.5 },
-                              "stability": { "type": "number", "example": 0.5 },
-                              "styleExaggeration": { "type": "number", "example": 0.75 },
-                              "similarity": { "type": "number", "example": 0.8 },
-                              "voicePromptType": { "type": "string", "nullable": true, "example": null },
-                              "voicePrompt": { "type": "string", "nullable": true, "example": null }
-                            }
-                          },
-                          "aiModel": {
-                            "type": "object",
-                            "properties": {
-                              "provider": { "type": "string", "example": "openai" },
-                              "model": { "type": "string", "example": "gpt-4" },
-                              "temperature": { "type": "number", "example": 0.7 },
-                              "maxTokens": { "type": "integer", "example": 200 }
-                            }
-                          },
-                          "callConfig": {
-                            "type": "object",
-                            "properties": {
-                              "timeZone": { "type": "string", "example": "UTC" },
-                              "maxDuration": { "type": "integer", "example": 600 },
-                              "voicemailDetection": {
-                                "type": "object",
-                                "properties": {
-                                  "enabled": { "type": "boolean", "example": true },
-                                  "type": { "type": "string", "example": "ml-based" }
-                                }
-                              },
-                              "recordingEnabled": { "type": "boolean", "example": true },
-                              "transcriptionEnabled": { "type": "boolean", "example": true },
-                              "speakerBoost": { "type": "boolean", "example": false },
-                              "idleReminders": {
-                                "type": "array",
-                                "items": { "type": ["boolean", "number"] },
-                                "example": [false, 0.75]
-                              },
-                              "backGroundNoiseEnv": { "type": "string", "nullable": true, "example": null },
-                              "limitCallDuration": {
-                                "type": "array",
-                                "items": { "type": ["boolean", "number"] },
-                                "example": [false, 20]
-                              },
-                              "backGroundNoiseLevel": { "type": "string", "nullable": true, "example": null },
-                              "backGroundNoiseThreshold": { "type": "number", "example": 0.75 },
-                              "backGroundNoiseTimeout": { "type": "integer", "example": 10 },
-                              "backGroundNoiseTimeoutThreshold": { "type": "number", "example": 0.75 },
-                              "backGroundNoiseTimeoutInterval": { "type": "integer", "example": 10 }
-                            }
-                          },
-                          "fillerWords": { "type": "boolean", "example": false },
-                          "status": { "type": "boolean", "example": true },
-                          "customVocabulary": { "type": "array", "items": { "type": "string" }, "example": [] },
-                          "timezone": { "type": "string", "example": "India" },
-                          "greeting": { "type": "string", "example": "Hello! How can I assist you today?" },
-                          "prompt": { "type": "string", "example": "You are a helpful AI assistant focused on providing accurate and friendly responses." },
-                          "knowledgeBases": { "type": "array", "items": { "type": "string" }, "example": [] },
-                          "actions": { "type": "array", "items": { "type": "string" }, "example": [] },
-                          "deployment": {
-                            "type": "object",
-                            "properties": {
-                              "status": { "type": "string", "example": "draft" },
-                              "version": { "type": "integer", "example": 1 },
-                              "deployedAt": { "type": "string", "format": "date-time", "nullable": true, "example": null },
-                              "lastUpdated": { "type": "string", "format": "date-time", "example": "2025-06-01T10:28:30.021000" },
-                              "error": { "type": "string", "nullable": true, "example": null }
-                            }
-                          },
-                          "stats": {
-                            "type": "object",
-                            "properties": {
-                              "totalCalls": { "type": "integer", "example": 0 },
-                              "successRate": { "type": "number", "example": 1 },
-                              "avgCallDuration": { "type": "integer", "example": 0 },
-                              "lastCallAt": { "type": "string", "format": "date-time", "nullable": true, "example": null }
-                            }
-                          },
-                          "templateCategory": { "type": "string", "nullable": true, "example": null },
-                          "industry": { "type": "string", "nullable": true, "example": null },
-                          "recommendedActions": { "type": "array", "items": { "type": "string" }, "example": [] },
-                          "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-01T10:28:30.022000" },
-                          "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-01T10:28:30.022000" }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 400 },
-                      "message": { "type": "string", "example": "Unexpected error" }
-                    }
-                  }
-                }
-              }
-            },
-            "404": {
-              "description": "Assistant not found",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 404 },
-                      "message": { "type": "string", "example": "Assistant not found" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "security": [
-            { "bearerAuth": [] },
-            { "apiKey": [] }
-          ],
-          "x-mint": {
-            "mcp": { "enabled": true }
-          }
-        }
-     },
-    "/api/knowledge-base/create": {
-      "post": {
-        "operationId": "createKnowledgeBase",
-        "tags": ["Knowledge Base"],
-        "summary": "Create Knowledge Base",
-        "description": "Creates a new knowledge base with various source types including links, text, and file uploads",
-        "requestBody": {
-          "description": "Knowledge base details to create",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": ["name", "description", "workspaceId"],
-                "properties": {
-                  "name": { "type": "string", "example": "Harshu Test KB" },
-                  "description": { "type": "string", "example": "Test voice calls" },
-                  "workspaceId": { "type": "string", "example": "{{workspace_id}}" },
-                  "Kids Journey": { "type": "string", "format": "uri", "example": "https://kids.nationalgeographic.com/" },
-                  "Company_text": { "type": "string", "example": "Hey, there how are you !!" },
-                  "File Upload1": {
-                    "type": "array",
-                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9" }
-                  },
-                  "File Upload2": {
-                    "type": "array",
-                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7" }
-                  }
-                }
-              },
-              "example": {
-                "name": "Harshu Test KB",
-                "description": "Test voice calls",
-                "workspaceId": "{{workspace_id}}",
-                "Kids Journey": "https://kids.nationalgeographic.com/",
-                "Company_text": "Hey, there how are you !!",
-                "File Upload1": ["postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9"],
-                "File Upload2": ["postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Knowledge base created successfully",
-            "content": {
-              "application/json": {
-                "example": {
-                  "status": 201,
-                  "message": "Knowledge base created successfully",
-                  "data": {
-                    "name": "Harshu Test KB",
-                    "description": "Test voice calls",
-                    "type": "documents",
-                    "sources": [
-                      {
-                        "type": "pdf",
-                        "name": "sample1.pdf",
-                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
-                        "content": null,
-                        "metadata": {
-                          "fileName": "sample1.pdf",
-                          "fileType": "pdf",
-                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e3",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "pdf",
-                        "name": "sample2.pdf",
-                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
-                        "content": null,
-                        "metadata": {
-                          "fileName": "sample2.pdf",
-                          "fileType": "pdf",
-                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf"
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e4",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "link",
-                        "name": "Kids Journey",
-                        "url": "https://kids.nationalgeographic.com/",
-                        "content": null,
-                        "metadata": {
-                          "websiteName": "Kids Journey",
-                          "description": ""
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e5",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "txt",
-                        "name": "Company",
-                        "url": null,
-                        "content": "Hey, there how are you !!",
-                        "metadata": {
-                          "description": ""
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e6",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      }
-                    ],
-                    "_id": "684052e7347bf47f785799e2",
-                    "workspaceId": "683ea9dbea7c50a81708dae7",
-                    "createdAt": "2025-06-04T14:06:31.374254",
-                    "updatedAt": "2025-06-04T14:06:31.374254"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
               }
             }
           }
@@ -743,9 +236,7 @@
           }
         },
         "x-mint": {
-          "mcp": {
-            "enabled": true }
-          }
+          "mcp": { "enabled": true }
         }
       },
       "post": {
@@ -764,7 +255,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Call created",
             "content": {
               "application/json": {
@@ -786,140 +277,199 @@
           }
         },
         "x-mint": {
-          "mcp": {
-            "enabled": true }
-        }
-      }
-     }
-    },
-    "components": {
-      "schemas": {
-        "NewAgent": {
-          "type": "object",
-          "required": ["workspaceId", "type"],
-          "properties": {
-            "workspaceId": {
-              "type": "string",
-              "example": "683578ec8ac922546dbaadaa"
-            },
-            "type": {
-              "type": "string",
-              "enum": ["outbound", "inbound"],
-              "example": "outbound"
-            }
-          }
-        },
-        "UpdateAgent": {
-          "type": "object",
-          "required": ["workspaceId", "status"],
-          "properties": {
-            "workspaceId": {
-              "type": "string",
-              "example": "683c0129ea0c6f3e9b2ae326"
-            },
-            "status": {
-              "type": "boolean",
-              "example": false
-            }
-          }
-        },
-        "Agent": {
-          "type": "object",
-          "properties": {
-            "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-            "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
-            "name": { "type": "string", "example": "My Outbound Assistant" },
-            "type": { "type": "string", "example": "outbound" }
-          }
-        },
-        "Call": {
-          "required": ["agentId"],
-          "type": "object",
-          "properties": {
-            "agentId": {
-              "type": "string",
-              "description": "ID of the agent"
-            },
-            "status": {
-              "type": "string",
-              "description": "Call status"
-            }
-          }
-        },
-        "NewCall": {
-          "allOf": [
-            {
-              "$ref": "#/components/schemas/Call"
-            },
-            {
-              "required": ["id"],
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          ]
-        },
-        "KnowledgeBaseSource": {
-          "type": "object",
-          "properties": {
-            "type": { "type": "string", "example": "pdf" },
-            "name": { "type": "string", "example": "sample1.pdf" },
-            "url": { "type": "string", "format": "uri", "nullable": true, "example": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf" },
-            "content": { "type": "string", "nullable": true, "example": null },
-            "metadata": {
-              "type": "object",
-              "properties": {
-                "fileName": { "type": "string", "nullable": true, "example": "sample1.pdf" },
-                "fileType": { "type": "string", "nullable": true, "example": "pdf" },
-                "fileKey": { "type": "string", "nullable": true, "example": "683ea9dbea7c50a81708dae7/documents/sample1.pdf" },
-                "websiteName": { "type": "string", "nullable": true, "example": "Kids Journey" },
-                "description": { "type": "string", "nullable": true, "example": "" }
-              }
-            },
-            "lastSync": { "type": "string", "format": "date-time", "nullable": true, "example": null },
-            "_id": { "type": "string", "example": "684052e7347bf47f785799e3" },
-            "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
-            "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
-          }
-        },
-        "KnowledgeBase": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string", "example": "Harshu Test KB" },
-            "description": { "type": "string", "example": "Test voice calls" },
-            "type": { "type": "string", "example": "documents" },
-            "sources": {
-              "type": "array",
-              "items": { "$ref": "#components/schemas/KnowledgeBaseSource" }
-            },
-            "_id": { "type": "string", "example": "684052e7347bf47f785799e2" },
-            "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
-            "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
-            "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
-          }
-        },
-        "Error": {
-          "type": "object",
-          "properties": {
-            "status": { "type": "integer", "example": 400 },
-            "message": { "type": "string", "example": "Unexpected error" }
-          }
-        }
-      },
-      "securitySchemes": {
-        "apiKey": {
-          "type": "apiKey",
-          "in": "header",
-          "name": "X-API-Key"
-        },
-        "bearerAuth": {
-          "type": "http",
-          "scheme": "bearer",
-          "bearerFormat": "JWT"
+          "mcp": { "enabled": true }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "NewAgent": {
+        "type": "object",
+        "required": ["workspace_id", "type"],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "example": "683578ec8ac922546dbaadaa"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["outbound", "inbound"],
+            "example": "outbound"
+          }
+        }
+      },
+      "UpdateAgent": {
+        "type": "object",
+        "required": ["workspace_id", "status"],
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "example": "683c0129ea0c6f3e9b2ae326"
+          },
+          "status": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
+          "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
+          "name": { "type": "string", "example": "My Outbound Assistant" },
+          "type": { "type": "string", "example": "outbound" },
+          "category": { "type": "string", "example": "general" },
+          "description": { "type": "string", "example": "AI assistant for voice calls" },
+          "image": { "type": "string", "example": "https://voicemart.ai/assistant-icons/default.png" },
+          "features": { "type": "array", "items": { "type": "string" }, "example": [] },
+          "popularity": { "type": "integer", "example": 0 },
+          "voiceConfig": {
+            "type": "object",
+            "properties": {
+              "provider": { "type": "string", "example": "elevenlabs" },
+              "voiceId": { "type": "string", "example": "emily" },
+              "language": { "type": "string", "example": "en-US" },
+              "patienceLevel": { "type": "integer", "example": 1 },
+              "speed": { "type": "integer", "example": 1 },
+              "pitch": { "type": "integer", "example": 1 },
+              "latency": { "type": "number", "example": 0.5 },
+              "stability": { "type": "number", "example": 0.5 },
+              "styleExaggeration": { "type": "number", "example": 0.75 },
+              "similarity": { "type": "number", "example": 0.8 },
+              "voicePromptType": { "type": "string", "nullable": true, "example": null },
+              "voicePrompt": { "type": "string", "nullable": true, "example": null }
+            }
+          },
+          "aiModel": {
+            "type": "object",
+            "properties": {
+              "provider": { "type": "string", "example": "openai" },
+              "model": { "type": "string", "example": "gpt-4" },
+              "temperature": { "type": "number", "example": 0.7 },
+              "maxTokens": { "type": "integer", "example": 200 }
+            }
+          },
+          "callConfig": {
+            "type": "object",
+            "properties": {
+              "timeZone": { "type": "string", "example": "UTC" },
+              "maxDuration": { "type": "integer", "example": 600 },
+              "voicemailDetection": {
+                "type": "object",
+                "properties": {
+                  "enabled": { "type": "boolean", "example": true },
+                  "type": { "type": "string", "example": "ml-based" }
+                }
+              },
+              "recordingEnabled": { "type": "boolean", "example": true },
+              "transcriptionEnabled": { "type": "boolean", "example": true },
+              "speakerBoost": { "type": "boolean", "example": false },
+              "idleReminders": {
+                "type": "array",
+                "items": { "type": ["boolean", "number"] },
+                "example": [false, 0.75]
+              },
+              "backGroundNoiseEnv": { "type": "string", "nullable": true, "example": null },
+              "limitCallDuration": {
+                "type": "array",
+                "items": { "type": ["boolean", "number"] },
+                "example": [false, 20]
+              },
+              "backGroundNoiseLevel": { "type": "string", "nullable": true, "example": null },
+              "backGroundNoiseThreshold": { "type": "number", "example": 0.75 },
+              "backGroundNoiseTimeout": { "type": "integer", "example": 10 },
+              "backGroundNoiseTimeoutThreshold": { "type": "number", "example": 0.75 },
+              "backGroundNoiseTimeoutInterval": { "type": "integer", "example": 10 }
+            }
+          },
+          "fillerWords": { "type": "boolean", "example": false },
+          "status": { "type": "boolean", "example": true },
+          "customVocabulary": { "type": "array", "items": { "type": "string" }, "example": [] },
+          "timezone": { "type": "string", "example": "India" },
+          "greeting": { "type": "string", "example": "Hello! How can I assist you today?" },
+          "prompt": {
+            "type": "string",
+            "example": "You are a helpful AI assistant focused on providing accurate and friendly responses."
+          },
+          "knowledgeBases": { "type": "array", "items": { "type": "string" }, "example": [] },
+          "actions": { "type": "array", "items": { "type": "string" }, "example": [] },
+          "deployment": {
+            "type": "object",
+            "properties": {
+              "status": { "type": "string", "example": "draft" },
+              "version": { "type": "integer", "example": 1 },
+              "deployedAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
+              "lastUpdated": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
+              "error": { "type": "string", "nullable": true, "example": null }
+            }
+          },
+          "stats": {
+            "type": "object",
+            "properties": {
+              "totalCalls": { "type": "integer", "example": 0 },
+              "successRate": { "type": "number", "example": 1 },
+              "avgCallDuration": { "type": "integer", "example": 0 },
+              "lastCallAt": { "type": "string", "format": "date-time", "example": null }
+            }
+          },
+          "templateCategory": { "type": "string", "nullable": true, "example": null },
+          "industry": { "type": "string", "nullable": true, "example": null },
+          "recommendedActions": { "type": "array", "items": { "type": "string" }, "example": [] },
+          "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
+          "updatedAt": { "type": "string", "format": "date-time", "example": "2025-10-21T07:05:00.000Z" }
+        }
+      },
+      "Call": {
+        "required": ["agentId"],
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "ID of the agent"
+          },
+          "status": {
+            "type": "string",
+            "description": "Call status"
+          }
+        }
+      },
+      "NewCall": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Call"
+          },
+          {
+            "required": ["id"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "integer", "example": 400 },
+          "message": { "type": "string", "example": "Unexpected error" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
   }
+}
