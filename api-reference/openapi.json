@@ -250,7 +250,6 @@
               }
             }
           },
-          "required": true
         },
         "responses": {
           "200": {
