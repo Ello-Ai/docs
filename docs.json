@@ -1,4 +1,4 @@
-{
+ {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Ello.AI",
@@ -43,8 +43,8 @@
             "pages": [
               "GET /api/assistants/get",
               "POST /api/assistants/create",
-              "PUT /api/assistants/update-simple"
-    
+              "PUT /api/assistants/update-simple",
+              "GET /api/assistants/list"
             ]
           },
           {
