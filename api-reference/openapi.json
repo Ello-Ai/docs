@@ -218,8 +218,8 @@
           }
         },
         "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
+          { "apiKey": [] },
+          { "bearerAuth": [] }
         ],
         "x-mint": {
           "mcp": { "enabled": true }
@@ -286,8 +286,8 @@
           }
         },
         "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
+          { "apiKey": [] },
+          { "bearerAuth": [] }
         ],
         "x-mint": {
           "mcp": { "enabled": true }
@@ -380,8 +380,8 @@
             }
           },
           "security": [
-            { "bearerAuth": [] },
-            { "apiKey": [] }
+            { "apiKey": [] },
+            { "bearerAuth": [] }
           ],
           "x-mint": {
             "mcp": { "enabled": true }
@@ -553,8 +553,8 @@
             }
           },
           "security": [
-            { "bearerAuth": [] },
-            { "apiKey": [] }
+            { "apiKey": [] },
+            { "bearerAuth": [] }
           ],
           "x-mint": {
             "mcp": { "enabled": true }
@@ -693,8 +693,8 @@
           }
         },
         "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
+          { "apiKey": [] },
+          { "bearerAuth": [] }
         ],
         "x-mint": {
           "mcp": { "enabled": true }
