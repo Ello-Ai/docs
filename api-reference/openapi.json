@@ -402,6 +402,7 @@
       },
       "UpdateAgent": {
         "type": "object",
+        "required": ["workspace_id", "status"],
         "properties": {
           "workspace_id": {
             "type": "string",
