@@ -175,53 +175,122 @@
       }
     },
     "/api/assistants/create": {
-    "post": {
-      "operationId": "createAgent",
-      "tags": ["Agents"],
-      "summary": "Create Agent",
-      "description": "Creates a new agent",
-      "requestBody": {
-        "description": "Agent details to create",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/NewAgent"
-            }
-          }
-        },
-        "required": true
-      },
-      "responses": {
-        "200": {
-          "description": "Agent created successfully",
+      "post": {
+        "operationId": "createAgent",
+        "tags": ["Agents"],
+        "summary": "Create Agent",
+        "description": "Creates a new agent",
+        "requestBody": {
+          "description": "Agent details to create",
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "status": { "type": "integer", "example": 200 },
-                  "message": { "type": "string", "example": "Agent created successfully" },
-                  "data": { "$ref": "#/components/schemas/Agent" }
+                "$ref": "#/components/schemas/NewAgent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Agent created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "integer", "example": 200 },
+                    "message": { "type": "string", "example": "Agent created successfully" },
+                    "data": { "$ref": "#/components/schemas/Agent" }
+                  }
                 }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           }
         },
-        "400": {
-          "description": "Unexpected error",
+        "security": [
+          { "bearerAuth": [] },
+          { "apiKey": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
+    "/api/assistants/update-simple": {
+      "put": {
+        "operationId": "updateAgent",
+        "tags": ["Agents"],
+        "summary": "Update Agent",
+        "description": "Updates an existing agent",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "query",
+            "description": "Unique identifier of the agent to update",
+            "required": true,
+            "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
+          }
+        ],
+        "requestBody": {
+          "description": "Agent details to update",
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/Error" }
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAgent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Agent updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "integer", "example": 200 },
+                    "message": { "type": "string", "example": "Assistant updated successfully" },
+                    "data": { "$ref": "#/components/schemas/Agent" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "404": {
+            "description": "Agent not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
             }
           }
+        },
+        "security": [
+          { "bearerAuth": [] },
+          { "apiKey": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
         }
-      },
-      "security": [
-        { "bearerAuth": [] },
-        { "apiKey": [] }
-      ],
-      "x-mint": {
-        "mcp": { "enabled": true }
       }
     }
   },
