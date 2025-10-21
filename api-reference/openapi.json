@@ -789,7 +789,8 @@
             "enabled": true }
         }
       }
-    },
+    }
+  },
     "components": {
       "schemas": {
         "KnowledgeBaseSource": {
