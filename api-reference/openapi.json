@@ -790,8 +790,7 @@
             "enabled": true }
         }
       }
-    }
-  },
+    },
     "components": {
       "schemas": {
         "NewAgent": {
