@@ -39,7 +39,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Agent"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
@@ -48,7 +48,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           },
@@ -56,7 +56,7 @@
             "description": "Agent not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           }
@@ -82,7 +82,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#components/schemas/NewAgent"
+                "$ref": "#/components/schemas/NewAgent"
               },
               "example": {
                 "workspaceId": "683c0129ea0c6f3e9b2ae326",
@@ -106,7 +106,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Agent"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
@@ -115,7 +115,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           }
@@ -150,7 +150,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#components/schemas/UpdateAgent"
+                "$ref": "#/components/schemas/UpdateAgent"
               },
               "example": {
                 "workspaceId": "683c0129ea0c6f3e9b2ae326",
@@ -173,7 +173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Agent"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
@@ -182,7 +182,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           },
@@ -190,7 +190,7 @@
             "description": "Agent not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           }
@@ -246,7 +246,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#components/schemas/AgentSummary"
+                        "$ref": "#/components/schemas/AgentSummary"
                       }
                     },
                     "pagination": {
@@ -310,7 +310,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Agent"
+                  "$ref": "#/components/schemas/Agent"
                 }
               }
             }
@@ -377,7 +377,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#components/schemas/Call"
+                    "$ref": "#/components/schemas/Call"
                   }
                 }
               }
@@ -388,7 +388,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Error"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -407,7 +407,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#components/schemas/NewCall"
+                "$ref": "#/components/schemas/NewCall"
               }
             }
           },
@@ -419,7 +419,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Call"
+                  "$ref": "#/components/schemas/Call"
                 }
               }
             }
@@ -429,7 +429,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/Error"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
