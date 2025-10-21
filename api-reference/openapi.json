@@ -187,21 +187,103 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/NewAgent"
+              },
+              "example": {
+                "workspaceId": "683c0129ea0c6f3e9b2ae326",
+                "name": "My Inbound Assistant",
+                "type": "inbound",
+                "category": "general",
+                "description": "AI assistant for voice calls",
+                "image": "https://voicemart.ai/assistant-icons/default.png",
+                "fillerWords": true,
+                "status": true,
+                "timezone": "India",
+                "greeting": "Hello! How can I assist you today?",
+                "prompt": "You are a helpful AI assistant focused on providing accurate and friendly responses."
               }
             }
-          },
+          }
         },
         "responses": {
           "200": {
             "description": "Agent created successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Agent created successfully" },
-                    "data": { "$ref": "#/components/schemas/Agent" }
+                "example": {
+                  "status": 200,
+                  "message": "Agent created successfully",
+                  "data": {
+                    "_id": "683c06debc7538418958bdb9",
+                    "workspaceId": "683c0129ea0c6f3e9b2ae326",
+                    "name": "My Inbound Assistant",
+                    "type": "inbound",
+                    "category": "general",
+                    "description": "AI assistant for voice calls",
+                    "image": "https://voicemart.ai/assistant-icons/default.png",
+                    "features": [],
+                    "popularity": 0,
+                    "voiceConfig": {
+                      "provider": "elevenlabs",
+                      "voiceId": "emily",
+                      "language": "en-US",
+                      "patienceLevel": 1,
+                      "speed": 1,
+                      "pitch": 1,
+                      "latency": 0.5,
+                      "stability": 0.5,
+                      "styleExaggeration": 0.75,
+                      "similarity": 0.8,
+                      "voicePromptType": null,
+                      "voicePrompt": null
+                    },
+                    "aiModel": {
+                      "provider": "openai",
+                      "model": "gpt-4",
+                      "temperature": 0.7,
+                      "maxTokens": 200
+                    },
+                    "callConfig": {
+                      "timeZone": "IST",
+                      "maxDuration": 600,
+                      "voicemailDetection": { "enabled": true, "type": "ml-based" },
+                      "recordingEnabled": true,
+                      "transcriptionEnabled": true,
+                      "speakerBoost": false,
+                      "idleReminders": [false, 0.75],
+                      "backGroundNoiseEnv": null,
+                      "limitCallDuration": [false, 20],
+                      "backGroundNoiseLevel": null,
+                      "backGroundNoiseThreshold": 0.75,
+                      "backGroundNoiseTimeout": 10,
+                      "backGroundNoiseTimeoutThreshold": 0.75,
+                      "backGroundNoiseTimeoutInterval": 10
+                    },
+                    "fillerWords": true,
+                    "status": true,
+                    "customVocabulary": [],
+                    "timezone": "India",
+                    "greeting": "Hello! How can I assist you today?",
+                    "prompt": "You are a helpful AI assistant focused on providing accurate and friendly responses.",
+                    "knowledgeBases": [],
+                    "actions": [],
+                    "deployment": {
+                      "status": "draft",
+                      "version": 1,
+                      "deployedAt": "2025-06-01T07:53:02.508000",
+                      "lastUpdated": "2025-06-01T07:53:02.508000",
+                      "error": null
+                    },
+                    "stats": {
+                      "totalCalls": 0,
+                      "successRate": 1,
+                      "avgCallDuration": 0,
+                      "lastCallAt": null
+                    },
+                    "templateCategory": null,
+                    "industry": null,
+                    "recommendedActions": [],
+                    "createdAt": "2025-06-01T07:53:02.509000",
+                    "updatedAt": "2025-06-01T09:16:05.556000"
                   }
                 }
               }
