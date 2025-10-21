@@ -563,82 +563,121 @@
     },
     "/api/knowledge-base/create": {
       "post": {
-        "operationId": "createAgent",
-        "tags": ["Agents"],
-        "summary": "Create Agent",
-        "description": "Creates a new agent",
+        "operationId": "createKnowledgeBase",
+        "tags": ["Knowledge Base"],
+        "summary": "Create Knowledge Base",
+        "description": "Creates a new knowledge base with various source types including links, text, and file uploads",
         "requestBody": {
-          "description": "Agent details to create",
+          "description": "Knowledge base details to create",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAgent"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Agent created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Agent created successfully" },
-                    "data": { "$ref": "#/components/schemas/Agent" }
+                "type": "object",
+                "required": ["name", "description", "workspaceId"],
+                "properties": {
+                  "name": { "type": "string", "example": "Harshu Test KB" },
+                  "description": { "type": "string", "example": "Test voice calls" },
+                  "workspaceId": { "type": "string", "example": "{{workspace_id}}" },
+                  "Kids Journey": { "type": "string", "format": "uri", "example": "https://kids.nationalgeographic.com/" },
+                  "Company_text": { "type": "string", "example": "Hey, there how are you !!" },
+                  "File Upload1": {
+                    "type": "array",
+                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9" }
+                  },
+                  "File Upload2": {
+                    "type": "array",
+                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7" }
                   }
                 }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+              },
+              "example": {
+                "name": "Harshu Test KB",
+                "description": "Test voice calls",
+                "workspaceId": "{{workspace_id}}",
+                "Kids Journey": "https://kids.nationalgeographic.com/",
+                "Company_text": "Hey, there how are you !!",
+                "File Upload1": ["postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9"],
+                "File Upload2": ["postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7"]
               }
             }
           }
         },
-        "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
-        }
-      }
-    },": {
-      "post": {
-        "operationId": "createAgent",
-        "tags": ["Agents"],
-        "summary": "Create Agent",
-        "description": "Creates a new agent",
-        "requestBody": {
-          "description": "Agent details to create",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewAgent"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
-          "200": {
-            "description": "Agent created successfully",
+          "201": {
+            "description": "Knowledge base created successfully",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Agent created successfully" },
-                    "data": { "$ref": "#/components/schemas/Agent" }
+                "example": {
+                  "status": 200,
+                  "message": "Knowledge base created successfully",
+                  "data": {
+                    "name": "Harshu Test KB",
+                    "description": "Test voice calls",
+                    "type": "documents",
+                    "sources": [
+                      {
+                        "type": "pdf",
+                        "name": "sample1.pdf",
+                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
+                        "content": null,
+                        "metadata": {
+                          "fileName": "sample1.pdf",
+                          "fileType": "pdf",
+                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e3",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "pdf",
+                        "name": "sample2.pdf",
+                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
+                        "content": null,
+                        "metadata": {
+                          "fileName": "sample2.pdf",
+                          "fileType": "pdf",
+                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf"
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e4",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "link",
+                        "name": "Kids Journey",
+                        "url": "https://kids.nationalgeographic.com/",
+                        "content": null,
+                        "metadata": {
+                          "websiteName": "Kids Journey",
+                          "description": ""
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e5",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "txt",
+                        "name": "Company",
+                        "url": null,
+                        "content": "Hey, there how are you !!",
+                        "metadata": {
+                          "description": ""
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e6",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      }
+                    ],
+                    "_id": "684052e7347bf47f785799e2",
+                    "workspaceId": "683ea9dbea7c50a81708dae7",
+                    "createdAt": "2025-06-04T14:06:31.374254",
+                    "updatedAt": "2025-06-04T14:06:31.374254"
                   }
                 }
               }
@@ -648,7 +687,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": { "$ref": "#components/schemas/Error" }
               }
             }
           }
@@ -822,6 +861,45 @@
               }
             }
           ]
+        },
+        "KnowledgeBaseSource": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string", "example": "pdf" },
+            "name": { "type": "string", "example": "sample1.pdf" },
+            "url": { "type": "string", "format": "uri", "nullable": true, "example": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf" },
+            "content": { "type": "string", "nullable": true, "example": null },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "fileName": { "type": "string", "nullable": true, "example": "sample1.pdf" },
+                "fileType": { "type": "string", "nullable": true, "example": "pdf" },
+                "fileKey": { "type": "string", "nullable": true, "example": "683ea9dbea7c50a81708dae7/documents/sample1.pdf" },
+                "websiteName": { "type": "string", "nullable": true, "example": "Kids Journey" },
+                "description": { "type": "string", "nullable": true, "example": "" }
+              }
+            },
+            "lastSync": { "type": "string", "format": "date-time", "nullable": true, "example": null },
+            "_id": { "type": "string", "example": "684052e7347bf47f785799e3" },
+            "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
+            "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
+          }
+        },
+        "KnowledgeBase": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "example": "Harshu Test KB" },
+            "description": { "type": "string", "example": "Test voice calls" },
+            "type": { "type": "string", "example": "documents" },
+            "sources": {
+              "type": "array",
+              "items": { "$ref": "#components/schemas/KnowledgeBaseSource" }
+            },
+            "_id": { "type": "string", "example": "684052e7347bf47f785799e2" },
+            "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
+            "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
+            "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
+          }
         },
         "Error": {
           "type": "object",
