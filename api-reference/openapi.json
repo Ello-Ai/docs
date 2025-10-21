@@ -654,139 +654,96 @@
           }
         }
       },
-      "post": {
-        "operationId": "createCall",
-        "tags": ["Calls"],
-        "description": "Creates a new call",
-        "requestBody": {
-          "description": "Call details to add",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewCall"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Call created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Call"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
+      
+    "components": {
+      "schemas": {
+        "NewAgent": {
+          "type": "object",
+          "required": ["workspaceId", "type"],
+          "properties": {
+            "workspaceId": {
+              "type": "string",
+              "example": "683578ec8ac922546dbaadaa"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["outbound", "inbound"],
+              "example": "outbound"
             }
           }
         },
-        "x-mint": {
-          "mcp": {
-            "enabled": true }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "NewAgent": {
-        "type": "object",
-        "required": ["workspaceId", "type"],
-        "properties": {
-          "workspaceId": {
-            "type": "string",
-            "example": "683578ec8ac922546dbaadaa"
-          },
-          "type": {
-            "type": "string",
-            "enum": ["outbound", "inbound"],
-            "example": "outbound"
-          }
-        }
-      },
-      "UpdateAgent": {
-        "type": "object",
-        "required": ["workspaceId", "status"],
-        "properties": {
-          "workspaceId": {
-            "type": "string",
-            "example": "683c0129ea0c6f3e9b2ae326"
-          },
-          "status": {
-            "type": "boolean",
-            "example": false
-          }
-        }
-      },
-      "Agent": {
-        "type": "object",
-        "properties": {
-          "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-          "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
-          "name": { "type": "string", "example": "My Outbound Assistant" },
-          "type": { "type": "string", "example": "outbound" }
-        }
-      },
-      "Call": {
-        "required": ["agentId"],
-        "type": "object",
-        "properties": {
-          "agentId": {
-            "type": "string",
-            "description": "ID of the agent"
-          },
-          "status": {
-            "type": "string",
-            "description": "Call status"
-          }
-        }
-      },
-      "NewCall": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Call"
-          },
-          {
-            "required": ["id"],
-            "properties": {
-              "id": {
-                "type": "integer",
-                "format": "int64"
-              }
+        "UpdateAgent": {
+          "type": "object",
+          "required": ["workspaceId", "status"],
+          "properties": {
+            "workspaceId": {
+              "type": "string",
+              "example": "683c0129ea0c6f3e9b2ae326"
+            },
+            "status": {
+              "type": "boolean",
+              "example": false
             }
           }
-        ]
-      },
-      "Error": {
-        "type": "object",
-        "properties": {
-          "status": { "type": "integer", "example": 400 },
-          "message": { "type": "string", "example": "Unexpected error" }
+        },
+        "Agent": {
+          "type": "object",
+          "properties": {
+            "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
+            "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
+            "name": { "type": "string", "example": "My Outbound Assistant" },
+            "type": { "type": "string", "example": "outbound" }
+          }
+        },
+        "Call": {
+          "required": ["agentId"],
+          "type": "object",
+          "properties": {
+            "agentId": {
+              "type": "string",
+              "description": "ID of the agent"
+            },
+            "status": {
+              "type": "string",
+              "description": "Call status"
+            }
+          }
+        },
+        "NewCall": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Call"
+            },
+            {
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          ]
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "integer", "example": 400 },
+            "message": { "type": "string", "example": "Unexpected error" }
+          }
         }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       },
-      "apiKey": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-API-Key"
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        },
+        "apiKey": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "X-API-Key"
+        }
       }
     }
   }
-}
