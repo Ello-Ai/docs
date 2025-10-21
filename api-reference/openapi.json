@@ -292,8 +292,7 @@
           "mcp": { "enabled": true }
         }
       }
-    }
-  },
+    },
     "/calls": {
       "get": {
         "operationId": "getCalls",
