@@ -402,9 +402,9 @@
       },
       "UpdateAgent": {
         "type": "object",
-        "required": ["workspace_id", "status"],
+        "required": ["workspaceId", "status"],
         "properties": {
-          "workspace_id": {
+          "workspaceId": {
             "type": "string",
             "example": "683c0129ea0c6f3e9b2ae326"
           },
