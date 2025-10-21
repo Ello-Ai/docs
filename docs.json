@@ -52,7 +52,6 @@
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/billing/account/user-dids",
               "POST /calls"
             ]
           },
