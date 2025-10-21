@@ -560,7 +560,7 @@
             "mcp": { "enabled": true }
           }
         }
-    },
+     },
     "/api/knowledge-base/create": {
       "post": {
         "operationId": "createKnowledgeBase",
@@ -701,7 +701,6 @@
         }
       }
     },
-    
     "/calls": {
       "get": {
         "operationId": "getCalls",
@@ -746,6 +745,7 @@
         "x-mint": {
           "mcp": {
             "enabled": true }
+          }
         }
       },
       "post": {
