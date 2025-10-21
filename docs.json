@@ -43,9 +43,7 @@
             "pages": [
               "GET /api/assistants/get",
               "POST /api/assistants/create",
-              "PUT /api/assistants/update-simple",
-              "GET /api/assistants/list",
-              "DELETE /api/assistants/delete"
+              "PUT /api/assistants/update-simple"
             ]
           },
           {
