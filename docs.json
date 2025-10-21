@@ -49,13 +49,6 @@
             ]
           },
           {
-            "group": "Knowledge Base",
-            "openapi": "api-reference/openapi.json",
-            "pages": [
-              "POST /api/knowledge-base/create"
-            ]
-          },
-          {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
             "pages": [
