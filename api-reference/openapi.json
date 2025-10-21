@@ -175,56 +175,56 @@
       }
     },
     "/api/assistants": {
-      "post": {
-        "operationId": "createAgent",
-        "tags": ["Agents"],
-        "summary": "Create Agent",
-        "description": "Creates a new agent",
-        "requestBody": {
-          "description": "Agent details to create",
+    "post": {
+      "operationId": "createAgent",
+      "tags": ["Agents"],
+      "summary": "Create Agent",
+      "description": "Creates a new agent",
+      "requestBody": {
+        "description": "Agent details to create",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NewAgent"
+            }
+          }
+        },
+        "required": true
+      },
+      "responses": {
+        "200": {
+          "description": "Agent created successfully",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAgent"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Agent created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Agent created successfully" },
-                    "data": { "$ref": "#/components/schemas/Agent" }
-                  }
+                "type": "object",
+                "properties": {
+                  "status": { "type": "integer", "example": 200 },
+                  "message": { "type": "string", "example": "Agent created successfully" },
+                  "data": { "$ref": "#/components/schemas/Agent" }
                 }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
           }
         },
-        "security": [
-          { "bearerAuth": [] },
-          { "apiKey": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
+        "400": {
+          "description": "Unexpected error",
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Error" }
+            }
+          }
         }
+      },
+      "security": [
+        { "bearerAuth": [] },
+        { "apiKey": [] }
+      ],
+      "x-mint": {
+        "mcp": { "enabled": true }
       }
-    },
+    }
+  },
     "/calls": {
       "get": {
         "operationId": "getCalls",
@@ -317,131 +317,37 @@
   },
   "components": {
     "schemas": {
+      "NewAgent": {
+        "type": "object",
+        "required": ["workspaceId", "type"],
+        "properties": {
+          "workspaceId": {
+            "type": "string",
+            "example": "683578ec8ac922546dbaadaa"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["outbound", "inbound"],
+            "example": "outbound"
+          }
+        }
+      },
       "Agent": {
         "type": "object",
         "properties": {
           "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
           "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
           "name": { "type": "string", "example": "My Outbound Assistant" },
-          "type": { "type": "string", "example": "outbound" },
-          "category": { "type": "string", "example": "general" },
-          "description": { "type": "string", "example": "AI assistant for voice calls" },
-          "image": { "type": "string", "format": "uri", "example": "https://voicemart.ai/assistant-icons/default.png" },
-          "features": { "type": "array", "items": { "type": "string" }, "example": [] },
-          "popularity": { "type": "integer", "example": 0 },
-          "voiceConfig": {
-            "type": "object",
-            "properties": {
-              "provider": { "type": "string", "example": "elevenlabs" },
-              "voiceId": { "type": "string", "example": "emily" },
-              "language": { "type": "string", "example": "en-US" },
-              "patienceLevel": { "type": "integer", "example": 1 },
-              "speed": { "type": "integer", "example": 1 },
-              "pitch": { "type": "integer", "example": 1 },
-              "latency": { "type": "number", "example": 0.5 },
-              "stability": { "type": "number", "example": 0.5 },
-              "styleExaggeration": { "type": "number", "example": 0.75 },
-              "similarity": { "type": "number", "example": 0.8 },
-              "voicePromptType": { "type": "string", "nullable": true, "example": null },
-              "voicePrompt": { "type": "string", "nullable": true, "example": null }
-            }
-          },
-          "aiModel": {
-            "type": "object",
-            "properties": {
-              "provider": { "type": "string", "example": "openai" },
-              "model": { "type": "string", "example": "gpt-4" },
-              "temperature": { "type": "number", "example": 0.7 },
-              "maxTokens": { "type": "integer", "example": 200 }
-            }
-          },
-          "callConfig": {
-            "type": "object",
-            "properties": {
-              "timeZone": { "type": "string", "example": "UTC" },
-              "maxDuration": { "type": "integer", "example": 600 },
-              "voicemailDetection": {
-                "type": "object",
-                "properties": {
-                  "enabled": { "type": "boolean", "example": true },
-                  "type": { "type": "string", "example": "ml-based" }
-                }
-              },
-              "recordingEnabled": { "type": "boolean", "example": true },
-              "transcriptionEnabled": { "type": "boolean", "example": true },
-              "speakerBoost": { "type": "boolean", "example": false },
-              "idleReminders": {
-                "type": "array",
-                "items": { "type": ["boolean", "number"] },
-                "example": [false, 0.75]
-              },
-              "backGroundNoiseEnv": { "type": "string", "nullable": true, "example": null },
-              "limitCallDuration": {
-                "type": "array",
-                "items": { "type": ["boolean", "number"] },
-                "example": [false, 20]
-              },
-              "backGroundNoiseLevel": { "type": "string", "nullable": true, "example": null },
-              "backGroundNoiseThreshold": { "type": "number", "example": 0.75 },
-              "backGroundNoiseTimeout": { "type": "integer", "example": 10 },
-              "backGroundNoiseTimeoutThreshold": { "type": "number", "example": 0.75 },
-              "backGroundNoiseTimeoutInterval": { "type": "integer", "example": 10 }
-            }
-          },
-          "fillerWords": { "type": "boolean", "example": false },
-          "status": { "type": "boolean", "example": true },
-          "customVocabulary": { "type": "array", "items": { "type": "string" }, "example": [] },
-          "timezone": { "type": "string", "example": "India" },
-          "greeting": { "type": "string", "example": "Hello! How can I assist you today?" },
-          "prompt": { "type": "string", "example": "You are a helpful AI assistant focused on providing accurate and friendly responses." },
-          "knowledgeBases": { "type": "array", "items": { "type": "string" }, "example": [] },
-          "actions": { "type": "array", "items": { "type": "string" }, "example": [] },
-          "deployment": {
-            "type": "object",
-            "properties": {
-              "status": { "type": "string", "example": "draft" },
-              "version": { "type": "integer", "example": 1 },
-              "deployedAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
-              "lastUpdated": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.949000" },
-              "error": { "type": "string", "nullable": true, "example": null }
-            }
-          },
-          "stats": {
-            "type": "object",
-            "properties": {
-              "totalCalls": { "type": "integer", "example": 0 },
-              "successRate": { "type": "number", "example": 1 },
-              "avgCallDuration": { "type": "integer", "example": 0 },
-              "lastCallAt": { "type": "string", "format": "date-time", "example": null }
-            }
-          },
-          "templateCategory": { "type": "string", "nullable": true, "example": null },
-          "industry": { "type": "string", "nullable": true, "example": null },
-          "recommendedActions": { "type": "array", "items": { "type": "string" }, "example": [] },
-          "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
-          "updatedAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" }
+          "type": { "type": "string", "example": "outbound" }
+          // Add other fields from your response JSON if needed, but this is the minimum
         }
       },
-      "NewAgent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Agent"
-          },
-          {
-            "required": ["workspaceId", "type"],
-            "properties": {
-              "workspaceId": {
-                "type": "string",
-                "example": "683578ec8ac922546dbaadaa"
-              },
-              "type": {
-                "type": "string",
-                "enum": ["outbound", "inbound"],
-                "example": "outbound"
-              }
-            }
-          }
-        ]
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "integer", "example": 400 },
+          "message": { "type": "string", "example": "Unexpected error" }
+        }
       },
       "Call": {
         "required": ["agentId"],
