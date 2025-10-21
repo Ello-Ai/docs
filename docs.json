@@ -43,7 +43,7 @@
             "pages": [
               "GET /api/assistants/get",
               "POST /api/assistants/create",
-              "PUT api/assistants/update-simple"
+              "PUT /api/assistants/update-simple"
     
             ]
           },
