@@ -242,6 +242,7 @@
         ],
         "requestBody": {
           "description": "Agent details to update",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
