@@ -177,12 +177,12 @@
     "basePath": "/api-reference",
     "files": [
       {
-        "path": "openapi-bearer.json",
-        "label": "Bearer Token Auth"
-      },
-      {
         "path": "openapi-apikey.json",
         "label": "API Key Auth"
+      },
+      {
+        "path": "openapi-bearer.json",
+        "label": "Bearer Token Auth"
       }
     ]
   }
