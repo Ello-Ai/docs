@@ -609,7 +609,7 @@
             "content": {
               "application/json": {
                 "example": {
-                  "status": 200,
+                  "status": 201,
                   "message": "Knowledge base created successfully",
                   "data": {
                     "name": "Harshu Test KB",
@@ -790,6 +790,7 @@
             "enabled": true }
         }
       }
+     }
     },
     "components": {
       "schemas": {
