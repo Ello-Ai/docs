@@ -790,7 +790,7 @@
             "enabled": true }
         }
       }
-      }
+    }
   },
     "components": {
       "schemas": {
@@ -908,7 +908,23 @@
             "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
             "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
           }
-        },
+      },
+      "KnowledgeBase": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "example": "Harshu Test KB" },
+          "description": { "type": "string", "example": "Test voice calls" },
+          "type": { "type": "string", "example": "documents" },
+          "sources": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/KnowledgeBaseSource" }
+          },
+          "_id": { "type": "string", "example": "684052e7347bf47f785799e2" },
+          "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
+          "createdAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" },
+          "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
+        }
+      },
       "securitySchemes": {
         "apiKey": {
           "type": "apiKey",
