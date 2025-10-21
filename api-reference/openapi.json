@@ -400,6 +400,19 @@
           }
         }
       },
+      "UpdateAgent": {
+        "type": "object",
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "example": "683c0129ea0c6f3e9b2ae326"
+          },
+          "status": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
       "Agent": {
         "type": "object",
         "properties": {
