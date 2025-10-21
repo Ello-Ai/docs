@@ -701,7 +701,6 @@
         }
       }
     },
-
     "/calls": {
       "get": {
         "operationId": "getCalls",
@@ -790,7 +789,6 @@
             "enabled": true }
         }
       }
-    }
     },
     "components": {
       "schemas": {
