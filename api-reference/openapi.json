@@ -561,7 +561,6 @@
           }
         }
      },
-    
     "/calls": {
       "get": {
         "operationId": "getCalls",
@@ -607,8 +606,7 @@
           "mcp": {
             "enabled": true }
           }
-        }
-      },
+        },
       "post": {
         "operationId": "createCall",
         "tags": ["Calls"],
@@ -651,8 +649,7 @@
             "enabled": true }
         }
       }
-     }
-    },
+      },
     "components": {
       "schemas": {
         "NewAgent": {
