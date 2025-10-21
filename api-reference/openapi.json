@@ -550,7 +550,6 @@
             "mcp": { "enabled": true }
           }
         }
-      }
     },
     "/calls": {
       "get": {
