@@ -339,7 +339,6 @@
           "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
           "name": { "type": "string", "example": "My Outbound Assistant" },
           "type": { "type": "string", "example": "outbound" }
-          // Add other fields from your response JSON if needed, but this is the minimum
         }
       },
       "Error": {
