@@ -549,7 +549,7 @@
           "x-mint": {
             "mcp": { "enabled": true }
           }
-        }
+       }
     },
     "/api/assistants/delete": {
         "delete": {
@@ -723,6 +723,7 @@
             "mcp": { "enabled": true }
           }
         }
+      }
     },
     "/calls": {
       "get": {
