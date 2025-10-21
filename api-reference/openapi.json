@@ -747,7 +747,8 @@
           "mcp": {
             "enabled": true }
           }
-        },
+        }
+      },
       "post": {
         "operationId": "createCall",
         "tags": ["Calls"],
@@ -792,7 +793,7 @@
       }
     }
   },
-    "components": {
+  "components": {
     "schemas": {
       "KnowledgeBaseSource": {
         "type": "object",
