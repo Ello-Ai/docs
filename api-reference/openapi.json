@@ -179,10 +179,10 @@
         "operationId": "createAgent",
         "tags": ["Agents"],
         "summary": "Create Agent",
-        "required": true,
         "description": "Creates a new agent",
         "requestBody": {
           "description": "Agent details to create",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
