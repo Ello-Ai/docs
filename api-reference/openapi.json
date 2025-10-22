@@ -338,6 +338,7 @@
                   },
                   "status": { 
                     "type": "boolean", 
+                    "enum": ["inbound", "outbound"],
                     "example": false 
                   }
                 },
