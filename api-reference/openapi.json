@@ -239,19 +239,17 @@
             "description": "Unique identifier of the agent to update",
             "required": true,
             "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
-          }
-        ],
-        "requestBody": {
-          "description": "Agent details to update",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateAgent"
-              }
-            }
           },
-        },
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "description": "Unique identifier of the workspace to update",
+            "required": true,
+            "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
+          }
+
+        ],
+        
         "responses": {
           "200": {
             "description": "Agent updated successfully",
