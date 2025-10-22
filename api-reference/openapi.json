@@ -796,6 +796,191 @@
         }
       }
     },
+    "/api/knowledge-base/get": {
+      "get": {
+        "operationId": "getKnowledgeBase",
+        "tags": ["Knowledge"],
+        "summary": "Get Knowledge Base",
+        "description": "Retrieves a knowledge base by workspace and kb ID with pagination",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "description": "Unique identifier of the workspace",
+            "required": true,
+            "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
+          },
+          {
+            "name": "kb_id",
+            "in": "query",
+            "description": "Unique identifier of the knowledge base",
+            "required": true,
+            "schema": { "type": "string", "example": "6835c55f364fa2843bc168e5" }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page",
+            "required": false,
+            "schema": { "type": "integer", "example": 10 }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number to retrieve",
+            "required": false,
+            "schema": { "type": "integer", "example": 1 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Knowledge base retrieved successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": 200,
+                  "message": "Knowledge base retrieved successfully",
+                  "data": {
+                    "_id": "684044d40eecbc4fee60d2fe",
+                    "workspaceId": "683ea9dbea7c50a81708dae7",
+                    "name": "Harshu Test KB",
+                    "description": "Test voice calls",
+                    "type": "documents",
+                    "sources": {
+                      "data": [
+                        {
+                          "_id": "684044d40eecbc4fee60d2ff",
+                          "type": "pdf",
+                          "fileType": null,
+                          "name": "sample1.pdf",
+                          "content": null,
+                          "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
+                          "filePath": null,
+                          "status": "completed",
+                          "error": null,
+                          "createdAt": "2025-06-04T13:06:28.024000",
+                          "updatedAt": "2025-06-04T13:06:28.024000",
+                          "metadata": {
+                            "fileName": "sample1.pdf",
+                            "fileType": "pdf",
+                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf",
+                            "websiteName": null,
+                            "description": null
+                          }
+                        },
+                        {
+                          "_id": "684044d40eecbc4fee60d300",
+                          "type": "pdf",
+                          "fileType": null,
+                          "name": "sample2.pdf",
+                          "content": null,
+                          "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
+                          "filePath": null,
+                          "status": "completed",
+                          "error": null,
+                          "createdAt": "2025-06-04T13:06:28.024000",
+                          "updatedAt": "2025-06-04T13:06:28.024000",
+                          "metadata": {
+                            "fileName": "sample2.pdf",
+                            "fileType": "pdf",
+                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf",
+                            "websiteName": null,
+                            "description": null
+                          }
+                        },
+                        {
+                          "_id": "684044d40eecbc4fee60d301",
+                          "type": "link",
+                          "fileType": null,
+                          "name": "Kids Journey",
+                          "content": null,
+                          "url": "https://kids.nationalgeographic.com/",
+                          "filePath": null,
+                          "status": "completed",
+                          "error": null,
+                          "createdAt": "2025-06-04T13:06:28.024000",
+                          "updatedAt": "2025-06-04T13:06:28.024000",
+                          "metadata": {
+                            "fileName": null,
+                            "fileType": null,
+                            "fileKey": null,
+                            "websiteName": "Kids Journey",
+                            "description": ""
+                          }
+                        },
+                        {
+                          "_id": "684044d40eecbc4fee60d302",
+                          "type": "txt",
+                          "fileType": null,
+                          "name": "Company",
+                          "content": "Hey, there how are you !!",
+                          "url": null,
+                          "filePath": null,
+                          "status": "completed",
+                          "error": null,
+                          "createdAt": "2025-06-04T13:06:28.024000",
+                          "updatedAt": "2025-06-04T13:06:28.024000",
+                          "metadata": {
+                            "fileName": null,
+                            "fileType": null,
+                            "fileKey": null,
+                            "websiteName": null,
+                            "description": ""
+                          }
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 10,
+                        "total": 4,
+                        "totalPages": 1,
+                        "hasNextPage": false,
+                        "hasPrevPage": false,
+                        "sort_by": "updatedAt",
+                        "sort_order": "desc"
+                      }
+                    },
+                    "status": true,
+                    "createdAt": "2025-06-04T13:06:28.037000",
+                    "updatedAt": "2025-06-04T13:06:28.037000",
+                    "sourceCounts": {
+                      "total": 4,
+                      "files": 2,
+                      "links": 1,
+                      "docs": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "404": {
+            "description": "Knowledge base not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
+
     "/calls": {
       "get": {
         "operationId": "getCalls",
