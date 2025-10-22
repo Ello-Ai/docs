@@ -337,8 +337,7 @@
                     "example": "683c0129ea0c6f3e9b2ae326" 
                   },
                   "status": { 
-                    "type": "string", 
-                    "enum": ["Active", "Inactive"],
+                    "type": "boolean", 
                     "example": false 
                   }
                 },
