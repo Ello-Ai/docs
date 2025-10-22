@@ -662,171 +662,70 @@
         "tags": ["Knowledge Base"],
         "summary": "Create Knowledge Base",
         "description": "Creates a new knowledge base with various source types including links, text, and file uploads",
-        "requestBody": {
-          "description": "Knowledge base details to create",
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "required": ["name", "description", "workspaceId", "type"],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "Harshu Test KB"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "Test voice calls"
-                  },
-                  "workspaceId": {
-                    "type": "string",
-                    "example": "683ea9dbea7c50a81708dae7"
-                  },
-                  "type": {
-                    "type": "string",
-                    "enum": ["documents", "links", "text"],
-                    "example": "documents"
-                  },
-                  "sources": {
-                    "type": "array",
-                    "description": "List of data sources (files, links, or text)",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": ["pdf", "link", "txt"],
-                          "example": "pdf"
-                        },
-                        "name": {
-                          "type": "string",
-                          "example": "Company Policy"
-                        },
-                        "url": {
-                          "type": "string",
-                          "format": "uri",
-                          "nullable": true,
-                          "example": "https://kids.nationalgeographic.com/"
-                        },
-                        "content": {
-                          "type": "string",
-                          "nullable": true,
-                          "example": "Hey, there how are you !!"
-                        },
-                        "file": {
-                          "type": "string",
-                          "format": "binary",
-                          "description": "Upload PDF or text file"
-                        }
-                      }
+        "/api/knowledge-base/create": {
+          "post": {
+            "summary": "Create Knowledge Base",
+            "tags": ["Knowledge Base"],
+            "description": "Creates a knowledge base with links, text, and PDFs",
+              "requestBody": {
+            "required": true,
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "required": ["name", "description", "workspaceId", "type"],
+                  "properties": {
+                    "name": { "type": "string", "example": "Harshu Test KB" },
+                    "description": { "type": "string", "example": "Test voice calls" },
+                    "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
+                    "type": {
+                      "type": "string",
+                      "enum": ["documents", "links", "text"],
+                      "example": "documents"
+                    },
+                    "sources": {
+                      "type": "string",
+                      "description": "JSON array as string — each item can have {type, name, url, content}",
+                      "example": "[{\"type\": \"link\", \"name\": \"Kids Journey\", \"url\": \"https://kids.nationalgeographic.com/\"}, {\"type\": \"txt\", \"name\": \"Company\", \"content\": \"Hey there!\"}]"
+                    },
+                    "file1": {
+                      "type": "string",
+                      "format": "binary",
+                      "description": "Upload first PDF file"
+                    },
+                    "file2": {
+                      "type": "string",
+                      "format": "binary",
+                      "description": "Upload second PDF file"
                     }
                   }
-                }
-              },
-              "encoding": {
-                "sources.file": {
-                  "contentType": ["application/pdf", "text/plain"]
+                },
+                "encoding": {
+                  "file1": { "contentType": ["application/pdf", "text/plain"] },
+                  "file2": { "contentType": ["application/pdf", "text/plain"] }
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Knowledge base created successfully",
-            "content": {
-              "application/json": {
-                "example": {
-                  "status": 201,
-                  "message": "Knowledge base created successfully",
-                  "data": {
-                    "name": "Harshu Test KB",
-                    "description": "Test voice calls",
-                    "type": "documents",
-                    "sources": [
-                      {
-                        "type": "pdf",
-                        "name": "sample1.pdf",
-                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
-                        "content": null,
-                        "metadata": {
-                          "fileName": "sample1.pdf",
-                          "fileType": "pdf",
-                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e3",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "pdf",
-                        "name": "sample2.pdf",
-                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
-                        "content": null,
-                        "metadata": {
-                          "fileName": "sample2.pdf",
-                          "fileType": "pdf",
-                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf"
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e4",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "link",
-                        "name": "Kids Journey",
-                        "url": "https://kids.nationalgeographic.com/",
-                        "content": null,
-                        "metadata": {
-                          "websiteName": "Kids Journey",
-                          "description": ""
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e5",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      },
-                      {
-                        "type": "txt",
-                        "name": "Company",
-                        "url": null,
-                        "content": "Hey, there how are you !!",
-                        "metadata": {
-                          "description": ""
-                        },
-                        "lastSync": null,
-                        "_id": "684052e7347bf47f785799e6",
-                        "createdAt": "2025-06-04T14:06:31.374254",
-                        "updatedAt": "2025-06-04T14:06:31.374254"
-                      }
-                    ],
-                    "_id": "684052e7347bf47f785799e2",
-                    "workspaceId": "683ea9dbea7c50a81708dae7",
-                    "createdAt": "2025-06-04T14:06:31.374254",
-                    "updatedAt": "2025-06-04T14:06:31.374254"
+          },
+          "responses": {
+            "201": {
+              "description": "Knowledge base created successfully",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": 201,
+                    "message": "Knowledge base created successfully",
+                    "data": { "name": "Harshu Test KB", "type": "documents" }
                   }
                 }
               }
             }
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
-          }
-        },
-        "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
+          "security": [
+            { "apiKey": [] },
+            { "bearerAuth": [] }
+          ]
+         }
         }
       }
     },
@@ -1169,95 +1068,95 @@
       }
     },
     "/calls": {
-      "get": {
-        "operationId": "getCalls",
-        "tags": ["Calls"],
-        "description": "Returns all calls the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "get": {
+          "operationId": "getCalls",
+          "tags": ["Calls"],
+          "description": "Returns all calls the user has access to",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "The maximum number of results to return",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Call response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Call"
+          ],
+          "responses": {
+            "200": {
+              "description": "Call response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Call"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
                   }
                 }
               }
             }
           },
-          "400": {
-            "description": "Unexpected error",
+          "x-mint": {
+            "mcp": {
+              "enabled": true }
+            }
+        },
+        "post": {
+          "operationId": "createCall",
+          "tags": ["Calls"],
+          "description": "Creates a new call",
+          "requestBody": {
+            "description": "Call details to add",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/NewCall"
                 }
               }
-            }
-          }
-        },
-        "x-mint": {
-          "mcp": {
-            "enabled": true }
-          }
-      },
-      "post": {
-        "operationId": "createCall",
-        "tags": ["Calls"],
-        "description": "Creates a new call",
-        "requestBody": {
-          "description": "Call details to add",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewCall"
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Call created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Call"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
               }
             }
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Call created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Call"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "x-mint": {
+            "mcp": {
+              "enabled": true }
           }
-        },
-        "x-mint": {
-          "mcp": {
-            "enabled": true }
         }
       }
-    }
-  },
+    },
     "components": {
       "schemas": {
         "KnowledgeBaseSource": {
