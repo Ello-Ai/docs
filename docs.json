@@ -48,15 +48,7 @@
               "DELETE /api/assistants/delete"
             ]
           },
-          {
-            "group": "Knowledge",
-            "openapi": "api-reference/openapi.json",
-            "pages": [
-              "POST /api/knowledge-base/create",
-              "GET /knowledge"
-              
-            ]
-          },
+          
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
