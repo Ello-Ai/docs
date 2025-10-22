@@ -980,7 +980,67 @@
         }
       }
     },
-
+    "/api/knowledge-base/delete": {
+      "delete": {
+        "operationId": "deleteKnowledgeBase",
+        "tags": ["Knowledge"],
+        "summary": "Delete Knowledge Base",
+        "description": "Deletes a knowledge base by workspace and kb ID",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "query",
+            "description": "Unique identifier of the workspace",
+            "required": true,
+            "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
+          },
+          {
+            "name": "kb_id",
+            "in": "query",
+            "description": "Unique identifier of the knowledge base",
+            "required": true,
+            "schema": { "type": "string", "example": "68370e3d5b7d04371d20b4e1" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Knowledge base deleted successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": 200,
+                  "message": "Knowledge base deleted successfully",
+                  "data": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "404": {
+            "description": "Knowledge base not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/calls": {
       "get": {
         "operationId": "getCalls",
