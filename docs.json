@@ -36,6 +36,7 @@
               "api-reference/introduction"
             ]
           },
+
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
@@ -149,7 +150,7 @@
       "revisit-after": "7 days",
       "language": "en",
       "copyright": "Copyright 2024",
-      "reply-to": "devops@getello.ai",
+      "reply-to": "deveops@getello.ai",
       "distribution": "global",
       "coverage": "Worldwide",
       "category": "Technology",
@@ -176,12 +177,12 @@
     "basePath": "/api-reference",
     "files": [
       {
-        "path": "openapi-bearer.json",
-        "label": "Bearer Token Auth"
-      },
-      {
         "path": "openapi-apikey.json",
         "label": "API Key Auth"
+      },
+      {
+        "path": "openapi-bearer.json",
+        "label": "Bearer Token Auth"
       }
     ]
   }
