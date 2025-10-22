@@ -337,7 +337,7 @@
                     "example": "683c0129ea0c6f3e9b2ae326" 
                   },
                   "status": { 
-                    "type": "boolean", 
+                    "type": "string", 
                     "enum": ["inbound", "outbound"],
                     "example": false 
                   }
