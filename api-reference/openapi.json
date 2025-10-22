@@ -778,17 +778,17 @@
                 }
               }
             }
-          },
-          "security": [
-              { "apiKey": [] },
-              { "bearerAuth": [] }
-          ],
-          "x-mint": {
-              "mcp": { "enabled": true }
-            }
            }
-         }
-      },
+          },
+        "security": [
+            { "apiKey": [] },
+            { "bearerAuth": [] }
+        ],
+        "x-mint": {
+            "mcp": { "enabled": true }
+            }
+          }
+        },
     "/calls": {
       "get": {
         "operationId": "getCalls",
