@@ -189,7 +189,9 @@
                 "type": "object",
                 "properties": {
                   "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
-                  "type": { "type": "string", "example": "outbound" }
+                  "type": {  "type": "string",
+                    "enum": ["inbound", "outbound", "chatgpt", "agent builder"],
+                    "example": "outbound" }
                 },
                 "required": ["workspaceId", "type"]
               }
