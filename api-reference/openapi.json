@@ -678,32 +678,38 @@
                     "example": "documents"
                   },
                   "sources": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "type": { "type": "string", "enum": ["pdf","link","txt"] },
-                          "name": { "type": "string" },
-                          "url": { "type": "string", "nullable": true, "format": "uri" },
-                          "content": { "type": "string", "nullable": true }
-                        }
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "type": "string", "enum": ["pdf","link","txt"] },
+                        "name": { "type": "string" },
+                        "url": { "type": "string", "nullable": true, "format": "uri" },
+                        "content": { "type": "string", "nullable": true }
                       }
-                    },
-                "responses": {
-                  "201": {
-                  "description": "Knowledge base created successfully",
-                  "content": {
-                    "application/json": {
-                      "schema": { "$ref": "#/components/schemas/KnowledgeBase" }
                     }
                   }
-                },
-                "security": [
-                  { "apiKey": [] },
-                  { "bearerAuth": [] }
-                ]
+                }
               }
-            },
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Knowledge base created successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/KnowledgeBase" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ]
+      }
+    },
     "/api/knowledge-base/get": {
       "get": {
         "operationId": "getKnowledgeBase",
