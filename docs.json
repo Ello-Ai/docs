@@ -52,8 +52,8 @@
             "group": "Knowledge",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "POST /api/knowledge-base/create",
-              "GET /api/knowledge-base/get"
+              "POST /api/knowledge-base/create"
+              
             ]
           },
           {
