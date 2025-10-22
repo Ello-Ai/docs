@@ -49,10 +49,11 @@
             ]
           },
           {
-            "group": "Knowledge",
+            "group": "Knowledge Base",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "POST /api/knowledge-base/create"
+              "POST /api/knowledge-base/create",
+              "GET /api/get"
             ]
           },
           {
