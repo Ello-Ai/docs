@@ -323,17 +323,30 @@
             "description": "Unique identifier of the agent to update",
             "required": true,
             "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
-          },
-          {
-            "name": "workspaceId",
-            "in": "query",
-            "description": "Unique identifier of the workspace to update",
-            "required": true,
-            "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
           }
-
         ],
-        
+        "requestBody": {
+          "description": "Agent fields to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "workspaceId": { 
+                    "type": "string", 
+                    "example": "683c0129ea0c6f3e9b2ae326" 
+                  },
+                  "status": { 
+                    "type": "boolean", 
+                    "example": false 
+                  }
+                },
+                "required": ["workspaceId", "status"]
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "Agent updated successfully",
