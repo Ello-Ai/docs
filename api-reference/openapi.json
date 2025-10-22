@@ -662,70 +662,137 @@
         "tags": ["Knowledge Base"],
         "summary": "Create Knowledge Base",
         "description": "Creates a new knowledge base with various source types including links, text, and file uploads",
-        "/api/knowledge-base/create": {
-          "post": {
-            "summary": "Create Knowledge Base",
-            "tags": ["Knowledge Base"],
-            "description": "Creates a knowledge base with links, text, and PDFs",
-              "requestBody": {
-            "required": true,
+        "requestBody": {
+          "description": "Knowledge base details to create",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "description", "workspaceId"],
+                "properties": {
+                  "name": { "type": "string", "example": "Harshu Test KB" },
+                  "description": { "type": "string", "example": "Test voice calls" },
+                  "workspaceId": { "type": "string", "example": "{{workspace_id}}" },
+                  "Kids Journey": { "type": "string", "format": "uri", "example": "https://kids.nationalgeographic.com/" },
+                  "Company_text": { "type": "string", "example": "Hey, there how are you !!" },
+                  "File Upload1": {
+                    "type": "array",
+                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9" }
+                  },
+                  "File Upload2": {
+                    "type": "array",
+                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7" }
+                  }
+                }
+              },
+              "example": {
+                "name": "Harshu Test KB",
+                "description": "Test voice calls",
+                "workspaceId": "{{workspace_id}}",
+                "Kids Journey": "https://kids.nationalgeographic.com/",
+                "Company_text": "Hey, there how are you !!",
+                "File Upload1": ["postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9"],
+                "File Upload2": ["postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Knowledge base created successfully",
             "content": {
-              "multipart/form-data": {
-                "schema": {
-                  "type": "object",
-                  "required": ["name", "description", "workspaceId", "type"],
-                  "properties": {
-                    "name": { "type": "string", "example": "Harshu Test KB" },
-                    "description": { "type": "string", "example": "Test voice calls" },
-                    "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
-                    "type": {
-                      "type": "string",
-                      "enum": ["documents", "links", "text"],
-                      "example": "documents"
-                    },
-                    "sources": {
-                      "type": "string",
-                      "description": "JSON array as string — each item can have {type, name, url, content}",
-                      "example": "[{\"type\": \"link\", \"name\": \"Kids Journey\", \"url\": \"https://kids.nationalgeographic.com/\"}, {\"type\": \"txt\", \"name\": \"Company\", \"content\": \"Hey there!\"}]"
-                    },
-                    "file1": {
-                      "type": "string",
-                      "format": "binary",
-                      "description": "Upload first PDF file"
-                    },
-                    "file2": {
-                      "type": "string",
-                      "format": "binary",
-                      "description": "Upload second PDF file"
-                    }
+              "application/json": {
+                "example": {
+                  "status": 201,
+                  "message": "Knowledge base created successfully",
+                  "data": {
+                    "name": "Harshu Test KB",
+                    "description": "Test voice calls",
+                    "type": "documents",
+                    "sources": [
+                      {
+                        "type": "pdf",
+                        "name": "sample1.pdf",
+                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
+                        "content": null,
+                        "metadata": {
+                          "fileName": "sample1.pdf",
+                          "fileType": "pdf",
+                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e3",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "pdf",
+                        "name": "sample2.pdf",
+                        "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
+                        "content": null,
+                        "metadata": {
+                          "fileName": "sample2.pdf",
+                          "fileType": "pdf",
+                          "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf"
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e4",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "link",
+                        "name": "Kids Journey",
+                        "url": "https://kids.nationalgeographic.com/",
+                        "content": null,
+                        "metadata": {
+                          "websiteName": "Kids Journey",
+                          "description": ""
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e5",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      },
+                      {
+                        "type": "txt",
+                        "name": "Company",
+                        "url": null,
+                        "content": "Hey, there how are you !!",
+                        "metadata": {
+                          "description": ""
+                        },
+                        "lastSync": null,
+                        "_id": "684052e7347bf47f785799e6",
+                        "createdAt": "2025-06-04T14:06:31.374254",
+                        "updatedAt": "2025-06-04T14:06:31.374254"
+                      }
+                    ],
+                    "_id": "684052e7347bf47f785799e2",
+                    "workspaceId": "683ea9dbea7c50a81708dae7",
+                    "createdAt": "2025-06-04T14:06:31.374254",
+                    "updatedAt": "2025-06-04T14:06:31.374254"
                   }
-                },
-                "encoding": {
-                  "file1": { "contentType": ["application/pdf", "text/plain"] },
-                  "file2": { "contentType": ["application/pdf", "text/plain"] }
                 }
               }
             }
           },
-          "responses": {
-            "201": {
-              "description": "Knowledge base created successfully",
-              "content": {
-                "application/json": {
-                  "example": {
-                    "status": 201,
-                    "message": "Knowledge base created successfully",
-                    "data": { "name": "Harshu Test KB", "type": "documents" }
-                  }
-                }
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
-          },
-          "security": [
-            { "apiKey": [] },
-            { "bearerAuth": [] }
-          ]
-         }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
         }
       }
     },
