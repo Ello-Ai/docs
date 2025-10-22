@@ -54,6 +54,7 @@
             "pages": [
               "POST /api/knowledge-base/create",
               "GET /api/knowledge-base/get",
+              "GET /api/knowledge-base/list",
               "DELETE /api/knowledge-base/delete"
             ]
           },
