@@ -338,7 +338,7 @@
                   },
                   "status": { 
                     "type": "string", 
-                    "enum": ["inbound", "outbound"],
+                    "enum": ["Active", "Inactive"],
                     "example": false 
                   }
                 },
