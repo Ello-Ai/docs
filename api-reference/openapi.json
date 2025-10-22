@@ -678,49 +678,32 @@
                     "example": "documents"
                   },
                   "sources": {
-                    "type": "string",
-                    "description": "JSON array as string — each item can have {type, name, url, content}",
-                    "example": "[{\"type\": \"link\", \"name\": \"Kids Journey\", \"url\": \"https://kids.nationalgeographic.com/\"}, {\"type\": \"txt\", \"name\": \"Company\", \"content\": \"Hey there!\"}]"
-                  },
-                  "file1": {
-                    "type": "string",
-                    "format": "binary",
-                    "description": "Upload first PDF file"
-                  },
-                  "file2": {
-                    "type": "string",
-                    "format": "binary",
-                    "description": "Upload second PDF file"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": { "type": "string", "enum": ["pdf","link","txt"] },
+                          "name": { "type": "string" },
+                          "url": { "type": "string", "nullable": true, "format": "uri" },
+                          "content": { "type": "string", "nullable": true }
+                        }
+                      }
+                    },
+                "responses": {
+                  "201": {
+                  "description": "Knowledge base created successfully",
+                  "content": {
+                    "application/json": {
+                      "schema": { "$ref": "#/components/schemas/KnowledgeBase" }
+                    }
                   }
-                }
-              },
-              "encoding": {
-                "file1": { "contentType": ["application/pdf", "text/plain"] },
-                "file2": { "contentType": ["application/pdf", "text/plain"] }
+                },
+                "security": [
+                  { "apiKey": [] },
+                  { "bearerAuth": [] }
+                ]
               }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Knowledge base created successfully",
-            "content": {
-              "application/json": {
-                "example": {
-                  "status": 201,
-                  "message": "Knowledge base created successfully",
-                  "data": { "name": "Harshu Test KB", "type": "documents" }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-        ]
-      }
-    },
+            },
     "/api/knowledge-base/get": {
       "get": {
         "operationId": "getKnowledgeBase",
