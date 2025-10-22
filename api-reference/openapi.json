@@ -666,34 +666,68 @@
           "description": "Knowledge base details to create",
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": ["name", "description", "workspaceId"],
+                "required": ["name", "description", "workspaceId", "type"],
                 "properties": {
-                  "name": { "type": "string", "example": "Harshu Test KB" },
-                  "description": { "type": "string", "example": "Test voice calls" },
-                  "workspaceId": { "type": "string", "example": "{{workspace_id}}" },
-                  "Kids Journey": { "type": "string", "format": "uri", "example": "https://kids.nationalgeographic.com/" },
-                  "Company_text": { "type": "string", "example": "Hey, there how are you !!" },
-                  "File Upload1": {
-                    "type": "array",
-                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9" }
+                  "name": {
+                    "type": "string",
+                    "example": "Harshu Test KB"
                   },
-                  "File Upload2": {
+                  "description": {
+                    "type": "string",
+                    "example": "Test voice calls"
+                  },
+                  "workspaceId": {
+                    "type": "string",
+                    "example": "683ea9dbea7c50a81708dae7"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["documents", "links", "text"],
+                    "example": "documents"
+                  },
+                  "sources": {
                     "type": "array",
-                    "items": { "type": "string", "example": "postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7" }
+                    "description": "List of data sources (files, links, or text)",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["pdf", "link", "txt"],
+                          "example": "pdf"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Company Policy"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri",
+                          "nullable": true,
+                          "example": "https://kids.nationalgeographic.com/"
+                        },
+                        "content": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Hey, there how are you !!"
+                        },
+                        "file": {
+                          "type": "string",
+                          "format": "binary",
+                          "description": "Upload PDF or text file"
+                        }
+                      }
+                    }
                   }
                 }
               },
-              "example": {
-                "name": "Harshu Test KB",
-                "description": "Test voice calls",
-                "workspaceId": "{{workspace_id}}",
-                "Kids Journey": "https://kids.nationalgeographic.com/",
-                "Company_text": "Hey, there how are you !!",
-                "File Upload1": ["postman-cloud:///1f03edb7-6cf6-4a70-9a28-1840e6e31ca9"],
-                "File Upload2": ["postman-cloud:///1f03edb7-5cc2-4b40-8d2a-49d668548fa7"]
+              "encoding": {
+                "sources.file": {
+                  "contentType": ["application/pdf", "text/plain"]
+                }
               }
             }
           }
