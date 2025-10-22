@@ -53,7 +53,8 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /api/knowledge-base/create",
-              "GET /api/knowledge-base/get"
+              "GET /api/knowledge-base/get",
+              "DELETE /api/knowledge-base/delete"
             ]
           },
           {
