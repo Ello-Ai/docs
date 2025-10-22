@@ -241,7 +241,7 @@
             "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
           },
           {
-            "name": "workspace_id",
+            "name": "workspaceId",
             "in": "query",
             "description": "Unique identifier of the workspace to update",
             "required": true,
