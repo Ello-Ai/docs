@@ -14,12 +14,6 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
             "group": "Introduction",
             "pages": [
               "api-reference/doc_introduction"
