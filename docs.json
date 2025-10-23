@@ -40,10 +40,8 @@
             "group": "API documentation",
             "pages": [
               "api-reference/introduction"
-            ],
-            "fixed": true
+            ]
           },
-
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
