@@ -15,9 +15,9 @@
         
         "groups": [
           {
-            "group": "Over",
+            "group": "Overview",
             "pages": [
-              "api-reference/doc_introduction"
+              "api-reference/doc_introduction#overview"
             ]
           },
           {
