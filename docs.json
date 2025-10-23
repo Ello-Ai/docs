@@ -14,13 +14,13 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Get started",
+            "group": "Over",
             "pages": [
               "api-reference/doc_introduction#over"
             ]
           },
           {
-            "group": "Overview",
+            "group": "Core",
             "pages": [
               "api-reference/doc_introduction#core"
             ]
