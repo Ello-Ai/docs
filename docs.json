@@ -23,7 +23,8 @@
             "group": "Pricing",
             "pages": [
               "api-reference/pricing"
-            ]
+            ],
+            "fixed": true
           }
         ]
       },
