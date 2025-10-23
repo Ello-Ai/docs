@@ -21,9 +21,9 @@
             ]
           },
           {
-            "group": "Core",
+            "group": "Core ",
             "pages": [
-              "api-reference/doc_introduction"
+              "api-reference/doc_introduction#core"
             ]
           },
           {
