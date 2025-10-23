@@ -14,7 +14,7 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Introduction",
+            "group": "Getting started",
             "pages": [
               "api-reference/doc_introduction"
             ]
@@ -30,12 +30,7 @@
       {
         "tab": "API reference",
         "groups": [
-          {
-            "group": "Introduction",
-            "pages": [
-              "api-reference/doc_introduction"
-            ]
-          },
+          
           {
             "group": "API documentation",
             "pages": [
