@@ -23,8 +23,8 @@
             "group": "Pricing",
             "pages": [
               "api-reference/pricing"
-            ],
-            "fixed": true
+            ]
+            
           }
         ]
       },
@@ -35,7 +35,8 @@
             "group": "API documentation",
             "pages": [
               "api-reference/introduction"
-            ]
+            ],
+            "fixed": true
           },
 
           {
