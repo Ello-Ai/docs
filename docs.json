@@ -12,7 +12,6 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "href": "/api-reference/doc_introduction",
         "groups": [
           {
             "group": "Over",
