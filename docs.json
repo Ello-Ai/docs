@@ -26,6 +26,12 @@
             ]
           },
           {
+            "group": "How",
+            "pages": [
+              "api-reference/doc_introduction#how"
+            ]
+          },
+          {
             "group": "Pricing",
             "pages": [
               "api-reference/pricing"
