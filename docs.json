@@ -21,7 +21,7 @@
           },
           {
             "group": "Core",
-            "label" : "Core Highlights",
+            "tag" : "Core Highlights",
             "pages": [
                  "api-reference/doc_introduction#core-highlights"
             ]
