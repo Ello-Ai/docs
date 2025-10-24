@@ -20,7 +20,12 @@
                  "api-reference/doc_introduction#quickstart"
             ]
           },
-         
+          {
+            "group": "Introduction",
+            "pages": [
+                 "api-reference/doc_introduction#quickstart"
+            ]
+          },
           {
             "group": "Core",
             "summary" : "Core Highlights",
@@ -37,7 +42,7 @@
           {
             "group": "Pricing",
             "pages": [
-                "api-reference/pricing" 
+                {"path": "api-reference/pricing" ,"label": "Intro"}
             ]
           }
         ]
