@@ -24,13 +24,13 @@
           {
             "group": "Core",
             "pages": [
-              "api-reference/doc_introduction#corehighlights"
+              "api-reference/doc_introduction#core"
             ] 
           },
           {
             "group": "How",
             "pages": [
-              "api-reference/doc_introduction#howelloaiworks"
+              "api-reference/doc_introduction#how"
             ]
           },
           {
