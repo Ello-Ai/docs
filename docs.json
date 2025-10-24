@@ -17,19 +17,19 @@
           {
             "group": "Overview",
             "pages": [
-                  { "name": "Overview", "path": "api-reference/doc_introduction#overview" }
+                 "api-reference/doc_introduction#overview"
             ]
           },
           {
             "group": "Core",
             "pages": [
-              { "name": "Core Highlights", "path": "api-reference/doc_introduction#core-highlights" }
+                 "api-reference/doc_introduction#core-highlights"
             ]
           },
           {
             "group": "How",
             "pages": [
-              { "name": "How Ello AI Works", "path": "api-reference/doc_introduction#how-ello-ai-works" }
+                "api-reference/doc_introduction#how-ello-ai-works"
             ]
           },
           {
