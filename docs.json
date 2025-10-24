@@ -24,13 +24,13 @@
           {
             "group": "Core",
             "pages": [
-              "api-reference/doc_introduction#core"
+              "api-reference/doc_introduction#core-highlights"
             ] 
           },
           {
             "group": "How",
             "pages": [
-              "api-reference/doc_introduction#how"
+              "api-reference/doc_introduction#how-ello-ai-works"
             ]
           },
           {
