@@ -17,12 +17,7 @@
           {
             "group": "Overview",
             "pages": [
-              "api-reference/doc_introduction#overview"
-            ]
-          },
-          {
-            "group": "Core ",
-            "pages": [
+              "api-reference/doc_introduction#overview",
               "api-reference/doc_introduction#core"
             ]
           },
