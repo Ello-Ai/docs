@@ -16,25 +16,25 @@
           {
             "group": "Overview",
             "pages": [
-              { "path": "api-reference/Overview", "label": "Overview" }
+              { "path": "api-reference/doc_introduction#overview", "title": "Overview" }
             ]
           },
           {
             "group": "Core",
             "pages": [
-              { "path": "api-reference/Core Highlights", "label": "Core Highlights" }
+              { "path": "api-reference/doc_introduction#core-highlights", "title": "Core Highlights" }
             ]
           },
           {
             "group": "How",
             "pages": [
-              { "path": "api-reference/How Ello AI Works", "label": "How Ello AI Works" }
+              { "path": "api-reference/doc_introduction#how-ello-ai-works", "title": "How Ello AI Works" }
             ]
           },
           {
             "group": "Pricing",
             "pages": [
-              { "path": "api-reference/Pricing", "label": "Pricing" }
+              { "path": "api-reference/pricing", "title": "Pricing" }
             ]
           }
         ]
@@ -42,71 +42,70 @@
       {
         "tab": "API reference",
         "groups": [
-          
           {
             "group": "API documentation",
             "pages": [
-              "api-reference/introduction"
+              { "path": "api-reference/introduction", "title": "Introduction" }
             ]
           },
           {
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/assistants/get",
-              "POST /api/assistants/create",
-              "PUT /api/assistants/update-simple",
-              "GET /api/assistants/list",
-              "DELETE /api/assistants/delete"
+              { "path": "GET /api/assistants/get", "title": "Get Assistants" },
+              { "path": "POST /api/assistants/create", "title": "Create Assistants" },
+              { "path": "PUT /api/assistants/update-simple", "title": "Update Assistants" },
+              { "path": "GET /api/assistants/list", "title": "List Assistants" },
+              { "path": "DELETE /api/assistants/delete", "title": "Delete Assistants" }
             ]
           },
           {
             "group": "Knowledge Base",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "POST /api/knowledge-base/create",
-              "GET /api/knowledge-base/get",
-              "GET /api/knowledge-base/list",
-              "DELETE /api/knowledge-base/delete"
+              { "path": "POST /api/knowledge-base/create", "title": "Create Knowledge Base" },
+              { "path": "GET /api/knowledge-base/get", "title": "Get Knowledge Base" },
+              { "path": "GET /api/knowledge-base/list", "title": "List Knowledge Base" },
+              { "path": "DELETE /api/knowledge-base/delete", "title": "Delete Knowledge Base" }
             ]
           },
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "POST /calls"
+              { "path": "POST /calls", "title": "Create Call" }
             ]
           },
           {
             "group": "Phone Numbers",
             "pages": [
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              { "path": "api-reference/endpoint/create", "title": "Create Phone Number" },
+              { "path": "api-reference/endpoint/delete", "title": "Delete Phone Number" },
+              { "path": "api-reference/endpoint/webhook", "title": "Webhook Phone Number" }
             ]
           },
           {
             "group": "Reference Docs",
             "pages": [
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              { "path": "api-reference/endpoint/create", "title": "Create Reference" },
+              { "path": "api-reference/endpoint/delete", "title": "Delete Reference" },
+              { "path": "api-reference/endpoint/webhook", "title": "Webhook Reference" }
             ]
           },
           {
             "group": "Campaigns",
             "pages": [
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              { "path": "api-reference/endpoint/create", "title": "Create Campaign" },
+              { "path": "api-reference/endpoint/delete", "title": "Delete Campaign" },
+              { "path": "api-reference/endpoint/webhook", "title": "Webhook Campaign" }
             ]
           },
           {
             "group": "Reports",
             "pages": [
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              { "path": "api-reference/endpoint/create", "title": "Create Report" },
+              { "path": "api-reference/endpoint/delete", "title": "Delete Report" },
+              { "path": "api-reference/endpoint/webhook", "title": "Webhook Report" }
             ]
           }
         ]
