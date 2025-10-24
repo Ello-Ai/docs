@@ -14,9 +14,15 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Overview",
+            "group": "Introduction",
             "pages": [
-                 "api-reference/doc_introduction#overview"
+                 "api-reference/doc_introduction#introduction"
+            ]
+          },
+          {
+            "group": "Quickstart",
+            "pages": [
+                 "api-reference/doc_introduction#quickstart"
             ]
           },
           {
