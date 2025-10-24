@@ -2,8 +2,8 @@
 
 <Card icon="sparkles">
   Ello is an enterprise-grade Voice AI platform that lets you create, deploy, and manage self-evolving conversational agents in minutes. Built for scale, reliability, and integration, Ello uses our proprietary **AdaptivePrompt** technology so agents continually improve themselves from real conversation data.
-  
-  <Card title="Deploy in minutes" vertical>
+
+  <Card title="Deploy in minutes">
     Pre-built templates, instant phone provisioning, one-click deploy.
   </Card>
   <Card title="Self-Evolving Agents" horizontal>
@@ -14,7 +14,45 @@
   </Card>
 </Card>
 
+## Quickstart
 
+<Card>
+  Follow these steps to go from zero to a production voice agent in minutes
+
+  **1) Sign up & get credits**
+
+  Start with a 3-day trial (example): you receive \$10 in credits to test voice agents.
+
+  **2) Create an Agent**
+
+  Open the visual conversation builder and choose a template (customer support, appointment booking, surveys).
+
+  ```
+  // Example: minimal agent config (JSON)
+  {
+    "name": "support-agent",
+    "language": "en-US",
+    "flow": [{"id":"greet","type":"message","text":"Hi — how can I help today?"}]
+  }
+  ```
+
+  **3) Configure Integrations**
+
+  Connect your CRM, calendar, or webhook endpoints. Use Zapier/n8n for no-code integrations or the MCP server for deeper integration.
+
+  **4) Provision a Phone Number & Deploy**
+
+  Provision a US number instantly or attach your SIP trunk for international numbers and click _Deploy_.
+
+  ```
+  # Deploy via CLI (example)
+  curl -X POST "https://api.ello.ai/v1/agents"   -H "Authorization: Bearer $ELLO_API_KEY"   -H "Content-Type: application/json"   -d '{"name":"support-agent","template":"support-basic"}'
+  ```
+
+  <Tip>
+    AdaptivePrompt begins to analyze and improve after ~20–30 conversations and often shows measurable gains within the first 1–2 weeks.
+  </Tip>
+</Card>
 
 ## Core Highlights
 
