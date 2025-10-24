@@ -12,34 +12,32 @@
     "tabs": [
       {
         "tab": "Documentation",
-        
         "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-                 "api-reference/doc_introduction#overview"
-            ]
-          },
-          {
-            "group": "Core",
-            "pages": [
-                 "api-reference/doc_introduction#core-highlights"
-            ]
-          },
-          {
-            "group": "How",
-            "pages": [
-                "api-reference/doc_introduction#how-ello-ai-works"
-            ]
-          },
-          {
-            "group": "Pricing",
-            "pages": [
-                "api-reference/pricing" 
-            ]
-          }
-        ]
-
+        {
+          "group": "Overview",
+          "pages": [
+            { "name": "Overview", "path": "api-reference/doc_introduction#overview" }
+          ]
+        },
+        {
+          "group": "Core",
+          "pages": [
+            { "name": "Core Highlights", "path": "api-reference/doc_introduction#core-highlights" }
+          ]
+        },
+        {
+          "group": "How",
+          "pages": [
+            { "name": "How Ello AI Works", "path": "api-reference/doc_introduction#how-ello-ai-works" }
+          ]
+        },
+        {
+          "group": "Pricing",
+          "pages": [
+            { "name": "Pricing", "path": "api-reference/pricing" }
+          ]
+        }
+      ]
       },
       {
         "tab": "API reference",
