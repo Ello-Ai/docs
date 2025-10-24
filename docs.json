@@ -41,7 +41,7 @@
           {
             "group": "Pricing",
             "pages": [
-                {"path": "api-reference/pricing" ,"label": "Intro"}
+                "api-reference/pricing"
             ]
           }
         ]
