@@ -15,23 +15,27 @@
         "groups": [
           {
             "group": "Overview",
-            "displayName": "Overview",
-            "path": "api-reference/doc_introduction#overview"
+            "pages": [
+              { "path": "api-reference/Overview", "label": "Overview" }
+            ]
           },
           {
             "group": "Core",
-            "displayName": "Core Highlights",
-            "path": "api-reference/doc_introduction#core-highlights"
+            "pages": [
+              { "path": "api-reference/Core Highlights", "label": "Core Highlights" }
+            ]
           },
           {
             "group": "How",
-            "displayName": "How Ello AI Works",
-            "path": "api-reference/doc_introduction#how-ello-ai-works"
+            "pages": [
+              { "path": "api-reference/How Ello AI Works", "label": "How Ello AI Works" }
+            ]
           },
           {
             "group": "Pricing",
-            "displayName": "Pricing",
-            "path": "api-reference/pricing"
+            "pages": [
+              { "path": "api-reference/Pricing", "label": "Pricing" }
+            ]
           }
         ]
       },
