@@ -17,15 +17,14 @@
           {
             "group": "Overview",
             "pages": [
-              "index"
-              
+                  { "name": "Overview", "path": "api-reference/doc_introduction#overview" }
             ]
           },
           {
             "group": "Core",
             "pages": [
-              "api-reference/doc_introduction#core-highlights"
-            ] 
+              { "name": "Core Highlights", "path": "api-reference/doc_introduction#core-highlights" }
+            ]
           },
           {
             "group": "How",
@@ -36,10 +35,11 @@
           {
             "group": "Pricing",
             "pages": [
-              "api-reference/pricing"
+              { "name": "Pricing", "path": "api-reference/pricing" }
             ]
           }
         ]
+
       },
       {
         "tab": "API reference",
