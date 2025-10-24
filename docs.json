@@ -30,7 +30,7 @@
           {
             "group": "How",
             "pages": [
-              "api-reference/doc_introduction#how-ello-ai-works"
+              { "name": "How Ello AI Works", "path": "index#how-ello-ai-works" }
             ]
           },
           {
