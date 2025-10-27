@@ -43,6 +43,12 @@
             "pages": [
                 "api-reference/pricing"
             ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+                "api-reference/doc_introduction#faqs"
+            ]
           }
         ]
       },
