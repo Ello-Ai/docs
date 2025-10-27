@@ -16,45 +16,49 @@
           {
             "group": "Introduction",
             "pages": [
-              {
-                "path": "api-reference/doc_introduction#introduction",
-                "title": "Introduction"
-              },
-              {
-                "path": "api-reference/doc_introduction#quickstart",
-                "title": "Quickstart"
-              }
+                 "api-reference/doc_introduction#introduction"
+            ]
+          },
+          {
+            "group": "Introduction",
+            "pages": [
+                 "api-reference/doc_introduction#quickstart"
             ]
           },
           {
             "group": "Core",
             "pages": [
-              {
-                "path": "api-reference/doc_introduction#core-concept-adaptiveprompt",
-                "title": "Core Concept: Adaptive Prompt"
-              },
-              {
-                "path": "api-reference/doc_introduction#core-features",
-                "title": "Core Features"
-              }
+                 "api-reference/doc_introduction#core-concept-adaptiveprompt"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+                "api-reference/doc_introduction#core-features"
             ]
           },
           {
             "group": "Integration",
             "pages": [
-              {
-                "path": "api-reference/doc_introduction#integration",
-                "title": "Integration"
-              }
+                "api-reference/doc_introduction#integration"
             ]
           },
           {
             "group": "Deployment and Telephony",
             "pages": [
-              {
-                "path": "api-reference/doc_introduction#deployment-&-telephony",
-                "title": "Deployment & Telephony"
-              }
+                "api-reference/doc_introduction#deployment-&-telephony"
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+                "api-reference/pricing"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+                "api-reference/doc_introduction#faqs"
             ]
           }
         ]
@@ -62,6 +66,7 @@
       {
         "tab": "API reference",
         "groups": [
+          
           {
             "group": "API documentation",
             "pages": [
