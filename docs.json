@@ -26,9 +26,9 @@
             ]
           },
            {
-            "group": "Core",
+            "group": "Core Concept - AdaptivePrompt",
             "pages": [
-                 "api-reference/doc_introduction#core-concept-adaptiveprompt"
+                 "doc_pages/core_concept"
             ]
           },
           {
