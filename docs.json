@@ -25,10 +25,8 @@
                  "doc-pages/quickstart"
             ]
           },
-           {
-            "pages": [
-                 "doc-pages/core-concept"
-            ]
+          {
+            "pages": ["doc-pages/core-concept"]
           },
           {
             "group": "Core Features",
