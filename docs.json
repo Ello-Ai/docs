@@ -46,7 +46,13 @@
           {
             "group": "Deployment and Telephony",
             "pages": [
-                "doc-pages/deployment-and-telephony"
+                "doc-pages/deployment"
+            ]
+          },
+          {
+            "group": "Analytics & Monitoring",
+            "pages": [
+                "doc-pages/analytics"
             ]
           },
           {
