@@ -1,5 +1,49 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "API"
 ---
 
+<Card>
+  Ello provides REST endpoints, webhooks, and an MCP server for deep integrations. Below are example calls to get you started.
+
+  #### **Authentication**
+
+  All requests require an API key via the Authorization header: `Authorization: Bearer <API_KEY>`.
+
+  #### **Create Agent**
+
+  ```
+  POST /v1/agents
+  Authorization: Bearer $ELLO_API_KEY
+  Content-Type: application/json
+  
+  {
+    "name": "support-agent",
+    "language": "en-US",
+    "template": "support-basic"
+  }
+  ```
+
+  #### **Deploy Agent**
+
+  ```
+  POST /v1/agents/{agent_id}/deploy
+  Authorization: Bearer $ELLO_API_KEY
+  
+  Response: { "status":"deploying","deploy_id":"..." }
+  ```
+
+  #### **Webhooks**
+
+  Subscribe to events such as `call.started`, `call.ended`, `agent.evolution` via your webhook endpoint.
+
+  #### **Realtime (MCP Server)**
+
+  Use the MCP server for streaming call-level events and low-latency control. Contact support for SDKs and setup instructions.
+
+  <Note>
+    Example : simple curl to create an agent (mocked endpoint)
+  </Note>
+  ```
+  curl -X POST "https://api.ello.ai/v1/agents"   -H "Authorization: Bearer $ELLO_API_KEY"   -H "Content-Type: application/json"  
+  ```
+</Card>
