@@ -26,15 +26,15 @@
             ]
           },
            {
-            "group": "Core Concept - AdaptivePrompt",
+            "group": "Core Concept",
             "pages": [
-                 "doc_pages/core-concept"
+                 "doc-pages/core-concept"
             ]
           },
           {
             "group": "Core Features",
             "pages": [
-                "api-reference/doc_introduction#core-features"
+                "doc_pages/core-features"
             ]
           },
           {
