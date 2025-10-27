@@ -16,19 +16,49 @@
           {
             "group": "Introduction",
             "pages": [
-                 {
-              "path": "api-reference/doc_introduction#introduction",
-              "title": "Introduction"
-            }
+                 "api-reference/doc_introduction#introduction"
             ]
           },
           {
-            "group": "Quick start",
+            "group": "Introduction",
             "pages": [
-                 {
-              "path": "api-reference/doc_introduction#quickstart",
-              "title": "Quickstart"
-              }
+                 "api-reference/doc_introduction#quickstart"
+            ]
+          },
+          {
+            "group": "Core",
+            "pages": [
+                 "api-reference/doc_introduction#core-concept-adaptiveprompt"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+                "api-reference/doc_introduction#core-features"
+            ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+                "api-reference/doc_introduction#integration"
+            ]
+          },
+          {
+            "group": "Deployment and Telephony",
+            "pages": [
+                "api-reference/doc_introduction#deployment-&-telephony"
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+                "api-reference/pricing"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+                "api-reference/doc_introduction#faqs"
             ]
           }
         ]
