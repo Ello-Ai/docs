@@ -62,6 +62,12 @@
             ]
           },
           {
+            "group": "API",
+            "pages": [
+                "doc-pages/api"
+            ]
+          },
+          {
             "group": "FAQ",
             "pages": [
                 "doc-pages/faq"
