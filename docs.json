@@ -26,7 +26,10 @@
             ]
           },
           {
-            "pages": ["doc-pages/core-concept"]
+            "group": "Core Features",
+            "pages": [
+                "doc-pages/core-concept"
+            ]
           },
           {
             "group": "Core Features",
