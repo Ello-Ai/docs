@@ -33,9 +33,21 @@
             ]
           },
           {
-            "group": "How",
+            "group": "Core Features",
             "pages": [
-                "api-reference/doc_introduction#how-ello-ai-works"
+                "api-reference/doc_introduction#core-features"
+            ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+                "api-reference/doc_introduction#integration"
+            ]
+          },
+          {
+            "group": "Deployment and Telephony",
+            "pages": [
+                "api-reference/doc_introduction#deployment-and-telephony"
             ]
           },
           {
