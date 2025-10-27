@@ -16,13 +16,19 @@
           {
             "group": "Introduction",
             "pages": [
-                 "api-reference/doc_introduction"
+                 {
+              "path": "api-reference/doc_introduction#introduction",
+              "title": "Introduction"
+            }
             ]
           },
           {
             "group": "Quick start",
             "pages": [
-                 "api-reference/doc_introduction"
+                 {
+              "path": "api-reference/doc_introduction#quickstart",
+              "title": "Quickstart"
+              }
             ]
           },
           {
