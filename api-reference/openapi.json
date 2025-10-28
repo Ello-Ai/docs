@@ -181,11 +181,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "outbound",
-                    "description": "Type of the agent (e.g., inbound or outbound)."
-                  }
+                  "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
+                  "type": {  "type": "string",
+                    "enum": ["inbound", "outbound", "chat", "agent builder"],
+                    "example": "outbound" }
+                },
                 },
                 "required": ["type"]
               }
