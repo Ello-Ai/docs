@@ -311,17 +311,18 @@
           }
         ],
         "requestBody": {
-          "description": "Agent fields to update",
+          "description": "Agent ID to update",
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
                 "properties": {
-                  "status": { 
-                    "type": "boolean", 
-                    "example": false 
+                  "agent_id": {
+                    "type": "string",
+                    "example": "683c0129ea0c6f3e9b2ae326"
                   }
                 },
-                "required": ["status"]
+                "required": ["agent_id"]
               }
             }
           },
