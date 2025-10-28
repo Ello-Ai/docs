@@ -82,11 +82,11 @@
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "/api/agents/{agent_id}",
-              "/api/agents",
-              "/api/agents/{agent_id}",
-              "/api/assistants/list",
-              "/api/assistants/delete"
+              "GET /api/agents/{agent_id}",
+              "POST /api/agents",
+              "PUT /api/agents/{agent_id}",
+              "GET /api/assistants/list",
+              "DELETE /api/assistants/delete"
             ]
           },
           {
