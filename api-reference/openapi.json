@@ -297,17 +297,19 @@
         "operationId": "updateAgent",
         "tags": ["Agents"],
         "summary": "Update Agent",
-        "description": "Updates an existing agent",
+        "description": "Updates an existing agent by ID.",
         "parameters": [
           {
             "name": "agent_id",
             "in": "path",
-            "description": "Unique identifier of the agent to update",
+            "description": "Unique identifier of the agent to update.",
             "required": true,
-            "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
+            "schema": {
+              "type": "string",
+              "example": "683c06debc7538418958bdb9"
+            }
           }
         ],
-        
         "requestBody": {
           "description": "Agent fields to update",
           "content": {
