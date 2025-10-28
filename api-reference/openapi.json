@@ -546,27 +546,99 @@
           "description": "Retrieves a paginated list of agents",
           "parameters": [
             {
-              "name": "workspace_id",
-              "in": "query",
-              "description": "Unique identifier of the workspace",
-              "required": true,
-              "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-            },
-            {
               "name": "limit",
               "in": "query",
-              "description": "Maximum number of results to return per page",
-              "required": true,
-              "schema": { "type": "integer", "example": 10 }
+              "description": "Number of agents per page",
+              "required": false,
+              "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 10, "example": 10 }
             },
             {
               "name": "page",
               "in": "query",
-              "description": "Page number to retrieve",
-              "required": true,
-              "schema": { "type": "integer", "example": 1 }
+              "description": "Page number",
+              "required": false,
+              "schema": { "type": "integer", "minimum": 1, "default": 1, "example": 1 }
+            },
+            {
+              "name": "category",
+              "in": "query",
+              "description": "Filter by agent category",
+              "required": false,
+              "schema": { "type": "string", "example": "sales" }
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "Search in name or description",
+              "required": false,
+              "schema": { "type": "string", "example": "outbound" }
+            },
+            {
+              "name": "sort_field",
+              "in": "query",
+              "description": "Field to sort by",
+              "required": false,
+              "schema": { "type": "string", "default": "createdAt", "example": "createdAt" }
+            },
+            {
+              "name": "sort_order",
+              "in": "query",
+              "description": "Sort direction",
+              "required": false,
+              "schema": { "type": "string", "enum": ["asc", "desc"], "default": "desc", "example": "desc" }
+            },
+            {
+              "name": "startDate",
+              "in": "query",
+              "description": "Filter agents created on or after this date (ISO 8601)",
+              "required": false,
+              "schema": { "type": "string", "format": "date-time", "example": "2025-05-01T00:00:00.000Z" }
+            },
+            {
+              "name": "endDate",
+              "in": "query",
+              "description": "Filter agents created before this date (ISO 8601)",
+              "required": false,
+              "schema": { "type": "string", "format": "date-time", "example": "2025-05-31T23:59:59.999Z" }
             }
           ],
+          "requestBody": {
+            "description": "Advanced filter groups (AND between groups, OR within group)",
+            "required": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "filters": {
+                        "type": "object",
+                        "properties": {
+                          "status": { "type": "boolean", "example": true },
+                          "type": {
+                            "type": "string",
+                            "enum": ["inbound", "outbound", "chat", "agent builder"],
+                            "example": "outbound"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": ["filters"]
+                  },
+                  "example": [
+                    {
+                      "filters": {
+                        "status": true,
+                        "type": "outbound"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
           "responses": {
             "200": {
               "description": "Assistants retrieved successfully",
