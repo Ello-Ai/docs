@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/api/assistants/get": {
+    "/api/agents/{agent_id}": {
       "get": {
         "operationId": "getAgentById",
         "tags": ["Agents"],

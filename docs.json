@@ -82,7 +82,7 @@
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/assistants/get",
+              "GET /api/agents/{agent_id}",
               "POST /api/agents",
               "PUT /api/agents/{agent_id}",
               "GET /api/assistants/list",
