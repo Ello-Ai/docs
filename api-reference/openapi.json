@@ -243,7 +243,99 @@
         "x-mint": {
           "mcp": { "enabled": true }
         }
-      }
+      },
+      "get": {
+          "operationId": "getAssistants",
+          "tags": ["Agents"],
+          "summary": "Get List of Agent",
+          "description": "Retrieves a paginated list of assistants for a specific workspace",
+          "parameters": [
+            {
+              "name": "workspace_id",
+              "in": "query",
+              "description": "Unique identifier of the workspace",
+              "required": true,
+              "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Maximum number of results to return per page",
+              "required": true,
+              "schema": { "type": "integer", "example": 10 }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page number to retrieve",
+              "required": true,
+              "schema": { "type": "integer", "example": 1 }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Assistants retrieved successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 200 },
+                      "message": { "type": "string", "example": "Assistants retrieved successfully" },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
+                            "name": { "type": "string", "example": "My Outbound Assistant" },
+                            "type": { "type": "string", "example": "outbound" },
+                            "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
+                            "voiceEngine": { "type": "string", "example": "elevenlabs" },
+                            "phoneNumber": { "type": "string", "nullable": true, "example": null },
+                            "status": { "type": "boolean", "example": true }
+                          }
+                        }
+                      },
+                      "pagination": {
+                        "type": "object",
+                        "properties": {
+                          "page": { "type": "integer", "example": 1 },
+                          "limit": { "type": "integer", "example": 100 },
+                          "total": { "type": "integer", "example": 2 },
+                          "totalPages": { "type": "integer", "example": 1 },
+                          "hasNextPage": { "type": "boolean", "example": false },
+                          "hasPrevPage": { "type": "boolean", "example": false }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 400 },
+                      "message": { "type": "string", "example": "Unexpected error" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            { "apiKey": [] },
+            { "bearerAuth": [] }
+          ],
+          "x-mint": {
+            "mcp": { "enabled": true }
+          }
+       },
     },
     "/api/agents": {
       "post": {
@@ -368,101 +460,6 @@
           "mcp": { "enabled": true }
         }
       }
-    },
-      
-    "/api/assistants/list": {
-        "get": {
-          "operationId": "getAssistants",
-          "tags": ["Agents"],
-          "summary": "Get List of Agent",
-          "description": "Retrieves a paginated list of assistants for a specific workspace",
-          "parameters": [
-            {
-              "name": "workspace_id",
-              "in": "query",
-              "description": "Unique identifier of the workspace",
-              "required": true,
-              "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-            },
-            {
-              "name": "limit",
-              "in": "query",
-              "description": "Maximum number of results to return per page",
-              "required": true,
-              "schema": { "type": "integer", "example": 10 }
-            },
-            {
-              "name": "page",
-              "in": "query",
-              "description": "Page number to retrieve",
-              "required": true,
-              "schema": { "type": "integer", "example": 1 }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Assistants retrieved successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 200 },
-                      "message": { "type": "string", "example": "Assistants retrieved successfully" },
-                      "data": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-                            "name": { "type": "string", "example": "My Outbound Assistant" },
-                            "type": { "type": "string", "example": "outbound" },
-                            "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
-                            "voiceEngine": { "type": "string", "example": "elevenlabs" },
-                            "phoneNumber": { "type": "string", "nullable": true, "example": null },
-                            "status": { "type": "boolean", "example": true }
-                          }
-                        }
-                      },
-                      "pagination": {
-                        "type": "object",
-                        "properties": {
-                          "page": { "type": "integer", "example": 1 },
-                          "limit": { "type": "integer", "example": 100 },
-                          "total": { "type": "integer", "example": 2 },
-                          "totalPages": { "type": "integer", "example": 1 },
-                          "hasNextPage": { "type": "boolean", "example": false },
-                          "hasPrevPage": { "type": "boolean", "example": false }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 400 },
-                      "message": { "type": "string", "example": "Unexpected error" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "security": [
-            { "apiKey": [] },
-            { "bearerAuth": [] }
-          ],
-          "x-mint": {
-            "mcp": { "enabled": true }
-          }
-       }
     },
     "/api/assistants/delete": {
         "delete": {
