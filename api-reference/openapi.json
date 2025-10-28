@@ -25,13 +25,6 @@
             "required": true,
             "schema": { "type": "string" }
           },
-          {
-            "name": "workspace_id",
-            "in": "query",
-            "description": "Unique identifier of the workspace (e.g., 683715217c8e5fe1361c6faa)",
-            "required": true,
-            "schema": { "type": "string" }
-          }
         ],
         "responses": {
           "200": {
