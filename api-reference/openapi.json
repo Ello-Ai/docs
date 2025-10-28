@@ -24,7 +24,7 @@
             "description": "Unique identifier of the agent (e.g., 683715217c8e5fe1361c6faa)",
             "required": true,
             "schema": { "type": "string" }
-          },
+          }
         ],
         "responses": {
           "200": {
