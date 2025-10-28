@@ -173,7 +173,7 @@
         "operationId": "createAgent",
         "tags": ["Agents"],
         "summary": "Create Agent",
-        "description": "Creates a new agent (assistant) with the specified type and configuration.",
+        "description": "Creates a new agent of specified type.",
         "requestBody": {
           "required": true,
           "content": {
@@ -292,7 +292,7 @@
         }
       }
     },
-    "/api/assistants/update-simple": {
+    "api/agents/{agent_id}": {
       "put": {
         "operationId": "updateAgent",
         "tags": ["Agents"],
@@ -301,12 +301,13 @@
         "parameters": [
           {
             "name": "assistant_id",
-            "in": "query",
+            "in": "path",
             "description": "Unique identifier of the agent to update",
             "required": true,
             "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
           }
         ],
+        
         "requestBody": {
           "description": "Agent fields to update",
           "content": {
