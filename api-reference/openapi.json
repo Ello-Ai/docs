@@ -315,7 +315,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "properties": {
                   "status": { 
                     "type": "boolean", 
