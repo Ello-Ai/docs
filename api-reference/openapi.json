@@ -632,7 +632,6 @@
           }
        },
     },
-    "/api/assistants/delete": {
         
     "/api/knowledge-base/create": {
       "post": {

@@ -86,7 +86,7 @@
               "POST /api/agents",
               "PUT /api/agents/{agent_id}",
               "GET /api/agents",
-              "DELETE /api/assistants/delete"
+              "DELETE /api/agents/{agent_id}"
             ]
           },
           {
