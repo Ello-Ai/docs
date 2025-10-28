@@ -297,7 +297,7 @@
         "operationId": "updateAgent",
         "tags": ["Agents"],
         "summary": "Update Agent",
-        "description": "Updates an existing agent by ID.",
+        "description": "Updates an existing agent using only the agent ID in the path parameters.",
         "parameters": [
           {
             "name": "agent_id",
@@ -310,24 +310,6 @@
             }
           }
         ],
-        "requestBody": {
-          "description": "Agent ID to update",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "agent_id": {
-                    "type": "string",
-                    "example": "683c0129ea0c6f3e9b2ae326"
-                  }
-                },
-                "required": ["agent_id"]
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "Agent updated successfully",
@@ -337,7 +319,7 @@
                   "type": "object",
                   "properties": {
                     "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Assistant updated successfully" },
+                    "message": { "type": "string", "example": "Agent updated successfully" },
                     "data": { "$ref": "#/components/schemas/Agent" }
                   }
                 }
@@ -345,7 +327,7 @@
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "Invalid request or unexpected error",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Error" }
