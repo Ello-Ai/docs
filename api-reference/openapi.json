@@ -292,7 +292,7 @@
         }
       }
     },
-    "/api/agents/update": {
+    "/api/agents/{agent_id}": {
       "put": {
         "operationId": "updateAgent",
         "tags": ["Agents"],
