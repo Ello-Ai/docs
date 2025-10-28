@@ -84,7 +84,7 @@
             "pages": [
               "GET /api/agents/{agent_id}",
               "POST /api/agents",
-              "PUT /api/agents/{agent_id}",
+              "PUT /api/agents/update",
               "GET /api/assistants/list",
               "DELETE /api/assistants/delete"
             ]
