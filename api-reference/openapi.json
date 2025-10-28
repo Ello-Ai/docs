@@ -185,7 +185,7 @@
                   "type": {  "type": "string",
                     "enum": ["inbound", "outbound", "chat", "agent builder"],
                     "example": "outbound" }
-                },
+                  }
                 },
                 "required": ["type"]
               }
