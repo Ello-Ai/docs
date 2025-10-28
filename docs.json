@@ -83,7 +83,7 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "GET /api/agents/{agent_id}",
-              "POST /api/assistants/create",
+              "POST /api/agents",
               "PUT /api/assistants/update-simple",
               "GET /api/assistants/list",
               "DELETE /api/assistants/delete"
