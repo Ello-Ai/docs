@@ -372,7 +372,7 @@
           "operationId": "getAssistants",
           "tags": ["Agents"],
           "summary": "Get List of Agent",
-          "description": "Retrieves a paginated list of assistants for a specific workspace",
+          "description": "Retrieves a paginated list of agents",
           "parameters": [
             {
               "name": "workspace_id",
