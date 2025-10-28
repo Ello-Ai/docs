@@ -341,6 +341,7 @@
         "x-mint": {
           "mcp": { "enabled": true }
         }
+      }
     },
     "/api/assistants/update-simple": {
       "put": {
