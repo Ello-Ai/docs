@@ -300,8 +300,8 @@
         "description": "Updates an existing agent",
         "parameters": [
           {
-            "name": "assistant_id",
-            "in": "query",
+            "name": "agent_id",
+            "in": "path",
             "description": "Unique identifier of the agent to update",
             "required": true,
             "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
