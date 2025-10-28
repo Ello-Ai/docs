@@ -300,7 +300,7 @@
         "description": "Updates an existing agent",
         "parameters": [
           {
-            "name": "assistant_id",
+            "name": "agent_id",
             "in": "path",
             "description": "Unique identifier of the agent to update",
             "required": true,
@@ -315,16 +315,12 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "workspaceId": { 
-                    "type": "string", 
-                    "example": "683c0129ea0c6f3e9b2ae326" 
-                  },
                   "status": { 
                     "type": "boolean", 
                     "example": false 
                   }
                 },
-                "required": ["workspaceId", "status"]
+                "required": ["status"]
               }
             }
           },
