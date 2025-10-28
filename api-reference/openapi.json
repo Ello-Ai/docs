@@ -168,7 +168,7 @@
         }
       }
     },
-    "/api/agents": {
+    "/api/assistants/create": {
       "post": {
         "operationId": "createAgent",
         "tags": ["Agents"],
