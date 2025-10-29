@@ -109,7 +109,8 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /api/agents/{agent_id}/calls",
-              "GET /api/reports/agents/calls"
+              "GET /api/reports/agents/calls",
+              "GET /api/phone_number"
             ]
           }
         ]
