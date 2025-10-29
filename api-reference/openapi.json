@@ -11,96 +11,6 @@
     }
   ],
   "paths": {
-    "/api/phone-number": {
-      "get": {
-        "summary": "Get User Phone Number List",
-        "tags": ["Phone Numbers"],
-        "description": "Fetches a paginated list of phone numbers associated with the authenticated user.",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "description": "Page number for pagination.",
-            "schema": {
-              "type": "integer",
-              "example": 1
-            }
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "description": "Number of phone numbers to return per page.",
-            "schema": {
-              "type": "integer",
-              "example": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Phone numbers fetched successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 200
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Phone numbers fetched successfully"
-                    },
-                    "data": {
-                      "type": "object",
-                      "example": {
-                        "total": 3,
-                        "page": 1,
-                        "size": 10,
-                        "phone_numbers": [
-                          {
-                            "_id": "6901a88b23bc1023d88134fa",
-                            "number": "+14155552671",
-                            "status": "active",
-                            "type": "inbound",
-                            "created_at": "2025-10-10T09:30:00Z"
-                          },
-                          {
-                            "_id": "6901a88b23bc1023d88134fb",
-                            "number": "+14155559876",
-                            "status": "inactive",
-                            "type": "outbound",
-                            "created_at": "2025-09-20T11:45:00Z"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
-          }
-        },
-        "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
-        }
-      }
-    },
     "/api/agents/{agent_id}": {
       "get": {
         "operationId": "getAgentById",
@@ -1686,8 +1596,96 @@
         }
       }
     },
-    
-    
+    "/api/phone-number": {
+      "get": {
+        "summary": "Get User Phone Number List",
+        "tags": ["Phone Numbers"],
+        "description": "Fetches a paginated list of phone numbers associated with the authenticated user.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number for pagination.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "description": "Number of phone numbers to return per page.",
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Phone numbers fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Phone numbers fetched successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "example": {
+                        "total": 3,
+                        "page": 1,
+                        "size": 10,
+                        "phone_numbers": [
+                          {
+                            "_id": "6901a88b23bc1023d88134fa",
+                            "number": "+14155552671",
+                            "status": "active",
+                            "type": "inbound",
+                            "created_at": "2025-10-10T09:30:00Z"
+                          },
+                          {
+                            "_id": "6901a88b23bc1023d88134fb",
+                            "number": "+14155559876",
+                            "status": "inactive",
+                            "type": "outbound",
+                            "created_at": "2025-09-20T11:45:00Z"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/calls": {
         "get": {
           "operationId": "getCalls",
