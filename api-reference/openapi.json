@@ -1362,7 +1362,113 @@
       }
     }
     },
- 
+    "/api/agents/{agent_id}/calls": {
+      "post": {
+        "summary": "Create Call",
+        "tags": ["Calls"],
+        "description": "Creates and initiates a new call for the specified agent.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the agent initiating the call.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Hello! Am I speaking to Sri?"
+                  },
+                  "context": {
+                    "type": "string",
+                    "example": "something"
+                  },
+                  "to_number": {
+                    "type": "string",
+                    "example": "12345567890"
+                  },
+                  "source": {
+                    "type": "string",
+                    "example": "something"
+                  },
+                  "hook_url": {
+                    "type": "string",
+                    "example": "http://soetinsdfdfd"
+                  },
+                  "siptrunk_id": {
+                    "type": "string",
+                    "example": "s3434ededs"
+                  },
+                  "agent_type": {
+                    "type": "string",
+                    "example": "webcall"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "sri"
+                  }
+                },
+                "required": ["message", "to_number", "source", "agent_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message published successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Message published successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "example": {
+                        "conversation_id": "6900b87ca70928b1224f0619",
+                        "call_status": "success"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/calls": {
         "get": {
           "operationId": "getCalls",
