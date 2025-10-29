@@ -97,8 +97,8 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /api/knowledge-base",
+              "GET /api/knowledge-base/{kb_id}",
               "GET /api/knowledge-base",
-              "GET /api/knowledge-base/list",
               "DELETE /api/knowledge-base/delete"
             ]
           },
