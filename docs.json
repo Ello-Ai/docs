@@ -104,18 +104,18 @@
             ]
           },
           {
+            "group": "Phone Num",
+            "openapi": "api-reference/openapi.json",
+            "pages": [
+              "POST /api/phone-number"
+            ]
+          },
+          {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /api/agents/{agent_id}/calls",
               "GET /api/reports/agents/calls"
-            ]
-          },
-          {
-            "group": "Phone Num",
-            "openapi": "api-reference/openapi.json",
-            "pages": [
-              "POST /api/phone-number"
             ]
           }
         ]
