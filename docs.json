@@ -99,7 +99,7 @@
               "POST /api/knowledge-base",
               "GET /api/knowledge-base/{kb_id}",
               "GET /api/knowledge-base",
-              "DELETE /api/knowledge-base/delete"
+              "DELETE /api/knowledge-base/{kb_id}"
             ]
           },
           {
