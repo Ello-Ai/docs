@@ -112,6 +112,13 @@
               "GET /api/reports/agents/calls",
               "GET /api/phone-number"
             ]
+          },
+          {
+            "group": "Phone",
+            "openapi": "api-reference/openapi.json",
+            "pages": [
+              "GET /api/phone-number"
+            ]
           }
         ]
       }
