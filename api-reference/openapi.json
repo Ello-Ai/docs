@@ -1596,7 +1596,96 @@
         }
       }
     },
-    
+    "/calls": {
+        "get": {
+          "operationId": "getCalls",
+          "tags": ["Calls"],
+          "description": "Returns all calls the user has access to",
+          "parameters": [
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "The maximum number of results to return",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Call response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Call"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          },
+          "x-mint": {
+            "mcp": {
+              "enabled": true }
+            }
+        },
+        "post": {
+          "operationId": "createCall",
+          "tags": ["Calls"],
+          "description": "Creates a new call",
+          "requestBody": {
+            "description": "Call details to add",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewCall"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Call created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Call"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          },
+          "x-mint": {
+            "mcp": {
+              "enabled": true }
+          }
+        }
+      }
+    },
     "components": {
       "schemas": {
         "KnowledgeBaseSource": {
