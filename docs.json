@@ -87,7 +87,9 @@
               "PUT /api/agents/{agent_id}",
               "GET /api/agents",
               "DELETE /api/agents/{agent_id}",
-              "POST /api/agents/knowledge-bases/{kb_id}/assign"
+              "POST /api/agents/knowledge-bases/{kb_id}/assign",
+              "POST /api/agents/knowledge-bases/{kb_id}/unassign"
+              
             ]
           },
           {
