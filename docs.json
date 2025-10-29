@@ -103,13 +103,7 @@
               "PUT /api/knowledge-base/{kb_id}"
             ]
           },
-          {
-            "group": "Phone Num",
-            "openapi": "api-reference/openapi.json",
-            "pages": [
-              "POST /api/phone-number"
-            ]
-          },
+
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
