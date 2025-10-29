@@ -110,7 +110,7 @@
             "pages": [
               "POST /api/agents/{agent_id}/calls",
               "GET /api/reports/agents/calls",
-              "GET /api/phone_number"
+              "GET /api/phone-number"
             ]
           }
         ]

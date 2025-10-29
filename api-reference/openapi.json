@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/api/phone_number": {
+    "/api/phone-number": {
       "get": {
         "summary": "Get User Phone Number List",
         "tags": ["Phone Numbers"],
