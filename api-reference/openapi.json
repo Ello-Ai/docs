@@ -1596,7 +1596,7 @@
         }
       }
     },
-    "/api/phone-number": {
+    "/api/phone_number": {
       "get": {
         "summary": "Get User Phone Number List",
         "tags": ["Phone Numbers"],
