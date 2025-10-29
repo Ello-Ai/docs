@@ -849,57 +849,112 @@
   }
 },
     "/api/knowledge-base": {
-      "post": {
-        "summary": "Create Knowledge Base",
+          "post": {
+        "operationId": "createSingleSourceKnowledgeBase",
         "tags": ["Knowledge Base"],
-        "description": "Creates a knowledge base with links, text, and PDFs",
+        "summary": "Create Single Source Knowledge Base",
+        "description": "Creates a single-source knowledge base using a URL, base URL, and sub-links.",
         "requestBody": {
           "required": true,
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "description", "workspaceId", "type"],
                 "properties": {
-                  "name": { "type": "string", "example": "Harshu Test KB" },
-                  "description": { "type": "string", "example": "Test voice calls" },
-                  "workspaceId": { "type": "string", "example": "683ea9dbea7c50a81708dae7" },
+                  "urlName": {
+                    "type": "string",
+                    "example": "Ello.ai"
+                  },
+                  "baseUrl": {
+                    "type": "string",
+                    "example": "https://getello.ai"
+                  },
+                  "subLinks": {
+                    "type": "string",
+                    "example": "dsfsdfdsf"
+                  },
                   "type": {
                     "type": "string",
-                    "enum": ["documents", "links", "text"],
-                    "example": "documents"
-                  },
-                  "sources": {
-                    "type": "array",
-                    "items": {
+                    "example": "link"
+                  }
+                },
+                "required": ["urlName", "baseUrl", "subLinks", "type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Single source knowledge base created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Single source knowledge base created successfully"
+                    },
+                    "data": {
                       "type": "object",
                       "properties": {
-                        "type": { "type": "string", "enum": ["pdf","link","txt"] },
-                        "name": { "type": "string" },
-                        "url": { "type": "string", "nullable": true, "format": "uri" },
-                        "content": { "type": "string", "nullable": true }
+                        "_id": { "type": "string", "example": "690108a004ea5e76d18034ab" },
+                        "workspaceId": { "type": "string", "example": "685d4b93fb5b2e221dc80ea9" },
+                        "userId": { "type": "string", "example": "685d4b93fb5b2e221dc80ea8" },
+                        "name": { "type": "string", "example": "srikanth test" },
+                        "description": { "type": "string", "example": "Single source knowledge base: srikanth test" },
+                        "type": { "type": "string", "example": "link" },
+                        "sources": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": { "type": "string", "example": "690108a004ea5e76d18034ad" },
+                              "type": { "type": "string", "example": "link" },
+                              "fileType": { "type": ["string", "null"], "example": null },
+                              "name": { "type": "string", "example": "srikanth test" },
+                              "content": { "type": ["string", "null"], "example": null },
+                              "url": {
+                                "type": "array",
+                                "items": { "type": "string" },
+                                "example": ["http://yesgnome.com"]
+                              },
+                              "filePath": { "type": ["string", "null"], "example": null },
+                              "status": { "type": "string", "example": "completed" },
+                              "error": { "type": ["string", "null"], "example": null },
+                              "createdAt": { "type": "string", "format": "date-time" },
+                              "updatedAt": { "type": "string", "format": "date-time" },
+                              "metadata": {
+                                "type": "object",
+                                "properties": {
+                                  "fileName": { "type": ["string", "null"], "example": null },
+                                  "fileType": { "type": ["string", "null"], "example": null },
+                                  "fileKey": { "type": ["string", "null"], "example": null },
+                                  "websiteName": { "type": "string", "example": "srikanth test" },
+                                  "description": { "type": "string", "example": "" }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "status": { "type": "boolean", "example": true },
+                        "createdAt": { "type": "string", "format": "date-time" },
+                        "updatedAt": { "type": "string", "format": "date-time" }
                       }
                     }
                   }
                 }
               }
             }
+          },
+          "400": {
+            "description": "Invalid request body"
           }
-        },
-        "responses": {
-          "201": {
-            "description": "Knowledge base created successfully",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/KnowledgeBase" }
-              }
-            }
-          }
-        },
-        "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-        ]
+        }
       }
     },
     "/api/knowledge-base/get": {
