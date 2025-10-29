@@ -848,7 +848,7 @@
     }
   }
 },
-    "/api/knowledge-base/create": {
+    "/api/knowledge-base": {
       "post": {
         "summary": "Create Knowledge Base",
         "tags": ["Knowledge Base"],
