@@ -704,7 +704,78 @@
           }
        },
     },
-        
+    "/api/agents/knowledge-bases/{kb_id}/assign": {
+      "post": {
+        "operationId": "assignKnowledgeBaseToAgent",
+        "tags": ["Agents"],
+        "summary": "Assign Knowledge Base to Agent",
+        "description": "Assigns an existing knowledge base to one or more agents.",
+        "parameters": [
+          {
+            "name": "kb_id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the knowledge base to assign.",
+            "schema": {
+              "type": "string",
+              "example": "kb_12345"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agent_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": ["68dce5202fc07b92042493b1"]
+                  }
+                },
+                "required": ["agent_ids"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Knowledge base assigned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Knowledge base assigned successfully"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["68dce5202fc07b92042493b1"]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid kb_id or agent_ids"
+          }
+        }
+      }
+    },
     "/api/knowledge-base/create": {
       "post": {
         "summary": "Create Knowledge Base",
