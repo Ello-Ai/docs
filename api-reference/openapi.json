@@ -849,7 +849,7 @@
   }
 },
     "/api/knowledge-base": {
-          "post": {
+        "post": {
         "operationId": "createSingleSourceKnowledgeBase",
         "tags": ["Knowledge Base"],
         "summary": "Create Single Source Knowledge Base",
@@ -955,10 +955,8 @@
             "description": "Invalid request body"
           }
         }
-      }
-    },
-    "/api/knowledge-base/get": {
-      "get": {
+      },
+        "get": {
         "operationId": "getKnowledgeBase",
         "tags": ["Knowledge"],
         "summary": "Get Knowledge Base",
