@@ -773,7 +773,14 @@
           "400": {
             "description": "Invalid kb_id or agent_ids"
           }
-        }
+        },
+        "security": [
+            { "apiKey": [] },
+            { "bearerAuth": [] }
+          ],
+          "x-mint": {
+            "mcp": { "enabled": true }
+          }
       }
     },
     "/api/agents/knowledge-bases/{kb_id}/unassign": {
