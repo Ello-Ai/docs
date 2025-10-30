@@ -601,7 +601,7 @@
       "get": {
           "operationId": "getAssistants",
           "tags": ["Agents"],
-          "summary": "Get Agents",
+          "summary": "List Agents",
           "description": "Retrieves a paginated list of agents",
           "parameters": [
             {
@@ -1032,7 +1032,7 @@
         "get": {
         "operationId": "listKnowledgeBases",
         "tags": ["Knowledge"],
-        "summary": "Get Knowledge Bases",
+        "summary": "List Knowledge Bases",
         "description": "Retrieve a paginated list of knowledge bases with filters, search, and sorting options",
         "parameters": [
           {
@@ -1519,7 +1519,7 @@
     },
     "/api/reports/agents/calls": {
       "get": {
-        "summary": "Get Call Stats",
+        "summary": "Get Call",
         "tags": ["Reports"],
         "description": "Fetches call statistics for agents with pagination, filtering by date range, status, and agent type.",
         "parameters": [
@@ -1646,7 +1646,7 @@
     },
     "/api/phone-number": {
       "get": {
-        "summary": "Get User Phone Number List",
+        "summary": "List Phone Numbers",
         "tags": ["Phone Numbers"],
         "description": "Fetches a paginated list of phone numbers associated with the authenticated user.",
         "parameters": [
@@ -1736,7 +1736,7 @@
     },
     "/api/agents/{agent_id}/phone-number": {
       "put": {
-        "summary": "Assign or Update Phone Number for Agent",
+        "summary": "Assign Phone Number",
         "tags": ["Agents"],
         "description": "Assigns or updates a phone number for a specific agent by their ID.",
         "parameters": [
@@ -1907,7 +1907,7 @@
         }
       },
       "get": {
-        "summary": "Get Campaign List",
+        "summary": "List Campaigns",
         "tags": ["Campaigns"],
         "description": "Retrieves a paginated list of created campaigns with optional filters such as search and status.",
         "parameters": [
@@ -2036,11 +2036,10 @@
           "mcp": { "enabled": true }
         }
       }
-
     },
     "/api/agents/{agent_id}/conversations/{conversation_id}": {
       "get": {
-        "summary": "Get Agent Conversation Stats",
+        "summary": "Get Agent Conversation",
         "tags": ["Agents"],
         "description": "Retrieves detailed statistics and metadata for a specific conversation of a given agent, including duration, status, outcome, and compliance summary.",
         "parameters": [
@@ -2196,7 +2195,7 @@
     },
     "/api/agents/{agent_id}/conversations": {
       "get": {
-        "summary": "Get Agent Conversation List",
+        "summary": "List Agent Conversations",
         "tags": ["Agents"],
         "description": "Retrieves a paginated list of all conversations for a specific agent, filtered by date range if provided.",
         "parameters": [
