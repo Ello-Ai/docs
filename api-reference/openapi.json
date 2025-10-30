@@ -1686,6 +1686,88 @@
         }
       }
     },
+    "/api/agents/{agent_id}/phone-number": {
+      "post": {
+        "summary": "Assign Phone Number to Agent",
+        "tags": ["Agents"],
+        "description": "Assigns a phone number to a specific agent by their ID.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the agent to assign the phone number to.",
+            "schema": {
+              "type": "string",
+              "example": "786786778hj"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "phone_number": {
+                    "type": "string",
+                    "description": "The phone number to be assigned to the agent.",
+                    "example": "786786709"
+                  }
+                },
+                "required": ["phone_number"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Phone number assigned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Phone number assigned successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "example": {
+                        "agent_id": "786786778hj",
+                        "phone_number": "786786709",
+                        "assignment_status": "success"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/calls": {
         "get": {
           "operationId": "getCalls",

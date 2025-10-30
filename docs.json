@@ -116,7 +116,8 @@
             "group": "Phone Number",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/phone-number"
+              "GET /api/phone-number",
+              "PUT /api/agents/{agent_id}/phone-number"
             ]
           }
         ]
