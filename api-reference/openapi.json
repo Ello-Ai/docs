@@ -168,80 +168,62 @@
         }
       },
       "put": {
-        "operationId": "updateAgent",
-        "tags": ["Agents"],
-        "summary": "Update Agent",
-        "description": "Updates an existing agent",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "path",
-            "description": "Unique identifier of the agent to update",
-            "required": true,
-            "schema": { "type": "string", "example": "683c06debc7538418958bdb9" }
-          }
-        ],
-        "requestBody": {
-          "description": "Agent fields to update",
-          "content": {
-            "application/json": {
+          "operationId": "updateAgent",
+          "tags": ["Agents"],
+          "summary": "Update Agent",
+          "description": "Updates an existing agent by ID.",
+          "parameters": [
+            {
+              "name": "agent_id",
+              "in": "path",
+              "description": "Unique identifier of the agent to update.",
+              "required": true,
               "schema": {
-                "type": "object",
-                "properties": {
-                  "workspaceId": { 
-                    "type": "string", 
-                    "example": "683c0129ea0c6f3e9b2ae326" 
-                  },
-                  "status": { 
-                    "type": "boolean", 
-                    "example": false 
-                  }
-                },
-                "required": ["workspaceId", "status"]
+                "type": "string",
+                "example": "683c06debc7538418958bdb9"
               }
             }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Agent updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Assistant updated successfully" },
-                    "data": { "$ref": "#/components/schemas/Agent" }
+          ],
+          "responses": {
+            "200": {
+              "description": "Agent updated successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 200 },
+                      "message": { "type": "string", "example": "Agent updated successfully" },
+                      "data": { "$ref": "#/components/schemas/Agent" }
+                    }
                   }
+                }
+              }
+            },
+            "400": {
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": { "$ref": "#/components/schemas/Error" }
+                }
+              }
+            },
+            "404": {
+              "description": "Agent not found",
+              "content": {
+                "application/json": {
+                  "schema": { "$ref": "#/components/schemas/Error" }
                 }
               }
             }
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
-          },
-          "404": {
-            "description": "Agent not found",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
+          "security": [
+            { "apiKey": [] },
+            { "bearerAuth": [] }
+          ],
+          "x-mint": {
+            "mcp": { "enabled": true }
           }
-        },
-        "security": [
-          { "apiKey": [] },
-          { "bearerAuth": [] }
-        ],
-        "x-mint": {
-          "mcp": { "enabled": true }
         }
       },
       "delete": {
