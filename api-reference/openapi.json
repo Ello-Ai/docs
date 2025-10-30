@@ -1154,15 +1154,8 @@
         "operationId": "getKnowledgeBase",
         "tags": ["Knowledge"],
         "summary": "Get Knowledge Base",
-        "description": "Retrieves a knowledge base by workspace and kb ID with pagination",
+        "description": "Retrieve a knowledge base by ID with pagination and sorting options",
         "parameters": [
-          {
-            "name": "workspace_id",
-            "in": "query",
-            "description": "Unique identifier of the workspace",
-            "required": true,
-            "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-          },
           {
             "name": "kb_id",
             "in": "query",
@@ -1171,18 +1164,32 @@
             "schema": { "type": "string", "example": "6835c55f364fa2843bc168e5" }
           },
           {
-            "name": "limit",
-            "in": "query",
-            "description": "Number of items per page",
-            "required": false,
-            "schema": { "type": "integer", "example": 10 }
-          },
-          {
             "name": "page",
             "in": "query",
-            "description": "Page number to retrieve",
+            "description": "Page number for pagination",
             "required": false,
-            "schema": { "type": "integer", "example": 1 }
+            "schema": { "type": "integer", "minimum": 1, "example": 1 }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page (max 100)",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "example": 10 }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Field to sort by (createdAt or updatedAt)",
+            "required": false,
+            "schema": { "type": "string", "enum": ["createdAt", "updatedAt"], "example": "updatedAt" }
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "description": "Sort order (ascending or descending)",
+            "required": false,
+            "schema": { "type": "string", "enum": ["asc", "desc"], "example": "desc" }
           }
         ],
         "responses": {
@@ -1204,80 +1211,23 @@
                         {
                           "_id": "684044d40eecbc4fee60d2ff",
                           "type": "pdf",
-                          "fileType": null,
                           "name": "sample1.pdf",
-                          "content": null,
                           "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
-                          "filePath": null,
                           "status": "completed",
-                          "error": null,
-                          "createdAt": "2025-06-04T13:06:28.024000",
-                          "updatedAt": "2025-06-04T13:06:28.024000",
                           "metadata": {
                             "fileName": "sample1.pdf",
                             "fileType": "pdf",
-                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf",
-                            "websiteName": null,
-                            "description": null
-                          }
-                        },
-                        {
-                          "_id": "684044d40eecbc4fee60d300",
-                          "type": "pdf",
-                          "fileType": null,
-                          "name": "sample2.pdf",
-                          "content": null,
-                          "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample2.pdf",
-                          "filePath": null,
-                          "status": "completed",
-                          "error": null,
-                          "createdAt": "2025-06-04T13:06:28.024000",
-                          "updatedAt": "2025-06-04T13:06:28.024000",
-                          "metadata": {
-                            "fileName": "sample2.pdf",
-                            "fileType": "pdf",
-                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample2.pdf",
-                            "websiteName": null,
-                            "description": null
+                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
                           }
                         },
                         {
                           "_id": "684044d40eecbc4fee60d301",
                           "type": "link",
-                          "fileType": null,
                           "name": "Kids Journey",
-                          "content": null,
                           "url": "https://kids.nationalgeographic.com/",
-                          "filePath": null,
                           "status": "completed",
-                          "error": null,
-                          "createdAt": "2025-06-04T13:06:28.024000",
-                          "updatedAt": "2025-06-04T13:06:28.024000",
                           "metadata": {
-                            "fileName": null,
-                            "fileType": null,
-                            "fileKey": null,
                             "websiteName": "Kids Journey",
-                            "description": ""
-                          }
-                        },
-                        {
-                          "_id": "684044d40eecbc4fee60d302",
-                          "type": "txt",
-                          "fileType": null,
-                          "name": "Company",
-                          "content": "Hey, there how are you !!",
-                          "url": null,
-                          "filePath": null,
-                          "status": "completed",
-                          "error": null,
-                          "createdAt": "2025-06-04T13:06:28.024000",
-                          "updatedAt": "2025-06-04T13:06:28.024000",
-                          "metadata": {
-                            "fileName": null,
-                            "fileType": null,
-                            "fileKey": null,
-                            "websiteName": null,
                             "description": ""
                           }
                         }
