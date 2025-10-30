@@ -153,7 +153,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
               }
             }
           }
@@ -2500,11 +2500,18 @@
             "updatedAt": { "type": "string", "format": "date-time", "example": "2025-06-04T14:06:31.374254" }
           }
         },
-        "Error": {
+        "ErrorBadRequest": {
           "type": "object",
           "properties": {
             "status": { "type": "integer", "example": 400 },
             "message": { "type": "string", "example": "Unexpected error" }
+          }
+        },
+        "ErrorNotFound": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "integer", "example": 404 },
+            "message": { "type": "string", "example": "Agent not found" }
           }
         }
       },
