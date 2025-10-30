@@ -326,7 +326,7 @@
                     "type": "object",
                     "properties": {
                       "status": { "type": "integer", "example": 200 },
-                      "message": { "type": "string", "example": "Assistant duplicated successfully" },
+                      "message": { "type": "string", "example": "Agent deleted successfully" },
                       "data": {
                         "type": "object",
                         "properties": {
@@ -707,7 +707,7 @@
                     "type": "object",
                     "properties": {
                       "status": { "type": "integer", "example": 200 },
-                      "message": { "type": "string", "example": "Assistants retrieved successfully" },
+                      "message": { "type": "string", "example": "Agents retrieved successfully" },
                       "data": {
                         "type": "array",
                         "items": {
