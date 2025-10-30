@@ -1857,7 +1857,138 @@
         "x-mint": {
           "mcp": { "enabled": true }
         }
+      },
+      "get": {
+        "summary": "Get Campaign List",
+        "tags": ["Campaigns"],
+        "description": "Retrieves a paginated list of created campaigns with optional filters such as search and status.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search keyword to filter campaigns by name or other attributes."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["scheduled", "running", "completed", "failed"],
+              "example": "scheduled"
+            },
+            "description": "Filter campaigns based on their current status."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "The page number to retrieve."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "description": "Number of campaigns to return per page."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Campaigns retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Campaigns retrieved successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "campaigns": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "example": {
+                              "campaign_id": "6901c1d8b004a5d55a123abc",
+                              "campaignName": "Follow-up Campaign October",
+                              "status": "scheduled"
+                            }
+                          }
+                        },
+                        "total": {
+                          "type": "integer",
+                          "example": 0
+                        },
+                        "page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "pages": {
+                          "type": "integer",
+                          "example": 0
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "page": { "type": "integer", "example": 1 },
+                        "limit": { "type": "integer", "example": 10 },
+                        "total": { "type": "integer", "example": 0 },
+                        "totalPages": { "type": "integer", "example": 0 },
+                        "hasNextPage": { "type": "boolean", "example": false },
+                        "hasPrevPage": { "type": "boolean", "example": false }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
       }
+
     },
     "/calls": {
         "get": {

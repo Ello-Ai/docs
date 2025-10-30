@@ -124,7 +124,8 @@
             "group": "Campaigns",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "POST /api/campaign"
+              "POST /api/campaign",
+              "GET /api/campaign"
             ]
           }
         ]
