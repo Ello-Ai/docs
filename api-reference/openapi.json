@@ -926,7 +926,7 @@
         "operationId": "createSingleSourceKnowledgeBase",
         "tags": ["Knowledge Base"],
         "summary": "Create Knowledge Base",
-        "description": "Creates a single-source knowledge base using a URL, base URL, and sub-links.",
+        "description": "Creates a knowledge base using a URL, base URL, and sub-links.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1032,7 +1032,7 @@
         "get": {
         "operationId": "listKnowledgeBases",
         "tags": ["Knowledge"],
-        "summary": "List Knowledge Bases",
+        "summary": "Get Knowledge Bases",
         "description": "Retrieve a paginated list of knowledge bases with filters, search, and sorting options",
         "parameters": [
           {
