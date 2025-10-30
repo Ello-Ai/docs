@@ -307,19 +307,19 @@
           "operationId": "deleteAssistant",
           "tags": ["Agents"],
           "summary": "Delete Agent",
-          "description": "Deletes an assistant by ID",
+          "description": "Deletes an agent by ID",
           "parameters": [
             {
-              "name": "assistant_id",
-              "in": "query",
-              "description": "Unique identifier of the assistant to delete",
+              "name": "agent_id",
+              "in": "path",
+              "description": "Unique identifier of the agent to delete",
               "required": true,
               "schema": { "type": "string", "example": "683579c3a034253be66ea984" }
             }
           ],
           "responses": {
             "200": {
-              "description": "Assistant deleted and duplicated successfully",
+              "description": "Agent deleted successfully",
               "content": {
                 "application/json": {
                   "schema": {
@@ -332,7 +332,7 @@
                         "properties": {
                           "_id": { "type": "string", "example": "683c2b4e59e70f73476ed5cc" },
                           "workspaceId": { "type": "string", "example": "683c0129ea0c6f3e9b2ae326" },
-                          "name": { "type": "string", "example": "My Inbound Assistant - Harsha" },
+                          "name": { "type": "string", "example": "My Inbound Agent - Harsha" },
                           "type": { "type": "string", "example": "inbound" },
                           "category": { "type": "string", "example": "general" },
                           "description": { "type": "string", "example": "AI assistant for voice calls" },
