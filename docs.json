@@ -127,6 +127,13 @@
               "POST /api/campaign",
               "GET /api/campaign"
             ]
+          },
+          {
+            "group": "Reports",
+            "openapi": "api-reference/openapi.json",
+            "pages": [
+              "GET /api/agents/{agent_id}/conversations/{conversation_id}"
+            ]
           }
         ]
       }

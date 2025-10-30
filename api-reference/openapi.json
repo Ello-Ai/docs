@@ -1990,6 +1990,162 @@
       }
 
     },
+    "/api/agents/{agent_id}/conversations/{conversation_id}": {
+      "get": {
+        "summary": "Get Agent Conversation Stats",
+        "tags": ["Agents"],
+        "description": "Retrieves detailed statistics and metadata for a specific conversation of a given agent, including duration, status, outcome, and compliance summary.",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "23432weww43"
+            },
+            "description": "Unique identifier of the agent."
+          },
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2edee32d3"
+            },
+            "description": "Unique identifier of the conversation."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Conversation retrieved successfully"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "assistant_id": {
+                          "type": "string",
+                          "example": "68dce5202fc07b92042493b1"
+                        },
+                        "conversation_id": {
+                          "type": "string",
+                          "example": "6900b87ca70928b1224f0619"
+                        },
+                        "disconnect_reason": {
+                          "type": "string",
+                          "example": "user_disconnect"
+                        },
+                        "status": {
+                          "type": "string",
+                          "example": "disconnected"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "summary": {
+                              "type": "string",
+                              "example": "In the conversation, the customer, Sri, was greeted by the agent Ryan, who introduced himself as a Credit Card Customer Support Agent at BRFC Bank. The purpose of the call was to remind Sri about an upcoming credit card bill due date. Ryan asked how Sri was doing but did not gather any specific bill details during the interaction."
+                            },
+                            "process_compliance": {
+                              "type": "string",
+                              "example": "yes"
+                            },
+                            "outcome": {
+                              "type": "string",
+                              "example": "positive"
+                            },
+                            "conversation_id": {
+                              "type": "string",
+                              "example": "6900b87ca70928b1224f0619"
+                            },
+                            "call_disconnected_by": {
+                              "type": "string",
+                              "example": "user"
+                            }
+                          }
+                        },
+                        "userId": {
+                          "type": "string",
+                          "example": "685d4b93fb5b2e221dc80ea8"
+                        },
+                        "workspaceId": {
+                          "type": ["string", "null"],
+                          "example": null
+                        },
+                        "campaign_id": {
+                          "type": ["string", "null"],
+                          "example": null
+                        },
+                        "to_number": {
+                          "type": ["string", "null"],
+                          "example": null
+                        },
+                        "call_connected_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2025-10-28T12:35:17.423000"
+                        },
+                        "call_disconnected_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2025-10-28T12:59:09.821000"
+                        },
+                        "call_duration": {
+                          "type": "string",
+                          "example": "00:23:52"
+                        },
+                        "call_disconnected_by": {
+                          "type": "string",
+                          "example": "user"
+                        },
+                        "out_come": {
+                          "type": "string",
+                          "example": "positive"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "6900be1d39f3fd5dd4e503d4"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/calls": {
         "get": {
           "operationId": "getCalls",
