@@ -282,7 +282,7 @@
             "description": "Agent not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/ErrorNotFound" }
               }
             }
           },
@@ -290,7 +290,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
               }
             }
           }
@@ -452,14 +452,14 @@
               }
             },
             "404": {
-              "description": "Assistant not found",
+              "description": "Agent not found",
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "object",
                     "properties": {
                       "status": { "type": "integer", "example": 404 },
-                      "message": { "type": "string", "example": "Assistant not found" }
+                      "message": { "type": "string", "example": "Agent not found" }
                     }
                   }
                 }
