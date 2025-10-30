@@ -1289,13 +1289,6 @@
         "description": "Deletes a knowledge base by workspace and kb ID",
         "parameters": [
           {
-            "name": "workspace_id",
-            "in": "query",
-            "description": "Unique identifier of the workspace",
-            "required": true,
-            "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-          },
-          {
             "name": "kb_id",
             "in": "query",
             "description": "Unique identifier of the knowledge base",
@@ -1348,7 +1341,7 @@
       "parameters": [
         {
           "name": "kb_id",
-          "in": "path",
+          "in": "query",
           "required": true,
           "description": "Unique identifier of the knowledge base to update.",
           "schema": {
@@ -1357,6 +1350,34 @@
           }
         }
       ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100,
+                  "description": "Optional new name of the knowledge base"
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "description": "Optional new description for the knowledge base"
+                }
+              },
+              "additionalProperties": false
+            },
+            "example": {
+              "name": "Updated KB Name",
+              "description": "Updated description of the knowledge base."
+            }
+          }
+        }
+      },
       "requestBody": {
         "required": true,
         "content": {
