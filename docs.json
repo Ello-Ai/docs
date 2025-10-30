@@ -91,7 +91,6 @@
               "POST /api/agents/knowledge-bases/{kb_id}/unassign"
             ]
           },
-          
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
