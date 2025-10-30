@@ -1350,58 +1350,6 @@
           }
         }
       ],
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "description": "Optional new name of the knowledge base"
-                },
-                "description": {
-                  "type": "string",
-                  "maxLength": 500,
-                  "description": "Optional new description for the knowledge base"
-                }
-              },
-              "additionalProperties": false
-            },
-            "example": {
-              "name": "Updated KB Name",
-              "description": "Updated description of the knowledge base."
-            }
-          }
-        }
-      },
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 100,
-                  "example": "Customer Support KB"
-                },
-                "description": {
-                  "type": "string",
-                  "maxLength": 500,
-                  "example": "Contains FAQs and troubleshooting guides."
-                }
-              },
-              "required": []
-            }
-          }
-        }
-      },
       "responses": {
         "200": {
           "description": "Knowledge base updated successfully",
