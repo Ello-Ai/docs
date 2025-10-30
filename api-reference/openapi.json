@@ -1687,16 +1687,16 @@
       }
     },
     "/api/agents/{agent_id}/phone-number": {
-      "post": {
-        "summary": "Assign Phone Number to Agent",
+      "put": {
+        "summary": "Assign or Update Phone Number for Agent",
         "tags": ["Agents"],
-        "description": "Assigns a phone number to a specific agent by their ID.",
+        "description": "Assigns or updates a phone number for a specific agent by their ID.",
         "parameters": [
           {
             "name": "agent_id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the agent to assign the phone number to.",
+            "description": "Unique identifier of the agent to assign or update the phone number for.",
             "schema": {
               "type": "string",
               "example": "786786778hj"
@@ -1712,7 +1712,7 @@
                 "properties": {
                   "phone_number": {
                     "type": "string",
-                    "description": "The phone number to be assigned to the agent.",
+                    "description": "The phone number to be assigned or updated for the agent.",
                     "example": "786786709"
                   }
                 },
@@ -1723,7 +1723,7 @@
         },
         "responses": {
           "200": {
-            "description": "Phone number assigned successfully",
+            "description": "Phone number assigned or updated successfully",
             "content": {
               "application/json": {
                 "schema": {
