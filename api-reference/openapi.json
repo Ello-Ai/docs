@@ -1030,97 +1030,125 @@
         }
       },
         "get": {
-            "operationId": "listKnowledgeBases",
-            "tags": ["Knowledge"],
-            "summary": "List Knowledge Bases",
-            "description": "Retrieve a paginated list of knowledge bases for a workspace",
-            "parameters": [
-              {
-                "name": "workspace_id",
-                "in": "query",
-                "description": "Unique identifier of the workspace",
-                "required": true,
-                "schema": { "type": "string", "example": "683578ec8ac922546dbaadaa" }
-              },
-              {
-                "name": "page",
-                "in": "query",
-                "description": "Page number for pagination",
-                "required": false,
-                "schema": { "type": "integer", "example": 1 }
-              },
-              {
-                "name": "limit",
-                "in": "query",
-                "description": "Number of results per page",
-                "required": false,
-                "schema": { "type": "integer", "example": 10 }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Knowledge bases retrieved successfully",
-                "content": {
-                  "application/json": {
-                    "example": {
-                      "status": 200,
-                      "message": "Knowledge bases retrieved successfully",
-                      "data": [
+        "operationId": "listKnowledgeBases",
+        "tags": ["Knowledge"],
+        "summary": "List Knowledge Bases",
+        "description": "Retrieve a paginated list of knowledge bases with filters, search, and sorting options",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": { "type": "integer", "example": 1 }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": { "type": "integer", "example": 20 }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search keyword to filter knowledge bases by name or description",
+            "required": false,
+            "schema": { "type": "string", "example": "link" }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Filter results created after this date (ISO 8601 string)",
+            "required": false,
+            "schema": { "type": "string", "format": "date-time", "example": "2025-06-01T00:00:00Z" }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "Filter results created before this date (ISO 8601 string)",
+            "required": false,
+            "schema": { "type": "string", "format": "date-time", "example": "2025-06-30T23:59:59Z" }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Field to sort by (e.g., name, createdAt)",
+            "required": false,
+            "schema": { "type": "string", "example": "createdAt" }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Sort order, either asc or desc",
+            "required": false,
+            "schema": { "type": "string", "enum": ["asc", "desc"], "example": "desc" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Knowledge bases retrieved successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": 200,
+                  "message": "Knowledge bases retrieved successfully",
+                  "data": [
+                    {
+                      "_id": "684035a7dba9d9c2aa583d93",
+                      "workspaceId": "683ea9dbea7c50a81708dae7",
+                      "name": "Test",
+                      "description": "Updated description of the knowledge base 1",
+                      "type": "documents",
+                      "sources": [
                         {
-                          "_id": "684035a7dba9d9c2aa583d93",
-                          "workspaceId": "683ea9dbea7c50a81708dae7",
-                          "name": "Test",
-                          "description": "Updated description of the knowledge base 1",
-                          "type": "documents",
-                          "sources": [
-                            {
-                              "_id": "684035a7dba9d9c2aa583d94",
-                              "type": "pdf",
-                              "name": "sample1.pdf",
-                              "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
-                              "status": "completed",
-                              "metadata": {
-                                "fileName": "sample1.pdf",
-                                "fileType": "pdf",
-                                "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
-                              }
-                            }
-                          ],
-                          "status": true,
-                          "createdAt": "2025-06-04T12:01:43.682000",
-                          "updatedAt": "2025-06-04T13:58:16.585000"
+                          "_id": "684035a7dba9d9c2aa583d94",
+                          "type": "pdf",
+                          "name": "sample1.pdf",
+                          "url": "https://voicemart-assets.s3.amazonaws.com/683ea9dbea7c50a81708dae7/documents/sample1.pdf",
+                          "status": "completed",
+                          "metadata": {
+                            "fileName": "sample1.pdf",
+                            "fileType": "pdf",
+                            "fileKey": "683ea9dbea7c50a81708dae7/documents/sample1.pdf"
+                          }
                         }
                       ],
-                      "pagination": {
-                        "page": 1,
-                        "limit": 10,
-                        "total": 12,
-                        "totalPages": 2,
-                        "hasNextPage": true,
-                        "hasPrevPage": false
-                      }
+                      "status": true,
+                      "createdAt": "2025-06-04T12:01:43.682000",
+                      "updatedAt": "2025-06-04T13:58:16.585000"
                     }
-                  }
-                }
-              },
-              "400": {
-                "description": "Invalid query parameters",
-                "content": {
-                  "application/json": {
-                    "schema": { "$ref": "#/components/schemas/Error" }
+                  ],
+                  "pagination": {
+                    "page": 1,
+                    "limit": 20,
+                    "total": 12,
+                    "totalPages": 2,
+                    "hasNextPage": true,
+                    "hasPrevPage": false
                   }
                 }
               }
-            },
-            "security": [
-              { "apiKey": [] },
-              { "bearerAuth": [] }
-            ],
-            "x-mint": {
-              "mcp": { "enabled": true }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
             }
           }
         },
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
+      }
+    },
     "/api/knowledge-base/{kb_id}": {
       "get": {
         "operationId": "getKnowledgeBase",
