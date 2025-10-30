@@ -28,7 +28,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Assistant retrieved successfully",
+            "description": "Agent retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -41,10 +41,10 @@
                       "properties": {
                         "_id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
                         "workspaceId": { "type": "string", "example": "683578ec8ac922546dbaadaa" },
-                        "name": { "type": "string", "example": "My Outbound Assistant" },
+                        "name": { "type": "string", "example": "My Outbound Agent" },
                         "type": { "type": "string", "example": "outbound" },
                         "category": { "type": "string", "example": "general" },
-                        "description": { "type": "string", "example": "AI assistant for voice calls" },
+                        "description": { "type": "string", "example": "AI Agent for voice calls" },
                         "image": { "type": "string", "example": "https://voicemart.ai/assistant-icons/default.png" },
                         "features": { "type": "array", "items": { "type": "string" }, "example": [] },
                         "popularity": { "type": "integer", "example": 0 },
@@ -193,16 +193,16 @@
                   "type": "object",
                   "properties": {
                     "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Assistant updated successfully" },
+                    "message": { "type": "string", "example": "Agent updated successfully" },
                     "data": {
                       "type": "object",
                       "example": {
                         "_id": "683c06debc7538418958bdb9",
                         "workspaceId": "683c0129ea0c6f3e9b2ae326",
-                        "name": "My Inbound Assistant",
+                        "name": "My Inbound Agent",
                         "type": "inbound",
                         "category": "general",
-                        "description": "AI assistant for voice calls",
+                        "description": "AI Agent for voice calls",
                         "image": "https://voicemart.ai/assistant-icons/default.png",
                         "features": [],
                         "popularity": 0,
@@ -250,7 +250,7 @@
                         "customVocabulary": [],
                         "timezone": "India",
                         "greeting": "Hello! How can I assist you today?",
-                        "prompt": "You are a helpful AI assistant focused on providing accurate and friendly responses.",
+                        "prompt": "You are a helpful AI Agent focused on providing accurate and friendly responses.",
                         "knowledgeBases": [],
                         "actions": [],
                         "deployment": {
@@ -501,14 +501,14 @@
         },
         "responses": {
           "200": {
-            "description": "Assistant created successfully",
+            "description": "Agent created successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "status": { "type": "integer", "example": 200 },
-                    "message": { "type": "string", "example": "Assistant created successfully" },
+                    "message": { "type": "string", "example": "Agent created successfully" },
                     "data": {
                       "type": "object",
                       "properties": {
@@ -585,7 +585,7 @@
             "description": "Unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
               }
             }
           }
@@ -700,7 +700,7 @@
           },
           "responses": {
             "200": {
-              "description": "Assistants retrieved successfully",
+              "description": "Agent retrieved successfully",
               "content": {
                 "application/json": {
                   "schema": {
@@ -714,7 +714,7 @@
                           "type": "object",
                           "properties": {
                             "id": { "type": "string", "example": "683715217c8e5fe1361c6faa" },
-                            "name": { "type": "string", "example": "My Outbound Assistant" },
+                            "name": { "type": "string", "example": "My Outbound Agent" },
                             "type": { "type": "string", "example": "outbound" },
                             "createdAt": { "type": "string", "format": "date-time", "example": "2025-05-28T13:52:33.951000" },
                             "voiceEngine": { "type": "string", "example": "elevenlabs" },
