@@ -92,18 +92,7 @@
               
             ]
           },
-          {
-            "group": "Knowledge Base",
-            "openapi": "api-reference/openapi.json",
-            "pages": [
-              "POST /api/knowledge-base",
-              "GET /api/knowledge-base/{kb_id}",
-              "GET /api/knowledge-base",
-              "DELETE /api/knowledge-base/{kb_id}",
-              "PUT /api/knowledge-base/{kb_id}"
-            ]
-          },
-
+          
           {
             "group": "Calls",
             "openapi": "api-reference/openapi.json",
@@ -118,6 +107,17 @@
             "pages": [
               "GET /api/phone-number",
               "PUT /api/agents/{agent_id}/phone-number"
+            ]
+          },
+          {
+            "group": "Knowledge Base",
+            "openapi": "api-reference/openapi.json",
+            "pages": [
+              "POST /api/knowledge-base",
+              "GET /api/knowledge-base/{kb_id}",
+              "GET /api/knowledge-base",
+              "DELETE /api/knowledge-base/{kb_id}",
+              "PUT /api/knowledge-base/{kb_id}"
             ]
           },
           {
