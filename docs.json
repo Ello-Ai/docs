@@ -132,7 +132,8 @@
             "group": "Reports",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/agents/{agent_id}/conversations/{conversation_id}"
+              "GET /api/agents/{agent_id}/conversations/{conversation_id}",
+              "GET /api/agents/{agent_id}/conversations"
             ]
           }
         ]
