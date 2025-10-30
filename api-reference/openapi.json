@@ -601,7 +601,7 @@
       "get": {
           "operationId": "getAssistants",
           "tags": ["Agents"],
-          "summary": "Get List of Agent",
+          "summary": "Get List of Agents",
           "description": "Retrieves a paginated list of agents",
           "parameters": [
             {
