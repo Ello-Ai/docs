@@ -1414,7 +1414,7 @@
       "post": {
         "summary": "Create Call",
         "tags": ["Calls"],
-        "description": "Creates and initiates a new call for the specified agent.",
+        "description": "Creates a new call ",
         "parameters": [
           {
             "name": "agent_id",
@@ -1521,7 +1521,7 @@
       "get": {
         "summary": "Get Call",
         "tags": ["Reports"],
-        "description": "Fetches call statistics for agents with pagination, filtering by date range, status, and agent type.",
+        "description": "Retreives details of a specific call",
         "parameters": [
           {
             "name": "page",
@@ -1648,7 +1648,7 @@
       "get": {
         "summary": "List Phone Numbers",
         "tags": ["Phone Numbers"],
-        "description": "Fetches a paginated list of phone numbers associated with the authenticated user.",
+        "description": "Retreives a paginated list of phone numbers",
         "parameters": [
           {
             "name": "page",
@@ -1738,7 +1738,7 @@
       "put": {
         "summary": "Assign Phone Number",
         "tags": ["Agents"],
-        "description": "Assigns or updates a phone number for a specific agent by their ID.",
+        "description": "Assigns a phone number for a specific agent by their ID.",
         "parameters": [
           {
             "name": "agent_id",
@@ -1909,7 +1909,7 @@
       "get": {
         "summary": "List Campaigns",
         "tags": ["Campaigns"],
-        "description": "Retrieves a paginated list of created campaigns with optional filters such as search and status.",
+        "description": "Retrieves a paginated list of created campaigns.",
         "parameters": [
           {
             "name": "search",
@@ -2041,7 +2041,7 @@
       "get": {
         "summary": "Get Agent Conversation",
         "tags": ["Agents"],
-        "description": "Retrieves detailed statistics and metadata for a specific conversation of a given agent, including duration, status, outcome, and compliance summary.",
+        "description": "Retrieves detailed statistics and metadata for a specific conversation of a given agent",
         "parameters": [
           {
             "name": "agent_id",
@@ -2197,7 +2197,7 @@
       "get": {
         "summary": "List Agent Conversations",
         "tags": ["Agents"],
-        "description": "Retrieves a paginated list of all conversations for a specific agent, filtered by date range if provided.",
+        "description": "Retrieves a paginated list of all conversations for a specific agent",
         "parameters": [
           {
             "name": "agent_id",
@@ -2342,96 +2342,7 @@
           "mcp": { "enabled": true }
         }
       }
-    },
-    "/calls": {
-        "get": {
-          "operationId": "getCalls",
-          "tags": ["Calls"],
-          "description": "Returns all calls the user has access to",
-          "parameters": [
-            {
-              "name": "limit",
-              "in": "query",
-              "description": "The maximum number of results to return",
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Call response",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Call"
-                    }
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
-                }
-              }
-            }
-          },
-          "x-mint": {
-            "mcp": {
-              "enabled": true }
-            }
-        },
-        "post": {
-          "operationId": "createCall",
-          "tags": ["Calls"],
-          "description": "Creates a new call",
-          "requestBody": {
-            "description": "Call details to add",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewCall"
-                }
-              }
-            },
-            "required": true
-          },
-          "responses": {
-            "200": {
-              "description": "Call created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Call"
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
-                }
-              }
-            }
-          },
-          "x-mint": {
-            "mcp": {
-              "enabled": true }
-          }
-        }
-      }
+    }
     },
     "components": {
       "schemas": {
