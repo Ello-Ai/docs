@@ -119,6 +119,13 @@
               "GET /api/phone-number",
               "PUT /api/agents/{agent_id}/phone-number"
             ]
+          },
+          {
+            "group": "Campaigns",
+            "openapi": "api-reference/openapi.json",
+            "pages": [
+              "POST /api/campaign"
+            ]
           }
         ]
       }
