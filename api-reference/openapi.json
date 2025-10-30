@@ -193,10 +193,7 @@
                   "type": "object",
                   "properties": {
                     "status": { "type": "integer", "example": 200 },
-                    "message": { 
-                      "type": "string", 
-                      "example": "Assistant updated successfully" 
-                    },
+                    "message": { "type": "string", "example": "Assistant updated successfully" },
                     "data": {
                       "type": "object",
                       "example": {
@@ -281,6 +278,14 @@
               }
             }
           },
+          "404": {
+            "description": "Agent not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
           "400": {
             "description": "Unexpected error",
             "content": {
@@ -288,8 +293,7 @@
                 "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
-          },
-          
+          }
         },
         "security": [
           { "apiKey": [] },
