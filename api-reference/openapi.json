@@ -281,15 +281,15 @@
               }
             }
           },
-          
-          "404": {
-            "description": "Agent not found",
+          "400": {
+            "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Error" }
               }
             }
-          }
+          },
+          
         },
         "security": [
           { "apiKey": [] },
