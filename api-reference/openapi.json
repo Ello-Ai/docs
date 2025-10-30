@@ -767,7 +767,7 @@
       "post": {
         "operationId": "assignKnowledgeBaseToAgent",
         "tags": ["Agents"],
-        "summary": "Assign Knowledge Base to Agent",
+        "summary": "Assign Agent",
         "description": "Assigns an existing knowledge base to one or more agents.",
         "parameters": [
           {
@@ -846,7 +846,7 @@
       "post": {
         "operationId": "unassignKnowledgeBaseFromAgent",
         "tags": ["Agents"],
-        "summary": "Unassign Knowledge Base from Agent",
+        "summary": "Unassign Agent",
         "description": "Removes an existing knowledge base association from one or more agents.",
         "parameters": [
           {
@@ -925,7 +925,7 @@
         "post": {
         "operationId": "createSingleSourceKnowledgeBase",
         "tags": ["Knowledge Base"],
-        "summary": "Create Single Knowledge Base",
+        "summary": "Create Knowledge Base",
         "description": "Creates a single-source knowledge base using a URL, base URL, and sub-links.",
         "requestBody": {
           "required": true,
