@@ -281,14 +281,7 @@
               }
             }
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
-          },
+          
           "404": {
             "description": "Agent not found",
             "content": {
