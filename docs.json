@@ -82,10 +82,10 @@
             "group": "Agents",
             "openapi": "api-reference/openapi.json",
             "pages": [
-              "GET /api/agents/{agent_id}",
               "POST /api/agents",
-              "PUT /api/agents/{agent_id}",
+              "GET /api/agents/{agent_id}",
               "GET /api/agents",
+              "PUT /api/agents/{agent_id}",
               "DELETE /api/agents/{agent_id}",
               "POST /api/agents/knowledge-bases/{kb_id}/assign",
               "POST /api/agents/knowledge-bases/{kb_id}/unassign"
