@@ -700,7 +700,7 @@
           },
           "responses": {
             "200": {
-              "description": "Agent retrieved successfully",
+              "description": "Agents retrieved successfully",
               "content": {
                 "application/json": {
                   "schema": {
