@@ -1341,7 +1341,7 @@
       "parameters": [
         {
           "name": "kb_id",
-          "in": "query",
+          "in": "path",
           "required": true,
           "description": "Unique identifier of the knowledge base to update.",
           "schema": {
