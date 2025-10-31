@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api-dev.getello.ai/"
+      "url": "http://localhost:5008"
     }
   ],
   "paths": {
