@@ -4,9 +4,9 @@
   "name": "Ello.AI",
   "api": {
     "playground": {
-      "proxy": false
-    },
-    "baseUrl":"https://localhost:5008"
+      "proxy": false,   
+      "baseUrl": "http://localhost:5008"
+    }
   },
   "colors": {
     "primary": "#005871",
