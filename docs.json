@@ -10,7 +10,7 @@
   "favicon": "/favicon.svg",
   "api": {
     "playground": {
-      "proxy": "http://localhost:5008",
+      "proxy": "http://172.18.2.102:5008",
       "display": "try-it"
     },
     "examples": {
