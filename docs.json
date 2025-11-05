@@ -2,11 +2,6 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Ello.AI",
-  "api": {
-    "playground": {
-      "proxy": "http://localhost:5008"
-    }
-  },
   "colors": {
     "primary": "#005871",
     "light": "#07C983",
