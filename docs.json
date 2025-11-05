@@ -8,6 +8,15 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
+  "api": {
+    "playground": {
+      "proxy": "http://localhost:5008",
+      "display": "try-it"
+    },
+    "examples": {
+      "defaults": "examples"
+    }
+  },
   "navigation": {
     "tabs": [
       {
