@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.getello.ai/"
+      "url": "http://172.18.2.102:5008"
     }
   ],
   "paths": {
