@@ -150,10 +150,13 @@
             }
           },
           "400": {
-            "description": "Unexpected error",
+            "description": "Bad Request",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
+                "example": {
+                  "error": "Invalid request payload",
+                  "details": "Missing required field: name"
+                }
               }
             }
           }
