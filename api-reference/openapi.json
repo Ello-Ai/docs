@@ -156,7 +156,6 @@
                 "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
               }
             }
-          }
           },
           "404": {
             "description": "Not found",
@@ -841,7 +840,7 @@
                   }
                 }
               }
-            }
+          }
         },
         "security": [
             { "apiKey": [] },
@@ -931,7 +930,7 @@
                   }
                 }
               }
-            }
+          }
         },
         "security": [
             { "apiKey": [] },
