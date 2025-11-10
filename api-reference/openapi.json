@@ -150,15 +150,13 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Unexpected error",
             "content": {
               "application/json": {
-                "example": {
-                  "error": "Invalid request payload",
-                  "details": "Missing required field: name"
-                }
+                "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
               }
             }
+          }
           },
           "404": {
             "description": "Not found",
@@ -454,15 +452,10 @@
               "description": "Unexpected error",
               "content": {
                 "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 400 },
-                      "message": { "type": "string", "example": "Unexpected error" }
-                    }
-                  }
+                  "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
                 }
               }
+            }
             },
             "404": {
               "description": "Agent not found",
@@ -756,13 +749,7 @@
               "description": "Unexpected error",
               "content": {
                 "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "integer", "example": 400 },
-                      "message": { "type": "string", "example": "Unexpected error" }
-                    }
-                  }
+                  "schema": { "$ref": "#/components/schemas/ErrorBadRequest" }
                 }
               }
             }
