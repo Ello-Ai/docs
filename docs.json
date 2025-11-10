@@ -9,9 +9,11 @@
   },
   "favicon": "/favicon.svg",
   "api": {
+    "baseUrl": "http://172.18.2.102:5008",
     "playground": {
-      "proxy": "http://172.18.2.102:5008",
-      "display": "try-it"
+      "proxy": true,
+      "display": "try-it",
+      "allowedRequestOrigins": ["http://172.18.2.102:5008"]
     },
     "examples": {
       "defaults": "examples"
