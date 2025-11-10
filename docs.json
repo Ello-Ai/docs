@@ -9,12 +9,7 @@
   },
   "favicon": "/favicon.svg",
   "api": {
-    "baseUrl": "http://172.18.2.102:5008",
-    "playground": {
-      "proxy": true,
-      "display": "try-it",
-      "allowedRequestOrigins": ["http://172.18.2.102:5008"]
-    },
+    "baseUrl": "https://api-dev.getello.ai/",
     "examples": {
       "defaults": "examples"
     }
