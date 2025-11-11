@@ -1468,8 +1468,15 @@
                   }
                 }
               }
-      }
-      }
+           }
+      },
+      "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
     }
     },
     "/api/agents/{agent_id}/calls": {
