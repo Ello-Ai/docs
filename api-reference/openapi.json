@@ -971,7 +971,7 @@
                     "example": "link"
                   }
                 },
-                "required": ["urlName", "baseUrl", "subLinks", "type"]
+                "required": ["urlName", "baseUrl"]
               }
             }
           }
