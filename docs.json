@@ -22,12 +22,7 @@
           {
             "group": "Introduction",
             "pages": [
-                 "doc-pages/introduction"
-            ]
-          },
-          {
-            "group": "Quickstart",
-            "pages": [
+                 "doc-pages/introduction",
                  "doc-pages/quickstart"
             ]
           },
