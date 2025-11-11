@@ -1044,7 +1044,7 @@
               }
             }
           }
-        } 
+        }, 
         "security": [
           { "apiKey": [] },
           { "bearerAuth": [] }
