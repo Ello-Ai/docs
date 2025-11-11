@@ -1175,7 +1175,7 @@
                 }
              }
           }
-        },        },
+        },        
         "security": [
           { "apiKey": [] },
           { "bearerAuth": [] }
