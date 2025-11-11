@@ -1045,6 +1045,13 @@
             }
           }
         } 
+        "security": [
+          { "apiKey": [] },
+          { "bearerAuth": [] }
+        ],
+        "x-mint": {
+          "mcp": { "enabled": true }
+        }
       },
         "get": {
         "operationId": "listKnowledgeBases",
