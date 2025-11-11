@@ -23,55 +23,16 @@
             "group": "Introduction",
             "pages": [
                  "doc-pages/introduction",
-                 "doc-pages/quickstart"
-            ]
-          },
-          {
-            "group": "Core Concept",
-            "pages": [
-                "doc-pages/core-concept"
-            ]
-          },
-          {
-            "group": "Core Features",
-            "pages": [
-                "doc-pages/core-features"
-            ]
-          },
-          {
-            "group": "Integration",
-            "pages": [
-                "doc-pages/integration"
-            ]
-          },
-          {
-            "group": "Deployment",
-            "pages": [
-                "doc-pages/deployment"
-            ]
-          },
-          {
-            "group": "Analytics",
-            "pages": [
-                "doc-pages/analytics"
-            ]
-          },
-          {
-            "group": "Pricing",
-            "pages": [
-                "doc-pages/pricing"
-            ]
-          },
-          {
-            "group": "API",
-            "pages": [
-                "doc-pages/api"
-            ]
-          },
-          {
-            "group": "FAQ",
-            "pages": [
-                "doc-pages/faq"
+                 "doc-pages/quickstart",
+                 "doc-pages/core-concept",
+                 "doc-pages/core-concept",
+                 "doc-pages/core-features",
+                 "doc-pages/integration",
+                 "doc-pages/deployment",
+                 "doc-pages/analytics",
+                 "doc-pages/pricing",
+                 "doc-pages/api",
+                 "doc-pages/faq"
             ]
           }
         ]
