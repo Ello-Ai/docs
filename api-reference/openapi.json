@@ -1044,7 +1044,7 @@
               }
             }
           }
-          
+        } 
       },
         "get": {
         "operationId": "listKnowledgeBases",
