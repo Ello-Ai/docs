@@ -1903,7 +1903,7 @@
                     "description": "CSV file containing the list of recipients for the campaign."
                   }
                 },
-                "required": ["campaignName", "assistantId", "file"]
+                "required": ["campaignName", "assistantId"]
               }
             }
           }
