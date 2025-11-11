@@ -20,6 +20,7 @@
         "tab": "Documentation",
         "groups": [
           {
+            "group" : "Intro",
             "pages": [
                  "doc-pages/introduction",
                  "doc-pages/quickstart",
