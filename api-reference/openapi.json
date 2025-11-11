@@ -1045,7 +1045,18 @@
             }
           },
           "400": {
-            "description": "Invalid request body"
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 400 },
+                      "message": { "type": "string", "example": "Unexpected error" }
+                    }
+                  }
+                }
+              }
           }
         }
       },
@@ -1152,14 +1163,20 @@
             }
           },
           "400": {
-            "description": "Invalid query parameters",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 400 },
+                      "message": { "type": "string", "example": "Unexpected error" }
+                    }
+                  }
+                }
+             }
           }
-        },
+        },        },
         "security": [
           { "apiKey": [] },
           { "bearerAuth": [] }
@@ -1278,12 +1295,18 @@
             }
           },
           "400": {
-            "description": "Invalid query parameters",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 400 },
+                      "message": { "type": "string", "example": "Unexpected error" }
+                    }
+                  }
+                }
               }
-            }
           },
           "404": {
             "description": "Knowledge base not found",
