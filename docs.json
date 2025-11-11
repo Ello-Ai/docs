@@ -18,23 +18,18 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "groups": [
-          {
-            "group" : "Intro",
-            "pages": [
-                 "doc-pages/introduction",
-                 "doc-pages/quickstart",
-                 "doc-pages/core-concept",
-                 "doc-pages/core-features",
-                 "doc-pages/integration",
-                 "doc-pages/deployment",
-                 "doc-pages/analytics",
-                 "doc-pages/pricing",
-                 "doc-pages/api",
-                 "doc-pages/faq"
-            ]
-          }
-        ]
+        "pages": [
+            "doc-pages/introduction",
+            "doc-pages/quickstart",
+            "doc-pages/core-concept",
+            "doc-pages/core-features",
+            "doc-pages/integration",
+            "doc-pages/deployment",
+            "doc-pages/analytics",
+            "doc-pages/pricing",
+            "doc-pages/api",
+            "doc-pages/faq"
+          ]
       },
       {
         "tab": "API reference",
