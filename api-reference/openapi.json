@@ -1314,14 +1314,6 @@
                   }
                 }
               }
-          },
-          "404": {
-            "description": "Knowledge base not found",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
-              }
-            }
           }
         },
         "security": [
@@ -1799,12 +1791,18 @@
             }
           },
           "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+              "description": "Unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": { "type": "integer", "example": 400 },
+                      "message": { "type": "string", "example": "Unexpected error" }
+                    }
+                  }
+                }
               }
-            }
           }
         },
         "security": [
