@@ -68,9 +68,7 @@
             "openapi": "api-reference/openapi.json",
             "pages": [
               "POST /api/knowledge-base",
-              "GET /api/knowledge-base/{kb_id}",
               "GET /api/knowledge-base",
-              "PUT /api/knowledge-base/{kb_id}",
               "DELETE /api/knowledge-base/{kb_id}" 
             ]
           },
