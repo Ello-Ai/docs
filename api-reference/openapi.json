@@ -203,7 +203,8 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "description": "The type of agent (e.g., inbound, outbound).",
+                    "description": "The type of agent (e.g., inbound,outbound).",
+                    "enum": ["inbound", "outbound", "chat"],
                     "example": "inbound"
                   },
                   "name": {
