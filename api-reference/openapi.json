@@ -1252,7 +1252,7 @@
           "mcp": { "enabled": true }
         }
       }
-      
+    }, 
     "/api/agents/{agent_id}/calls": {
       "post": {
         "summary": "Create Call",
