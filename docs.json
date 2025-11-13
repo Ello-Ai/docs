@@ -89,6 +89,13 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Documentation",
+        "pages": [
+          "MCP Client",
+          "MCP Server"
+        ]
       }
     ]
   },
