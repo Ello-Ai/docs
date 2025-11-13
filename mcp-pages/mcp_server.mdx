@@ -14,7 +14,7 @@ Use this server to connect your AI workflows to real-world telephony, automate v
 
 Looking to use MCP tools _inside_ a Ello AI agent? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
 
-**Using the Vapi CLI?** Auto-configure MCP in your IDE with one command:
+**Using the Ello CLI?** Auto-configure MCP in your IDE with one command:
 
 ```
 ello mcp setup
@@ -28,7 +28,7 @@ This automatically configures Cursor, Windsurf, or VSCode with the Vapi MCP serv
 
 [**<u>1</u>**](https://docs.vapi.ai/sdk/mcp-server#get-your-vapi-api-key)
 
-### **Get your Vapi API key**
+### **Get your Ello AI API key**
 
 [**<u>Get your API key from the Vapi dashboard.</u>**](https://dashboard.vapi.ai/org/api-keys)
 
@@ -58,7 +58,7 @@ Save and restart Claude Desktop.
 
 **Example prompt:**
 
-> **_“Have my customer support assistant call Jeremy at +1555123456.”_**
+> **_“Have my customer support agent call Jeremy at +1555123456.”_**
 
 ---
 
@@ -66,18 +66,18 @@ Save and restart Claude Desktop.
 
 The Ello AI MCP Server exposes these actions as MCP tools:
 
-| Tool                 | Description                                | Example Usage                      |
-| :------------------- | :----------------------------------------- | :--------------------------------- |
-| `list_agents`        | List all Ello agents                       | Show all configured assistants     |
-| `create_agent`       | Create a new Ello agent                    | Add a new assistant for a use case |
-| `get_agent`          | Get a Ello agent by ID                     | View assistant config              |
-| `list_calls`         | List all calls                             | Review call activity               |
-| `create_call`        | Create an outbound call (now or scheduled) | Initiate or schedule a call        |
-| `get_call`           | Get details for a specific call            | Check status or result of a call   |
-| `list_phone_numbers` | List all Vapi phone numbers                | See available numbers              |
-| `get_phone_number`   | Get details of a specific phone number     | Inspect a phone number             |
-| `list_tools`         | List all available Vapi tools              | Tool discovery                     |
-| `get_tool`           | Get details of a specific tool             | Tool integration info              |
+| Tool                 | Description                                | Example Usage                    |
+| :------------------- | :----------------------------------------- | :------------------------------- |
+| `list_agents`        | List all Ello agents                       | Show all configured agents       |
+| `create_agent`       | Create a new Ello agent                    | Add a new agent for a use case   |
+| `get_agent`          | Get a Ello agent by ID                     | View agent config                |
+| `list_calls`         | List all calls                             | Review call activity             |
+| `create_call`        | Create an outbound call (now or scheduled) | Initiate or schedule a call      |
+| `get_call`           | Get details for a specific call            | Check status or result of a call |
+| `list_phone_numbers` | List all Vapi phone numbers                | See available numbers            |
+| `get_phone_number`   | Get details of a specific phone number     | Inspect a phone number           |
+| `list_tools`         | List all available Vapi tools              | Tool discovery                   |
+| `get_tool`           | Get details of a specific tool             | Tool integration info            |
 
 **Scheduling calls:** The `create_call` action supports scheduling with the optional `scheduledAt` parameter.
 
@@ -137,7 +137,7 @@ Set up your SDK to connect to the Vapi MCP Server (`https://mcp.vapi.ai/sse`) an
 
 ### **Use MCP tools**
 
-Query available tools, list assistants, create calls, etc, via your SDK.
+Query available tools, list agents, create calls, etc, via your SDK.
 
 ---
 
