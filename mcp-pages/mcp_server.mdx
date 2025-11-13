@@ -8,16 +8,16 @@ Connect Ello AI to AI agents with Model Context Protocol (MCP)
 
 ## Overview
 
-The **Vapi MCP Server** exposes Vapi APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI assistant (like Claude Desktop) or agent framework.
+The **Ello AI MCP Server** exposes Ello AI APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI agent(like Claude Desktop) or agent framework.
 
 Use this server to connect your AI workflows to real-world telephony, automate voice tasks, and build richer conversational agents.
 
-Looking to use MCP tools _inside_ a Vapi assistant? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
+Looking to use MCP tools _inside_ a Ello AI agent? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
 
 **Using the Vapi CLI?** Auto-configure MCP in your IDE with one command:
 
 ```
-vapi mcp setup
+ello mcp setup
 ```
 
 This automatically configures Cursor, Windsurf, or VSCode with the Vapi MCP server. [**<u>Learn more →</u>**](https://docs.vapi.ai/cli/mcp)
@@ -68,8 +68,8 @@ The Vapi MCP Server exposes these actions as MCP tools:
 
 | Tool                 | Description                                | Example Usage                      |
 | :------------------- | :----------------------------------------- | :--------------------------------- |
-| `list_assistants`    | List all Vapi assistants                   | Show all configured assistants     |
-| `create_assistant`   | Create a new Vapi assistant                | Add a new assistant for a use case |
+| `list_agents`        | List all Ello agents                       | Show all configured assistants     |
+| `create_agent`       | Create a new Ello agent                    | Add a new assistant for a use case |
 | `get_assistant`      | Get a Vapi assistant by ID                 | View assistant config              |
 | `list_calls`         | List all calls                             | Review call activity               |
 | `create_call`        | Create an outbound call (now or scheduled) | Initiate or schedule a call        |
