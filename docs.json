@@ -93,8 +93,8 @@
       {
         "tab": "Documentation",
         "pages": [
-          "MCP Client",
-          "MCP Server"
+          "mcp-pages/mcp_client",
+          "mcp-pages/mcp_server"
         ]
       }
     ]
