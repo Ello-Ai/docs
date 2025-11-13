@@ -59,7 +59,7 @@ The MCP integration follows these steps during a call or chat session:
 
 1. When a call or chat starts, Vapi connects to your configured MCP server using **Streamable HTTP** protocol by default, fetches the list of available tools, and dynamically adds them to your assistant’s available tools
 2. The assistant can then use these tools during the interaction
-3. **Each time the model invokes a specific MCP tool**, Vapi creates a new connection to the MCP server and sends the request with the `X-Call-Id`/`X-Chat-Id` header to identify the call or chat
+3. **Each time the model invokes a specific MCP tool**, Ello creates a new connection to the MCP server and sends the request with the `X-Call-Id`/`X-Chat-Id` header to identify the call or chat
 4. The MCP server executes the action and returns the result
 5. This process repeats for every tool invocation, meaning **multiple MCP sessions are created per call or chat**
 
