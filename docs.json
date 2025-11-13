@@ -9,27 +9,34 @@
   },
   "favicon": "/favicon.svg",
   "api": {
-    "baseUrl": "https://api-dev.getello.ai/",
-    "examples": {
-      "defaults": "examples"
-    }
+    "basePath": "/api-reference",
+    "files": [
+      {
+        "path": "openapi-apikey.json",
+        "label": "API Key Auth"
+      },
+      {
+        "path": "openapi-bearer.json",
+        "label": "Bearer Token Auth"
+      }
+    ]
   },
   "navigation": {
     "tabs": [
       {
         "tab": "Documentation",
         "pages": [
-            "doc-pages/introduction",
-            "doc-pages/quickstart",
-            "doc-pages/core-concept",
-            "doc-pages/core-features",
-            "doc-pages/integration",
-            "doc-pages/deployment",
-            "doc-pages/analytics",
-            "doc-pages/pricing",
-            "doc-pages/api",
-            "doc-pages/faq"
-          ]
+          "doc-pages/introduction",
+          "doc-pages/quickstart",
+          "doc-pages/core-concept",
+          "doc-pages/core-features",
+          "doc-pages/integration",
+          "doc-pages/deployment",
+          "doc-pages/analytics",
+          "doc-pages/pricing",
+          "doc-pages/api",
+          "doc-pages/faq"
+        ]
       },
       {
         "tab": "API reference",
@@ -69,7 +76,7 @@
             "pages": [
               "POST /api/knowledge-base",
               "GET /api/knowledge-base",
-              "DELETE /api/knowledge-base/{kb_id}" 
+              "DELETE /api/knowledge-base/{kb_id}"
             ]
           },
           {
@@ -88,13 +95,6 @@
               "GET /api/agents/{agent_id}/conversations"
             ]
           }
-        ]
-      },
-      {
-        "tab": "MCP",
-        "pages": [
-          "mcp-pages/mcp_client",
-          "mcp-pages/mcp_server"
         ]
       }
     ]
@@ -173,18 +173,5 @@
       "og:site_name": "Ello.AI",
       "og:locale": "en_US"
     }
-  },
-  "api": {
-    "basePath": "/api-reference",
-    "files": [
-      {
-        "path": "openapi-apikey.json",
-        "label": "API Key Auth"
-      },
-      {
-        "path": "openapi-bearer.json",
-        "label": "Bearer Token Auth"
-      }
-    ]
   }
 }
