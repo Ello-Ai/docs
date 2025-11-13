@@ -1,5 +1,77 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "MCP Server"
+description: "Description of your new file."
 ---
 
+# **Model Context Protocol (MCP) Integration**
+
+Connect your assistant to dynamic tools through MCP servers for enhanced capabilities.
+
+The Model Context Protocol (MCP) integration allows your ello agent to dynamically access tools from MCP servers during calls. This enables your assistant to:
+
+1. Connect to any MCP-compatible server
+2. Access tools dynamically at runtime
+3. Execute actions through the MCP server
+
+This powerful integration allows your assistant to leverage a wide range of tools without requiring individual integrations for each service.
+
+<Info>
+  Ello AI also provides its own MCP server that exposes Ello AI APIs as callable tools. See the [**<u>Ello AI MCP Server documentation</u>**](https://docs.vapi.ai/sdk/mcp-server) to learn how to use it with Claude Desktop or custom applications.
+</Info>
+
+## **Prerequisites**
+
+Before you can use the MCP integration, you need to:
+
+1. Have access to the Ello AI Dashboard
+2. Have an agent created in Ello AI
+3. Have access to an MCP server URL (e.g., from Make, Zapier, Composio, or other MCP providers)
+
+## **Setup Steps**
+
+### **1. Obtain MCP Server URL**
+
+First, you need to obtain an MCP server URL from your chosen provider:
+
+1. Sign up for an MCP-compatible service (e.g., Make, Zapier, Composio)
+2. Navigate to the MCP configuration section of your provider
+3. Generate or copy your MCP server URL
+
+For Zapier MCP, visit [**<u>https://mcp.zapier.com/mcp/?client=vapi</u>**](https://mcp.zapier.com/mcp/?client=vapi)? to generate your MCP server URL. This URL should be treated as a credential and kept secure.
+
+To generate your Make MCP Server URL (also known as MCP Token), navigate to your Make profile \> API Access tab \> Tokens \> Add token. See [**<u>Obtaining MCP Token documentation</u>**](https://developers.make.com/mcp-server/make-cloud-mcp-server/obtaining-mcp-token) for detailed instructions. This URL should be treated as a credential and kept secure.
+
+### **2. Create and Configure MCP Tool**
+
+After obtaining your MCP server URL, create and configure the tool:
+
+1. 
+   - `serverUrl`: The URL of your MCP server
+
+The MCP server URL should be treated as a credential and kept secure. It will be used to authenticate requests to the MCP server.
+
+### **3. Add Tool to Assistant**
+
+Now, add the MCP tool to your assistant:
+
+## **How MCP Works**
+
+The MCP integration follows these steps during a call or chat session:
+
+1. When a call or chat starts, Vapi connects to your configured MCP server using **Streamable HTTP** protocol by default, fetches the list of available tools, and dynamically adds them to your assistant’s available tools
+2. The assistant can then use these tools during the interaction
+3. **Each time the model invokes a specific MCP tool**, Vapi creates a new connection to the MCP server and sends the request with the `X-Call-Id`/`X-Chat-Id` header to identify the call or chat
+4. The MCP server executes the action and returns the result
+5. This process repeats for every tool invocation, meaning **multiple MCP sessions are created per call or chat**
+
+<Tip>
+  Ello AI uses multiple MCP sessions throughout a single conversation to ensure consistent behavior across both calls and chat interactions. Each tool execution creates a separate connection to the MCP server, allowing for isolated and reliable tool execution. All tool invocations include the `X-Call-Id`/`X-Chat-Id` header to identify the specific call or chat.
+</Tip>
+
+<Tip>
+  The MCP tool itself is not meant to be invoked by the model. It serves as a configuration mechanism for Ello AI to fetch and inject the specific tool definitions from the MCP server into the model’s context.
+</Tip>
+
+<Tip>
+  The tools available through MCP are determined by your MCP server provider. Different providers may offer different sets of tools.
+</Tip>
