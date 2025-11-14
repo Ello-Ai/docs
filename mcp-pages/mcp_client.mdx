@@ -6,7 +6,7 @@ title: "MCP Client"
 
 Connect your agent to dynamic tools through MCP servers for enhanced capabilities.
 
-The Model Context Protocol (MCP) integration allows your Ello agent to dynamically access tools from MCP servers during calls. This enables your assistant to:
+The Model Context Protocol (MCP) integration allows your [ello.ai](http://ello.ai) agent to dynamically access tools from MCP servers during calls. This enables your assistant to:
 
 1. Connect to any MCP-compatible server
 2. Access tools dynamically at runtime
@@ -15,15 +15,15 @@ The Model Context Protocol (MCP) integration allows your Ello agent to dynamical
 This powerful integration allows your assistant to leverage a wide range of tools without requiring individual integrations for each service.
 
 <Info>
-  Ello AI also provides its own MCP server that exposes Ello AI APIs as callable tools. See the [**<u>Ello AI MCP Server documentation</u>**](https://docs.vapi.ai/sdk/mcp-server) to learn how to use it with Claude Desktop or custom applications.
+  Ello.ai also provides its own MCP server that exposes [ello.ai](http://ello.ai) APIs as callable tools. See the [**<u>ello.ai AI MCP Server documentation</u>**](https://docs.vapi.ai/sdk/mcp-server) to learn how to use it with Claude Desktop or custom applications.
 </Info>
 
 ## **Prerequisites**
 
 Before you can use the MCP integration, you need to:
 
-1. Have access to the Ello AI Dashboard
-2. Have an agent created in Ello AI
+1. Have access to the ello.ai Dashboard
+2. Have an agent created in ello.ai
 3. Have access to an MCP server URL (e.g., from Make, Zapier, Composio, or other MCP providers)
 
 ## **Setup Steps**
@@ -52,7 +52,6 @@ After obtaining your MCP server URL, create and configure the tool:
   The MCP server URL should be treated as a credential and kept secure. It will be used to authenticate requests to the MCP server.
 </Tip>
 
-
 ### **3. Add Tool to Assistant**
 
 Now, add the MCP tool to your assistant:
@@ -61,14 +60,14 @@ Now, add the MCP tool to your assistant:
 
 The MCP integration follows these steps during a call or chat session:
 
-1. When a call or chat starts, Vapi connects to your configured MCP server using **Streamable HTTP** protocol by default, fetches the list of available tools, and dynamically adds them to your assistant’s available tools
+1. When a call or chat starts, [ello.ai](http://ello.ai) connects to your configured MCP server using **Streamable HTTP** protocol by default, fetches the list of available tools, and dynamically adds them to your assistant’s available tools
 2. The assistant can then use these tools during the interaction
 3. **Each time the model invokes a specific MCP tool**, Ello creates a new connection to the MCP server and sends the request with the `X-Call-Id`/`X-Chat-Id` header to identify the call or chat
 4. The MCP server executes the action and returns the result
 5. This process repeats for every tool invocation, meaning **multiple MCP sessions are created per call or chat**
 
 <Tip>
-  Ello AI uses multiple MCP sessions throughout a single conversation to ensure consistent behavior across both calls and chat interactions. Each tool execution creates a separate connection to the MCP server, allowing for isolated and reliable tool execution. All tool invocations include the `X-Call-Id`/`X-Chat-Id` header to identify the specific call or chat.
+  Ello.ai uses multiple MCP sessions throughout a single conversation to ensure consistent behavior across both calls and chat interactions. Each tool execution creates a separate connection to the MCP server, allowing for isolated and reliable tool execution. All tool invocations include the `X-Call-Id`/`X-Chat-Id` header to identify the specific call or chat.
 </Tip>
 
 <Tip>
@@ -78,3 +77,117 @@ The MCP integration follows these steps during a call or chat session:
 <Tip>
   The tools available through MCP are determined by your MCP server provider. Different providers may offer different sets of tools.
 </Tip>
+
+### **Request Headers**
+
+MCP requests from [ello.ai](http://ello.ai) include identifying headers to help with context and debugging:
+
+- `X-Call-Id`: Included in requests during voice calls to identify the specific call
+- `X-Chat-Id`: Included in requests during chat interactions to identify the specific chat
+- `X-Session-Id`: Included in requests during chat interaction if the chat is part of a session
+
+## **Tool Configuration**
+
+### **MCP Tool**
+
+This tool uses the following configuration options:
+
+**Required:**
+
+- `server.url`: The URL of your MCP server (e.g., [**<u>https://mcp.zapier.com/api/mcp/s/\*\*\*\*\*\*\*\*/mcp</u>**](https://mcp.zapier.com/api/mcp/s/********/mcp))
+
+**Optional:**
+
+- `server.headers`: Custom headers to include in requests to the MCP server
+- `metadata`: Additional configuration options for the MCP connection
+  - `protocol`: Communication protocol to use. Options are:
+    - `"shttp"` (default): Uses Streamable HTTP protocol
+    - `"sse"`: (deprecated) Uses Server-Sent Events protocol
+
+The server URL should be treated as a credential and kept secure. It will be used to authenticate requests to the MCP server.
+
+## **Example Usage**
+
+Here’s how the MCP tool can be used in your assistant’s configuration:
+
+### **Default Configuration (Streamable HTTP)**
+
+```
+{  "model": {    "provider": "openai",    "model": "gpt-4o",    "messages": [      {        "role": "system",        "content": "You are a helpful personal assistant named Alex. You can help users with various tasks through voice commands. You have access to tools that allow you to perform actions on the user's behalf.\n\nWhen a user requests an action, check if any of the available tools can help accomplish that task.\n\nCommon tasks you can help with include:\n- Scheduling appointments and meetings\n- Sending messages or emails\n- Creating or updating documents\n- Managing to-do lists and reminders\n- Searching for information\n- Making reservations\n- Ordering food or services\n- Checking account balances or transaction history\n- Controlling smart home devices\n\nAlways be polite, professional, and helpful. If a tool fails or isn't available, explain the situation to the user and suggest alternatives if possible."      }    ],    "tools": [      {        "type": "mcp",        "function": {          "name": "mcpTools"        },        "server": {            "url": "https://mcp.zapier.com/api/mcp/s/********/mcp"        }      }    ]  }}
+```
+
+### **Custom Configuration (SSE Protocol)**
+
+If you need to use Server-Sent Events protocol instead:
+
+```
+{  "model": {    "provider": "openai",    "model": "gpt-4",    "messages": [      {        "role": "system",        "content": "You are a helpful personal assistant named Alex..."      }    ],    "tools": [      {        "type": "mcp",        "function": {          "name": "mcpTools"        },        "server": {            "url": "https://mcp.zapier.com/api/mcp/s/********/mcp",            "headers": {              "Authorization": "Bearer your-token",              "X-Custom-Header": "your-value"            }        },        "metadata": {          "protocol": "sse"        }      }    ]  }}
+```
+
+## **Best Practices**
+
+1. **Protocol Selection**: Use the default Streamable HTTP protocol for better performance unless you specifically need SSE
+2. **Dynamic Tool Awareness**: Be aware that the available tools may change between calls
+3. **Clear Instructions**: Provide clear instructions in your assistant’s system message about how to handle dynamic tools
+4. **Error Handling**: Include fallback responses for cases where tools fail or are unavailable
+5. **User Communication**: Explain to users what tools you’re using and what actions you’re taking
+6. **Security**: Treat the MCP server URL as a credential and keep it secure
+
+## **Example MCP Providers**
+
+### **Make MCP**
+
+The Make MCP Server provides access to the Make scenarios you select, allowing you to provision them as Custom Tools through MCP.
+
+1. Define your Make scenarios, configuring scenario [**<u>inputs and outputs</u>**](https://help.make.com/scenario-inputs-and-outputs) and setting them to be [**<u>scheduled on demand</u>**](https://help.make.com/schedule-a-scenario#30pY_)
+2. Get your [**<u>Make MCP Token</u>**](https://developers.make.com/mcp-server/make-cloud-mcp-server/obtaining-mcp-token)
+3. Choose your MCP [**<u>Tool Access Control</u>**](https://developers.make.com/mcp-server/make-cloud-mcp-server/tool-access-control) mechanism and define your MCP URL
+4. Add the URL to your Vapi MCP tool configuration
+5. Your assistant will now have access to your chosen Make scenarios
+
+Make Cloud MCP allows you to build simple or complex Custom Tools using business logic to access the most important apps in your business tech stack. Check the full list in the Make app gallery.
+
+### **Zapier MCP**
+
+Zapier offers an MCP server that provides access to thousands of app integrations:
+
+1. Go to [**<u>https://mcp.zapier.com/mcp/?client=vapi</u>**](https://mcp.zapier.com/mcp/?client=vapi)?
+2. Generate your MCP server URL
+3. Add the URL to your MCP tool configuration
+4. Your assistant will now have access to Zapier’s extensive integration network
+
+Zapier MCP provides access to over 7,000+ apps and 30,000+ actions without requiring complex API integrations.
+
+### **Composio MCP**
+
+Composio also offers an MCP server for integration:
+
+1. Log in to the Composio dashboard at [**<u>https://mcp.composio.dev/dashboard</u>**](https://mcp.composio.dev/dashboard)
+2. Select the tool you want to integrate (e.g., Gmail)
+3. Enable the MCP server for the selected tool by connecting your account using authentication flow
+4. Create a server and copy the generated URL
+5. Add this URL to your MCP tool configuration as the `serverUrl`
+6. Your assistant will now have access to the specific Composio tool integration
+
+**Context Overflow Warning**: Some MCP server tool calls (eg: GitHub API queries) may return large amounts of data. This can exceed model context limits, affecting assistant performance and potentially causing failures, especially with models like GPT-4o.
+
+**Best Practices**:
+
+- Configure your MCP tools to return focused, relevant data
+- Use filtering parameters when available to limit response size
+- Test your integration with realistic queries before deploying
+- Monitor token usage and context size during development
+
+## **References**
+
+- [**<u>Model Context Protocol Introduction</u>**](https://modelcontextprotocol.io/introduction)
+- [**<u>Zapier MCP</u>**](https://zapier.com/mcp)
+- [**<u>Make MCP</u>**](https://developers.make.com/mcp-server)
+
+[**Need Help?**](https://discord.gg/pUFNcf2WmH)
+
+[Join our Discord community for support with MCP integration](https://discord.gg/pUFNcf2WmH)
+
+[**API Reference**](https://docs.vapi.ai/api-reference/tools/create)
+
+[View the complete API documentation for tools](https://docs.vapi.ai/api-reference/tools/create)
