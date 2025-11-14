@@ -2,35 +2,35 @@
 title: "MCP Server"
 ---
 
-# **Ello AI MCP Server**
+# **Ello.ai MCP Server**
 
-Connect Ello AI to AI agents with Model Context Protocol (MCP)
+Connect [ello.ai](http://ello.ai) to AI agents with Model Context Protocol (MCP)
 
 ## Overview
 
-The **Ello AI MCP Server** exposes Ello AI APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI agent(like Claude Desktop) or agent framework.
+The [**ello.ai**](http://ello.ai)** MCP Server** exposes [ello.ai](http://ello.ai) APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI agent(like Claude Desktop) or agent framework.
 
 Use this server to connect your AI workflows to real-world telephony, automate voice tasks, and build richer conversational agents.
 
-Looking to use MCP tools _inside_ a Ello AI agent? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
+Looking to use MCP tools _inside_ a ello.ai agent? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
 
-**Using the Ello CLI?** Auto-configure MCP in your IDE with one command:
+**Using the **[**ello.ai**](http://ello.ai)** CLI?** Auto-configure MCP in your IDE with one command:
 
 ```
-ello mcp setup
+ello.ai mcp setup
 ```
 
 This automatically configures Cursor, Windsurf, or VSCode with the Vapi MCP server. [**<u>Learn more →</u>**](https://docs.vapi.ai/cli/mcp)
 
 ## **Quickstart: Claude Desktop Config**
 
-**Fastest way to get started:** connect Claude Desktop to the Vapi MCP Server.
+**Fastest way to get started:** connect Claude Desktop to the [ello.ai](http://ello.ai) MCP Server.
 
 [**<u>1</u>**](https://docs.vapi.ai/sdk/mcp-server#get-your-vapi-api-key)
 
 ### **Get your Ello AI API key**
 
-[**<u>Get your API key from the Vapi dashboard.</u>**](https://dashboard.vapi.ai/org/api-keys)
+[**<u>Get your API key from the ello.ai dashboard.</u>**](https://dashboard.vapi.ai/org/api-keys)
 
 [**<u>2</u>**](https://docs.vapi.ai/sdk/mcp-server#edit-claude-desktop-config)
 
@@ -64,7 +64,7 @@ Save and restart Claude Desktop.
 
 ## **Core Tools**
 
-The Ello AI MCP Server exposes these actions as MCP tools:
+The ello.ai MCP Server exposes these actions as MCP tools:
 
 | Tool                 | Description                                | Example Usage                    |
 | :------------------- | :----------------------------------------- | :------------------------------- |
@@ -93,15 +93,15 @@ The Ello AI MCP Server exposes these actions as MCP tools:
 
 **Local**
 
-Connect to the Ello-hosted MCP server using the streamable-HTTP protocol.
+Connect to the ello.ai-hosted MCP server using the streamable-HTTP protocol.
 
 Recommended for most production use cases.
 
 Use this for clients or SDKs that support streamable-HTTP transport.
 
-- **Endpoint:** `https://mcp.vapi.ai/mcp`
-- **Authentication:** Pass your Vapi API key as a bearer token:\
-  `Authorization: Bearer YOUR_VAPI_API_KEY`
+- **Endpoint:** `https://mcp.ello.ai/mcp`
+- **Authentication:** Pass your [ello.ai](http://ello.ai) API key as a bearer token:\
+  `Authorization: Bearer YOUR_ELLO_API_KEY`
 
 Example config:
 
@@ -131,7 +131,7 @@ Choose a language:
 
 ### **Configure your connection**
 
-Set up your SDK to connect to the Vapi MCP Server (`https://mcp.vapi.ai/sse`) and authenticate with your API key.
+Set up your SDK to connect to the [ello.ai](http://ello.ai) MCP Server (`https://mcp.vapi.ai/sse`) and authenticate with your API key.
 
 [**<u>3</u>**](https://docs.vapi.ai/sdk/mcp-server#use-mcp-tools)
 
