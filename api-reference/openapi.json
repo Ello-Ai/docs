@@ -13,7 +13,7 @@
   "paths": {
     "/api/agents/{agent_id}": {
       "get": {
-        "operationId": "getAgentById",
+        "operationId": "getAgentById"
         "tags": ["Agents"],
         "summary": "Get Agent",
         "description": "Retrieves details of a specific agent by its ID",
