@@ -8,13 +8,13 @@ Connect [ello.ai](http://ello.ai) to AI agents with Model Context Protocol (MCP)
 
 ## Overview
 
-The [**ello.ai**](http://ello.ai)** MCP Server** exposes [ello.ai](http://ello.ai) APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI agent(like Claude Desktop) or agent framework.
+The [**ello.ai**](http://ello.ai)\*\* MCP Server\*\* exposes [ello.ai](http://ello.ai) APIs as tools via the Model Context Protocol (MCP), so you can manage assistants, phone numbers, and calls from any MCP-compatible AI agent(like Claude Desktop) or agent framework.
 
 Use this server to connect your AI workflows to real-world telephony, automate voice tasks, and build richer conversational agents.
 
 Looking to use MCP tools _inside_ a ello.ai agent? See the [**<u>MCP Tool documentation</u>**](https://docs.vapi.ai/tools/mcp) for integrating _external_ MCP servers with your Vapi agents.
 
-**Using the **[**ello.ai**](http://ello.ai)** CLI?** Auto-configure MCP in your IDE with one command:
+[******Using the ello.ai CLI?******](http://ello.ai) Auto-configure MCP in your IDE with one command:
 
 ```
 ello.ai mcp setup
@@ -48,7 +48,7 @@ Insert this into your `claude_desktop_config.json`:
 {  "mcpServers": {    "vapi-mcp": {      "command": "npx",      "args": [        "mcp-remote",        "https://mcp.vapi.ai/mcp",        "--header",        "Authorization: Bearer ${VAPI_TOKEN}"      ],      "env": {        "VAPI_TOKEN": "YOUR_VAPI_API_KEY"      }    }  }}
 ```
 
-Replace `YOUR_VAPI_API_KEY` with your API key.
+Replace `YOUR_Ello_API_KEY` with your API key.
 
 [**<u>4</u>**](https://docs.vapi.ai/sdk/mcp-server#restart-claude-desktop)
 
@@ -74,9 +74,9 @@ The ello.ai MCP Server exposes these actions as MCP tools:
 | `list_calls`         | List all calls                             | Review call activity             |
 | `create_call`        | Create an outbound call (now or scheduled) | Initiate or schedule a call      |
 | `get_call`           | Get details for a specific call            | Check status or result of a call |
-| `list_phone_numbers` | List all Vapi phone numbers                | See available numbers            |
+| `list_phone_numbers` | List all Ello phone numbers                | See available numbers            |
 | `get_phone_number`   | Get details of a specific phone number     | Inspect a phone number           |
-| `list_tools`         | List all available Vapi tools              | Tool discovery                   |
+| `list_tools`         | List all available Ellotools               | Tool discovery                   |
 | `get_tool`           | Get details of a specific tool             | Tool integration info            |
 
 **Scheduling calls:** The `create_call` action supports scheduling with the optional `scheduledAt` parameter.
@@ -106,7 +106,7 @@ Use this for clients or SDKs that support streamable-HTTP transport.
 Example config:
 
 ```
-{  "mcpServers": {    "vapi-mcp": {      "command": "npx",      "args": [        "mcp-remote",        "https://mcp.vapi.ai/mcp",        "--header",        "Authorization: Bearer ${VAPI_TOKEN}"      ],      "env": {        "VAPI_TOKEN": "YOUR_VAPI_API_KEY"      }    }  }}
+{  "mcpServers": {    "ello-mcp": {      "command": "npx",      "args": [        "mcp-remote",        "https://mcp.ello.ai/mcp",        "--header",        "Authorization: Bearer ${ELLO_TOKEN}"      ],      "env": {        "ELLO_TOKEN": "YOUR_ELLO_API_KEY"      }    }  }}
 ```
 
 ---
@@ -131,7 +131,7 @@ Choose a language:
 
 ### **Configure your connection**
 
-Set up your SDK to connect to the [ello.ai](http://ello.ai) MCP Server (`https://mcp.vapi.ai/sse`) and authenticate with your API key.
+Set up your SDK to connect to the [ello.ai](http://ello.ai) MCP Server (`https://mcp.ello.ai/sse`) and authenticate with your API key.
 
 [**<u>3</u>**](https://docs.vapi.ai/sdk/mcp-server#use-mcp-tools)
 
@@ -148,7 +148,7 @@ Query available tools, list agents, create calls, etc, via your SDK.
 **SSE**
 
 ```
-import { Client } from '@modelcontextprotocol/sdk/client/index.js';import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';import dotenv from 'dotenv';dotenv.config();const mcpClient = new Client({ name: 'vapi-client', version: '1.0.0' });const transport = new StreamableHTTPClientTransport(  new URL('https://mcp.vapi.ai/mcp'),  { requestInit: { headers: { Authorization: `Bearer ${process.env.VAPI_TOKEN}` } } });async function main() {  await mcpClient.connect(transport);  const assistants = await mcpClient.callTool({ name: 'list_assistants', arguments: {} });  console.log(assistants);  await mcpClient.close();}main();
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';import dotenv from 'dotenv';dotenv.config();const mcpClient = new Client({ name: 'ello-client', version: '1.0.0' });const transport = new StreamableHTTPClientTransport(  new URL('https://mcp.ello.ai/mcp'),  { requestInit: { headers: { Authorization: `Bearer ${process.env.ELLO_TOKEN}` } } });async function main() {  await mcpClient.connect(transport);  const assistants = await mcpClient.callTool({ name: 'list_assistants', arguments: {} });  console.log(assistants);  await mcpClient.close();}main();
 ```
 
 ### **Detailed example: Build a client with Node.js**
