@@ -96,13 +96,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab" : "MCP",
-        "pages" : [
-          "mcp-pages/mcp_client",
-          "mcp-pages/mcp_server"
-        ]
       }
     ]
   },
