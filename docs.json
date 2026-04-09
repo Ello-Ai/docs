@@ -96,6 +96,22 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Webhooks",
+        "pages": [
+          "api-reference/webhooks/index",
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/webhooks/initial-setup",
+              "api-reference/webhooks/webhook-payloads",
+              "api-reference/webhooks/error-handling",
+              "api-reference/webhooks/implementation",
+              "api-reference/webhooks/best-practices"
+            ]
+          }
+        ]
       }
     ]
   },

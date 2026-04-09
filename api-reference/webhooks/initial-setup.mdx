@@ -1,0 +1,117 @@
+---
+title: "Initial Setup"
+description: "Get started with webhooks - overview and configuration"
+---
+## Getting Started
+
+Ello.AI supports six webhook event types across two categories: **Call Events** and **Campaign Events**.
+
+### Event Types Overview
+
+| Event Type | Trigger | Contains | 
+|-----------|---------|----------|
+| `call.started` | A call is Connected | Agent name, agent ID, conversation details |
+| `call.completed` | Call attempt finishes | duration, status, call metrics |
+| `call.processed` | All post-call processing completes | Recordings, transcripts, credits, Call insights |
+| `call.recording` | Recording upload completes | Recording URL and metadata |
+| `campaign.started` | Campaign becomes active | Campaign details, contact count, timestamps |
+| `campaign.ended` | Campaign finishes | Call statistics, credits consumed, durations |
+
+---
+
+## Configuration & Setup
+
+To subscribe your agent to webhook events, use a PUT request to update event subscriptions:
+
+```bash
+curl --location --request PUT 'https://api.getello.ai/api/agents/{agent_id}/webhook' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer your_token_here' \
+  --header 'X-API-KEY: your-api-key-here' \
+  --data '{
+    "webhooks": [
+      {
+        "events": ["call.started", "call.completed", "call.processed"],
+        "url": "https://your-domain.com/webhooks",
+        "headers": {
+          "Authorization": "Bearer your-webhook-token",
+          "Content-Type": "application/json"
+        },
+        "method": "POST"
+      }
+    ]
+  }'
+```
+
+### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `method` | string | Yes | HTTP method (POST, GET, PUT, PATCH) - defaults to POST |
+| `headers` | object | No | Custom headers for secure webhook delivery |
+| `webhooks` | array | Yes | Array of webhook subscription configurations |
+| `events` | array | Yes | List of event types to subscribe to |
+| `url` | string | Yes | HTTPS URL where webhooks will be sent |
+
+---
+
+## Subscription Examples
+
+### Subscribe to Only Call Events
+
+```json
+{
+  "webhooks": [
+    {
+      "events": ["call.started", "call.completed", "call.processed"],
+      "url": "https://your-domain.com/webhooks/calls",
+      "headers": {
+        "Authorization": "Bearer your-webhook-token"
+      },
+	  "method": "POST"
+    }
+  ]
+}
+```
+
+### Subscribe to Campaign Events Only
+
+```json
+{
+  "webhooks": [
+    {
+      "events": ["campaign.started", "campaign.ended"],
+      "url": "https://your-domain.com/webhooks/campaigns",
+      "headers": {
+        "Authorization": "Bearer your-webhook-token"
+      },
+	  "method": "POST"
+    }
+  ]
+}
+```
+
+### Multiple Webhook Endpoints
+
+```json
+{
+  "webhooks": [
+    {
+      "events": ["call.started", "call.completed"],
+      "url": "https://your-domain.com/webhooks/calls",
+      "headers": {
+        "Authorization": "Bearer webhook-token-1"
+      },
+	  "method": "POST"
+    },
+    {
+      "events": ["campaign.started", "campaign.ended"],
+      "url": "https://another-domain.com/webhooks",
+      "headers": {
+        "Authorization": "Bearer webhook-token-2"
+      },
+	  "method": "POST"
+    }
+  ]
+}
+```

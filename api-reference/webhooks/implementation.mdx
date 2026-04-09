@@ -1,0 +1,169 @@
+---
+title: "Implementation"
+description: "Code examples and testing webhooks"
+---
+
+# Webhook Handler Examples
+
+### Node.js / Express
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Verify webhook token
+const WEBHOOK_TOKEN = process.env.WEBHOOK_TOKEN;
+
+app.post('/webhooks', (req, res) => {
+  // Verify Authorization header
+  const authHeader = req.headers.authorization || '';
+  if (authHeader !== `Bearer ${WEBHOOK_TOKEN}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const event = req.body;
+  
+  // Track event_id for idempotency
+  console.log(`Received ${event.events} for call ${event.event_id}`);
+
+  switch(event.events) {
+    case 'call.started':
+      handleCallStarted(event);
+      break;
+    case 'call.completed':
+      handleCallCompleted(event);
+      break;
+    case 'call.processed':
+      handleCallProcessed(event);
+      break;
+    case 'campaign.started':
+      handleCampaignStarted(event);
+      break;
+    case 'campaign.ended':
+      handleCampaignEnded(event);
+      break;
+    default:
+      console.warn(`Unknown event type: ${event.events}`);
+  }
+
+  // Always acknowledge receipt
+  res.status(200).json({ status: 200, message: 'Webhook received' });
+});
+
+function handleCallStarted(event) {
+  console.log(`Call started: ${event.agent_name} calling ${event.username}`);
+}
+
+function handleCallCompleted(event) {
+  console.log(`Call completed: ${event.call_duration}s, status: ${event.status}`);
+}
+
+function handleCallProcessed(event) {
+  console.log(`Call processed: Recording at ${event.recording_url}`);
+  console.log(`Insights:`, event.call_insights);
+}
+
+function handleCampaignStarted(event) {
+  console.log(`Campaign started: ${event.campaign_name} with ${event.total_contacts} contacts`);
+}
+
+function handleCampaignEnded(event) {
+  console.log(`Campaign ended: ${event.successful_calls}/${event.total_calls} successful calls`);
+}
+
+app.listen(3000, () => console.log('Webhook server running on port 3000'));
+```
+
+### Python / Flask
+
+```python
+from flask import Flask, request, jsonify
+import os
+import logging
+
+app = Flask(__name__)
+WEBHOOK_TOKEN = os.getenv('WEBHOOK_TOKEN')
+
+@app.route('/webhooks', methods=['POST'])
+def handle_webhook():
+    # Verify Authorization header
+    auth_header = request.headers.get('Authorization', '')
+    expected_auth = f'Bearer {WEBHOOK_TOKEN}'
+    
+    if auth_header != expected_auth:
+        return {'error': 'Unauthorized'}, 401
+    
+    event = request.json
+    events = event.get('events')
+    event_id = event.get('event_id')
+    
+    logging.info(f"Received {events} event: {event_id}")
+    
+    if events == 'call.started':
+        handle_call_started(event)
+    elif events == 'call.completed':
+        handle_call_completed(event)
+    elif events == 'call.processed':
+        handle_call_processed(event)
+    elif events == 'campaign.started':
+        handle_campaign_started(event)
+    elif events == 'campaign.ended':
+        handle_campaign_ended(event)
+    else:
+        logging.warning(f"Unknown event type: {events}")
+    
+    # Always acknowledge receipt
+    return {'status': 200, 'message': 'Webhook received'}, 200
+
+def handle_call_started(event):
+    logging.info(f"Call started: {event.get('agent_name')} → {event.get('username')}")
+
+def handle_call_completed(event):
+    logging.info(f"Call completed: {event.get('call_duration')}s, status: {event.get('status')}")
+
+def handle_call_processed(event):
+    logging.info(f"Recording: {event.get('recording_url')}")
+    logging.info(f"Insights: {event.get('call_insights')}")
+
+def handle_campaign_started(event):
+    logging.info(f"Campaign started: {event.get('campaign_name')}")
+
+def handle_campaign_ended(event):
+    logging.info(f"Campaign ended: {event.get('successful_calls')}/{event.get('total_calls')} successful")
+
+if __name__ == '__main__':
+    app.run(port=3000, debug=True)
+```
+
+---
+
+## Testing Webhooks
+
+### Using a Webhook Service
+
+Test your webhooks using services like:
+- [Webhook.cool](https://webhook.cool) - Temporary webhook URLs
+- [RequestBin](https://requestbin.com) - Capture and inspect HTTP requests  
+- [ngrok](https://ngrok.com) - Expose local development server to the internet
+
+### Example Test Setup
+
+1. Create a temporary webhook URL using RequestBin or similar service
+2. Subscribe your agent to events using that URL
+3. Trigger an event (start a call, create a campaign)
+4. Inspect the captured webhook payload
+
+### Local Development with ngrok
+
+```bash
+# Start your local webhook server
+npm start  # or python app.py
+
+# In another terminal, expose it to the internet
+ngrok http 3000
+
+# Use the ngrok URL in your webhook subscription
+# https://abc123.ngrok.io/webhooks
+```
