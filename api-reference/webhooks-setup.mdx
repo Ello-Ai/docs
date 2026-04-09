@@ -1,0 +1,26 @@
+---
+title: "Webhooks"
+description: "Configure and manage webhooks to receive real-time events from Ello.AI"
+
+Ello.AI's event-based webhook system allows you to subscribe to specific events for your AI agents and receive real-time callbacks when those events occur. This eliminates the need to continuously poll our API for updates.
+
+## Overview
+
+Webhooks enable real-time notifications for important events in your Ello.AI workspace. When an event occurs (like a call starting or campaign ending), we send an HTTP POST request to your configured endpoint with the event details.
+
+**Key Features:**
+- Real-time delivery of webhooks
+- Automatic retry with exponential backoff
+- Support for custom headers and authentication
+- Idempotent event delivery (using event_id)
+- Multiple webhook endpoints per agent
+
+## Documentation Sections
+
+Browse the sections below to get started with webhooks:
+
+- **[Initial Setup](/api-reference/webhooks/initial-setup)** - Event types and configuration
+- **[Webhook Payloads](/api-reference/webhooks/webhook-payloads)** - Full payload examples for all events
+- **[Error Handling](/api-reference/webhooks/error-handling)** - Security, troubleshooting, and retry logic
+- **[Implementation](/api-reference/webhooks/implementation)** - Code examples in Node.js and Python
+- **[Best Practices](/api-reference/webhooks/best-practices)** - Standards and monitoring

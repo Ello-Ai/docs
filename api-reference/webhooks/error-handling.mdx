@@ -1,0 +1,112 @@
+---
+title: "Error Handling"
+description: "Troubleshooting, delivery guarantees, and retry logic"
+---
+
+# Security & Authentication
+
+### Custom Headers
+
+Configure custom headers in your webhook subscription for secure delivery:
+
+```json
+"headers": {
+  "Authorization": "Bearer your-webhook-token",
+  "X-Custom-Header": "your-value",
+  "Content-Type": "application/json"
+}
+```
+
+### Endpoint Requirements
+
+Your webhook endpoint must meet these requirements:
+
+**HTTPS Connection**
+- All webhook URLs must use HTTPS (TLS/SSL)
+- Self-signed certificates are not recommended for production
+
+**Response Status**
+- Your endpoint must return an HTTP `200` status code to acknowledge receipt
+- Any other status code (3xx, 4xx, 5xx) indicates a delivery failure
+
+**Timeout**
+- Your endpoint must respond within **30 seconds** to avoid timeout
+- Long-running operations should be queued asynchronously
+
+**Idempotency**
+- Handle duplicate events using `event_id` for idempotency
+- Webhooks may be retried if your endpoint doesn't acknowledge
+- Store `event_id` to prevent duplicate processing
+
+### Security Best Practices
+
+<Tip>
+Always include an `Authorization` header with a secret token or API key that you validate in your endpoint.
+</Tip>
+
+1. **Use HTTPS** - Always use HTTPS URLs for your webhook endpoints
+2. **Validate Headers** - Verify the authorization header or custom tokens you specified
+3. **Store Event IDs** - Track `event_id` values to prevent reprocessing duplicate deliveries
+4. **Log Webhooks** - Log all incoming webhooks for debugging and audit trails
+5. **Use Secrets** - Store webhook tokens in environment variables, not in code
+
+---
+
+## Delivery & Retry Logic
+
+### Delivery Guarantee
+
+Ello.AI attempts to deliver webhooks with exponential backoff:
+
+- **Attempt 1**: Immediate delivery
+- **Attempt 2**: After 10 seconds
+- **Attempt 3**: After 60 seconds
+- **Attempt 4**: After 10 minutes
+- **Attempt 5**: After 60 minutes
+
+If all attempts fail, the webhook delivery is logged for manual review.
+
+### Acknowledge Receipt
+
+Always respond with `HTTP 200` to acknowledge successful receipt:
+
+```json
+{
+  "status": 200,
+  "message": "Webhook received"
+}
+```
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Webhook Not Being Delivered">
+    1. **Check HTTPS**: Ensure your callback URL uses HTTPS
+    2. **Verify Response**: Your endpoint must return HTTP 200
+    3. **Check Timeout**: Ensure your endpoint responds within 30 seconds
+    4. **Validate Headers**: Verify custom headers are configured correctly
+  </Accordion>
+  
+  <Accordion title="Duplicate Events">
+    Always track `event_id` values to detect and ignore duplicate deliveries. Store each `event_id` in a database and skip reprocessing known IDs.
+  </Accordion>
+  
+  <Accordion title="Authentication Failed">
+    Ensure your webhook endpoint validates the `Authorization` header or custom headers you configured during subscription setup.
+  </Accordion>
+
+  <Accordion title="Long Processing Time">
+    If your event processing takes longer than 30 seconds:
+    1. Acknowledge receipt immediately (HTTP 200)
+    2. Queue the event for asynchronous processing
+    3. Process in background job
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Rate Limiting
+
+There are no rate limits on webhook deliveries. Each event will be delivered immediately as it occurs.

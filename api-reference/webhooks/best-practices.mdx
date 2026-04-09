@@ -1,0 +1,67 @@
+---
+title: "Best Practices"
+description: "Industry standards and monitoring webhooks"
+---
+
+## Standards & Guidelines
+
+<CardGroup cols={2}>
+  <Card title="Always Use HTTPS" icon="lock">
+    Webhooks must be delivered to HTTPS endpoints only.
+  </Card>
+
+  <Card title="Validate Headers" icon="shield-check">
+    Always verify the Authorization header and custom headers.
+  </Card>
+
+  <Card title="Track Event IDs" icon="database">
+    Store `event_id` to prevent reprocessing duplicate deliveries.
+  </Card>
+
+  <Card title="Log Everything" icon="file-lines">
+    Log all webhook deliveries for debugging and audit trails.
+  </Card>
+
+  <Card title="Respond Quickly" icon="bolt">
+    Return HTTP 200 immediately, queue async work for later.
+  </Card>
+
+  <Card title="Monitor Failures" icon="alert-triangle">
+    Set up alerts for failed webhook deliveries.
+  </Card>
+</CardGroup>
+
+---
+
+## Monitoring
+
+### Key Metrics to Track
+
+- **Delivery Success Rate** - Percentage of webhooks delivered successfully
+- **Response Time** - How quickly your endpoint responds to webhooks
+- **Error Rate** - Percentage of webhooks resulting in errors
+- **Retry Attempts** - How many retries are needed for successful delivery
+
+### Alerting
+
+Set up alerts for:
+- Webhooks that fail after all retry attempts
+- Endpoints that consistently timeout
+- Unexpected error codes in responses
+- Unusual spikes in webhook volume
+
+### Logging Best Practices
+
+Log the following for each webhook:
+- Event type and ID
+- Timestamp received
+- Response status code
+- Processing duration
+- Any errors or exceptions
+- Action taken (created, updated, deleted, etc.)
+
+---
+
+## Support
+
+For webhook issues or questions, please contact support or check the [API Reference](/api-reference) for detailed endpoint documentation.
