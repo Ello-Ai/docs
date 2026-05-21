@@ -264,6 +264,7 @@
 						"type": "object",
 						"minProperties": 1,
 						"required": ["type"],
+						"example": {},
 						"properties": {
 							"workspaceId": { "type": "string", "example": "6970c2f3948cfbce1932d99d" },
 
@@ -877,6 +878,7 @@
 					"schema": {
 						"type": "object",
 						"required": ["type"],
+						"example": {},
 						"properties": {
 						"type": {
 							"type": "string",
@@ -1059,8 +1061,9 @@
 			"required": true,
 			"content": {
 				"application/json": {
-				"schema": {
+			"schema": {
 					"type": "object",
+					"example": {},
 					"properties": {
 					"agent_ids": {
 						"type": "array",
@@ -1244,8 +1247,9 @@
 			"required": true,
 			"content": {
 				"application/json": {
-				"schema": {
+			"schema": {
 					"type": "object",
+					"example": {},
 					"properties": {
 					"agent_ids": {
 						"type": "array",
@@ -1423,6 +1427,7 @@
 						"type": "object",
 						"description": "URL-based single source knowledge base",
 						"required": ["baseUrl"],
+						"example": {},
 						"properties": {
 						"urlName": { "type": "string", "example": "Ello.ai" },
 						"baseUrl": { "type": "string", "format": "uri", "example": "https://getello.ai" },
@@ -1450,6 +1455,7 @@
 						"type": "object",
 						"description": "File-based single source knowledge base (only ONE file allowed)",
 						"required": ["type", "file"],
+						"example": {},
 						"properties": {
 						"type": {
 							"type": "string",
@@ -1835,14 +1841,14 @@
 					"application/json": {
 					"schema": {
 						"type": "object",
+						"required": ["to_number", "agent_type"],
+						"example": {},
 						"properties": {
 						"message": { "type": "string", "example": "Hello! Am I speaking to Sri?" },
-						"context": { "type": "object", "example": { "leadId": "123", "note": "warm lead" } },
-
 						"to_number": { "type": "string", "example": "+911234556789" },
-						"from_number": { "type": "string", "example": "+911111111111" },
+						"context_data": { "type": "object", "example": { "customer_name": "Sri" } },
 
-						"agent_type": { "type": "string", "example": "voice" },
+						"agent_type": { "type": "string", "example": "telephonic" },
 						"source": { "type": "string", "example": "web" },
 
 						"workspace_id": { "type": "string", "example": "6970c2f3948cfbce1932d99d" },
@@ -1852,7 +1858,6 @@
 						"siptrunk_id": { "type": "string", "example": "s3434ededs" },
 
 						"memory_id": { "type": "string", "example": "mem_123" },
-						"context_data": { "type": "object", "example": { "customer_name": "Sri" } },
 						"greeting_description": { "type": "string", "example": "Friendly greeting, sales tone" },
 
 						"call_type": { "type": "string", "example": "outbound" }
@@ -2363,6 +2368,7 @@
 				"application/json": {
 				"schema": {
 					"type": "object",
+					"example": {},
 					"properties": {
 					"phone_number": {
 						"type": "string",
@@ -2621,6 +2627,7 @@
 					"multipart/form-data": {
 					"schema": {
 						"type": "object",
+						"example": {},
 						"properties": {
 						"campaignName": {
 							"type": "string",
